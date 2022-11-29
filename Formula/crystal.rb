@@ -4,8 +4,8 @@ class Crystal < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/1.6.0.tar.gz"
-    sha256 "8119bc099d898be0d2e5055f783d41325a10e4b7824240272eb6ecb30c8c9a2e"
+    url "https://github.com/crystal-lang/crystal/archive/1.6.2.tar.gz"
+    sha256 "fbbff8f975a2627ac3f42208362365668fb08a33637f424e0c2c0e51b1f37cfa"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.17.1.tar.gz"
@@ -20,12 +20,14 @@ class Crystal < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "2a5ce97d6174e3e94cad13fd5776ea3f6d2a208a62ad8ba149cecd07e6358603"
-    sha256 cellar: :any,                 arm64_big_sur:  "04da03375a7842a73596fc6f849363b7ce9aad8902e597ff7fa00118d28320d7"
-    sha256 cellar: :any,                 monterey:       "aeb472a0598987e2e718d705dfd8236b9f9180ce761e08f38af7e98c09713a13"
-    sha256 cellar: :any,                 big_sur:        "ac3c255659232ab1e781fbdb042b4491135eca7cc13e042adbeab22c2d47f3bc"
-    sha256 cellar: :any,                 catalina:       "1a32dd19a90542f3cd4876422fca0ae66118c8a0864053df2b20697b812fac0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "709cee9f8f5a1b08ddba113eb14c96693f628bd56066556cdd9d1ea2cd1eeded"
+    sha256 cellar: :any,                 arm64_ventura:  "5ac90eee05b2d136eb07cbe8ada3406714c046902b4461bfb1ba35ad00aadd2c"
+    sha256 cellar: :any,                 arm64_monterey: "7619f85e4cda3f6a4318fdbfca48b9d951bd34d292e88c36e8d80889f81d15f3"
+    sha256 cellar: :any,                 arm64_big_sur:  "9f147fcb39669a2cb2a951c4f2a425571808706d9c41e438cf6452c2ccee2400"
+    sha256 cellar: :any,                 ventura:        "9d6a2fc1f841e3ef093ccf405443c6c4026657773f82746adfc0c0cfab866806"
+    sha256 cellar: :any,                 monterey:       "5a0290cf901a728d0c353e2544cc4c73cbeb0f698f25d9f89f5f09de2875ac1f"
+    sha256 cellar: :any,                 big_sur:        "c78e5642b4bcae672ad6af7472719883350e70251307c8655f6af566eaf6eb97"
+    sha256 cellar: :any,                 catalina:       "707755f9d35c7a318f029716e716af42b652795d69f14accebf51ac2ee101266"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04935a3dbeb60ec7d1364f8e424679b2190e81584093781276ef516f1e016aeb"
   end
 
   head do
@@ -114,11 +116,9 @@ class Crystal < Formula
     crystal_build_opts = release_flags + [
       "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_path}",
       "CRYSTAL_CONFIG_PATH=#{config_path}",
+      "interpreter=true",
     ]
-    if build.head?
-      crystal_build_opts << "interpreter=true"
-      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}"
-    end
+    crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.git_short_head}" if build.head?
 
     # Build crystal
     (buildpath/".build").mkpath

@@ -1,17 +1,19 @@
 class Tctl < Formula
   desc "Temporal CLI (tctl)"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/tctl/archive/v1.16.3.tar.gz"
-  sha256 "c2d49e88391390b89fb1e3e99ecb34d61d0daceddbe2aa1e6b5df491355a8ee3"
+  url "https://github.com/temporalio/tctl/archive/v1.17.1.tar.gz"
+  sha256 "1450e53574bb0e19261683f036d9d5bde9db8e430c058883376d37de10797a45"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e0789871abb3a59da9068c86fe7bd8d2a20a68271d8cad9553e5a3848337eec"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d6f6cc45c72e0bf3fd35638f11bb0cc6e0a5e01e4fe8d4596294f5a7be80df1"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf6399552b84a7468ea245577d15a3170b134d431ee8ee469961f7e1d121991d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "009daa178e9d9ed54b334fed561f1d4d4a51a23f0c80f7b6a38d0ada8b90055e"
-    sha256 cellar: :any_skip_relocation, catalina:       "896181bfb23b52b2e3d1b31446749cb42086cd879bb74d99ae317083d204dfc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40684a53b19b410377a9f6ba47f778bf38d7b89a908c07b087268445c8015d22"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c2550de462599659927e356e8ff797ddd9f4fbda74bff8ca53fa8425f350f45"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20eba19b7c20540196dc3da0ec1d944cbba2dfb77fb00ccb23340c8935d10b53"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a17404177e5ca0e2460c77c2c6a2abe16eedb104a1aafb4a9f0bbfbfcc4f9f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "12dc09bbbded177153e11fa11ca099b1338d974a87962117296d4e11c42b975b"
+    sha256 cellar: :any_skip_relocation, monterey:       "02a36c19f1fcbfec7efdc907283cfa5c82e86b1c81ff83d548be1067ce1f4eee"
+    sha256 cellar: :any_skip_relocation, big_sur:        "19705442886fdfd641c033249b56a3508488fa08a8e1cac59250ea2334f486cd"
+    sha256 cellar: :any_skip_relocation, catalina:       "5f211e13df3e4bcf1553114a14668c25901f426c385b207ace42b36e47ee2be8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0443d54686a4cb5de086c48bc7af4581cbfb5948e6243c41e7828dcd5db07fb5"
   end
 
   depends_on "go" => :build

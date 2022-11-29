@@ -1,17 +1,20 @@
 class EtcdCppApiv3 < Formula
   desc "C++ implementation for etcd's v3 client API, i.e., ETCDCTL_API=3"
   homepage "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3"
-  url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.2.8.tar.gz"
-  sha256 "8fa03d54debb79e242c617fc2871dde9f841359e34f7d87d59abecc72cfe5e2f"
+  url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.2.9.tar.gz"
+  sha256 "6874643b511a01656b4e4bc9805f911630963718f05807cbebc4b1c8bfb0fdc6"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8ff53f0f293d99c8fd178e96fa0dfd7b75cd59e917e174839b351136c16d3956"
-    sha256 cellar: :any,                 arm64_big_sur:  "487f06118ca02c2d590e22d5cdf8c8b11d471717b0df527907674834d7e9b3be"
-    sha256 cellar: :any,                 monterey:       "3811244523002f5c875ae187a39537b74a6fbafbc1f749ccf8b1f431bc93ec56"
-    sha256 cellar: :any,                 big_sur:        "9fe5ae7827a59e0f39dfb2f2f2d30cfdf4fe07dafb4e6dffdc79a1bcf1a7286a"
-    sha256 cellar: :any,                 catalina:       "42d20193de797f8f9d57e911a6698ff5f81f74646efd93bcc50d9fdb89e88c36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb5e526422cf4aa26568a9b0d44615a9bce0a1f0fdac0b2dabb5dbe1e22fbe81"
+    sha256 cellar: :any,                 arm64_ventura:  "c2ca7f7d6163bd00085cff6c638aaaeeab6d5c989ab5cfc2fc8cd1d5fa265207"
+    sha256 cellar: :any,                 arm64_monterey: "52d5d1efe7cea26e46fa2e6c480f975b608fdd286b9553ac1999e9bae9d9a1b5"
+    sha256 cellar: :any,                 arm64_big_sur:  "f43bc27d5097934575234a84b2ba06d3d5d7e99a82a20bcb80fdf847ad5ffeba"
+    sha256 cellar: :any,                 ventura:        "709fb5e6ec697880224ca2426b44d3886b0fd5fa9aeb1ad2be0c079f5c22f36d"
+    sha256 cellar: :any,                 monterey:       "5d6691e57d8e8b1c41c97e4b5bb8b69b39c984e4befb62f6075b78c893ca541e"
+    sha256 cellar: :any,                 big_sur:        "077dc3cb57e5caa7ab246f36f47dcec2104e952d10622708d0bcf393f4cfbf66"
+    sha256 cellar: :any,                 catalina:       "674d32fd9d883ebef3d1b13710cf68982c7c5b7c8d7a6eeb3fcb34e34e989e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46c11b600e4eba310d11d07b5ca101b08bfab8bae3f70749ea280e41810c4c18"
   end
 
   depends_on "cmake" => :build

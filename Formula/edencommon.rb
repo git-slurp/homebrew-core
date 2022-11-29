@@ -1,18 +1,19 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.10.03.00.tar.gz"
-  sha256 "48354f0580ec8617cd12a52f4e58008a53bb468dd76aad64d7d8b62b4b7e7051"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2022.11.28.00.tar.gz"
+  sha256 "a38b5a943812781b892aa00a2c021d1683c22d55eb486516df027d59c052356f"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "26c216c6ac767a1c375e0628f308fddda47cdfd74a2541bd4d3414bf74d039f3"
-    sha256 cellar: :any,                 arm64_big_sur:  "b8ce2fe2b11704dc94755e111a0661ab093dde5b71b9dc275701bea4ac15e3b7"
-    sha256 cellar: :any,                 monterey:       "9d84be36d7c4ac1ae077fa732233e86fc2e11ef3511c0a31df3bac55d3827867"
-    sha256 cellar: :any,                 big_sur:        "7cb5bb9ab26431ae81b5d343b53e4787a5b15a5a827417b8cf0c5563608f01db"
-    sha256 cellar: :any,                 catalina:       "0587ec366afbafb7ea93e42ff9208f8c94b3aeafa254203bdb6619502ac7ef45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecb93a06baed0e0385f97c683fc9665f082f6599f9c14ec1fb453ec8b216b51c"
+    sha256 cellar: :any,                 arm64_ventura:  "278de3dc15b1f8900836453efe6d527dc76252acad02291edce43e963ffce722"
+    sha256 cellar: :any,                 arm64_monterey: "34480e072c491e8c1b5955f44a01ffdc29c19817030dac5117bd09219e49df0a"
+    sha256 cellar: :any,                 arm64_big_sur:  "36655b49545b901749fb768f1e7abebfab923faa79e3fe48b5ceee5da527b3c2"
+    sha256 cellar: :any,                 monterey:       "9ac9aa0ad12c6e712303d32a3b89413e4d355305372b6e55dc9a27309265c449"
+    sha256 cellar: :any,                 big_sur:        "16b9171703837393e18c4dce7b03dc87505ae4309f7bfe0182ded9529eabe5dd"
+    sha256 cellar: :any,                 catalina:       "5fa0a69f6b2098b70abdf8dcec21136fc89881c46fd281f452334f9a5e095f06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc636c211af03eb90f22265f5401d838b3a831dc8b4d4d566cd5093e13b10806"
   end
 
   depends_on "cmake" => :build

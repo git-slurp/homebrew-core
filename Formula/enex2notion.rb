@@ -3,21 +3,23 @@ class Enex2notion < Formula
 
   desc "Import Evernote ENEX files to Notion"
   homepage "https://github.com/vzhd1701/enex2notion"
-  url "https://files.pythonhosted.org/packages/e2/8d/706e0f35a68820fb0b5f7e06b8126cd1e7ff75af108672c73cb12176666d/enex2notion-0.2.21.tar.gz"
-  sha256 "e0c66ee3212ab1a7a8a69569862bbc450c64f809c859f46a8b53b52b24a04ea9"
+  url "https://files.pythonhosted.org/packages/81/98/9c422258a4905d571155d4291d7b4db745bf53f18d4e2ba900f6b469e197/enex2notion-0.2.24.tar.gz"
+  sha256 "13eb9e3f0c4e645491be74b651e85b587bde7f2e55509776b553c475367b70ad"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e5eb59c64a2bcebe861d99df5cdadc93518f4552575bdd8f42110b02db97f9c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "65a5f0a1d79e39816ab06c91c5c8c4d88ff3ec291c688457a5e1a926183c06fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "338fa144d949dadbe8103f5cc37dfd06a579f984a12c6804ac5182a35ab0d762"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b20472d6d4678ca8ae4380a60e03021aaafedcde6ec4de2d17ed7f48601732d8"
-    sha256 cellar: :any_skip_relocation, catalina:       "56d834f3e783f2cc5209133e9f8a20a494332deb2b486c2cab7e14df7dc2ea26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "872a23513434f1e3f352b06c96e97068214139934704bcfd3f3c632115420af8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e54917562a1308c9aa5b6ea08b2e98e46ffd983e7bf11a493805c4f52cf85838"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5690ba744d20e47b353b450ac29676651563f291732c3b5ea646201c4a5dc672"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f00c233db811274157cf421ff2e1ab2e53ebcdbc6a05c2b3031d20ef0d1f865a"
+    sha256 cellar: :any_skip_relocation, monterey:       "760eb19dd95c8b0ccabfeff10ff7262606220e92ba2a7dd4e9ffacfb3ed25e37"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6246cbc1136e4277cc31a0c6de7f47cabd602276feb6b46d8f09e95244bc4a04"
+    sha256 cellar: :any_skip_relocation, catalina:       "e643a6c430bb8485e6891b0ddea5ff31c6c5a0ef42af239fbdca53806f20fd87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12a97b15485f20ec8183690390d7921c792ea9b68ba16ba3d72fc552a34a3c10"
   end
 
   depends_on "pymupdf"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
 
   resource "beautifulsoup4" do
@@ -36,8 +38,8 @@ class Enex2notion < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/ca/48/88ec470f8b68319b6782ca3a0570789886ad5ca24c1af2f3771699135baa/certifi-2022.9.14.tar.gz"
-    sha256 "36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "charset-normalizer" do
@@ -106,8 +108,8 @@ class Enex2notion < Formula
   end
 
   resource "tinycss2" do
-    url "https://files.pythonhosted.org/packages/1e/5a/576828164b5486f319c4323915b915a8af3fa4a654bbb6f8fc8e87b5cb17/tinycss2-1.1.1.tar.gz"
-    sha256 "b2e44dd8883c360c35dd0d1b5aad0b610e5156c2cb3b33434634e539ead9d8bf"
+    url "https://files.pythonhosted.org/packages/75/be/24179dfaa1d742c9365cbd0e3f0edc5d3aa3abad415a2327c5a6ff8ca077/tinycss2-1.2.1.tar.gz"
+    sha256 "8cff3a8f066c2ec677c06dbc7b45619804a6938478d9d73c284b29d14ecb0627"
   end
 
   resource "tqdm" do
@@ -116,8 +118,8 @@ class Enex2notion < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/3e/eb/a00286433c739bb1a0d83a069b2dc379a5d14b0b9c927e3cb00cb434d740/tzdata-2022.2.tar.gz"
-    sha256 "21f4f0d7241572efa7f7a4fdabb052e61b55dc48274e6842697ccdf5253e5451"
+    url "https://files.pythonhosted.org/packages/5e/9f/63f7187ffd6d01dd5b5255b8c0b1c4f05ecfe79d940e0a243a6198071832/tzdata-2022.6.tar.gz"
+    sha256 "91f11db4503385928c15598c98573e3af07e7229181bee5375bd30f1695ddcae"
   end
 
   resource "tzlocal" do

@@ -2,8 +2,8 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      tag:      "v7.3.0",
-      revision: "0cf891b9f535570479e3a8b9c923212528f407fc"
+      tag:      "v7.5.1",
+      revision: "724e2fd64d753afbd7295ba86641db6aed21496d"
   license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git", branch: "master"
 
@@ -13,12 +13,13 @@ class Mmctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbd1320569cd7b3eec2f3eefcf28cf6fef9690401e77f8521256c6704ede90bb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc4070ae88e101218d661f5d9a031a85f8a2f7e6ccb12f62fcd2267d610427a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "56c4f888c26c01e88f613a4706c2f82013fc2bd6d086446c35e9418837453404"
-    sha256 cellar: :any_skip_relocation, big_sur:        "da5152ee47e863ceb0c97c3c3644d5ce2b1b870fdcf03ab8f82d30af8f1e5560"
-    sha256 cellar: :any_skip_relocation, catalina:       "e1fa9c08ec168ed059ea16ec57d61bcab5d85877294e21b4c00095d6eb66ddce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8611c77034ab27ff7ab18e5dadabfd6253bcfc9489ce03c1521f9411c2ba0e65"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5bb3aeb5cdd7f0d491989914e77d0f8e6f562580d4620bba3bb2f850da0a2601"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6f17258ed83e9bb9a3726e5c44f3fb019a3d6c713b68f90cffe6575780b1898"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c85a7eee05c8376a0e2d8754e5c5d5bb341a2a32f1955ec3268602f8cafa76a"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd9dd341b7b20d953f47b560b1b906d4db57dd7560bca1d861ad5f63daf7b94d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "94a80b883e2418a70216c3b7e98a8e7a5d9bf2e23761adf0f12611853a7c8de2"
+    sha256 cellar: :any_skip_relocation, catalina:       "985e2382ea7a9a51d592448447b005316f7d3b7f9d3270000e0580e3d326aa3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bc83c17bfe7d03f6fb1a6e504d5dbc39566869225afb067a5798becab288bae"
   end
 
   depends_on "go" => :build

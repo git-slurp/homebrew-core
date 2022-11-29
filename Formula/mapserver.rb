@@ -1,10 +1,10 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.6.4.tar.gz"
-  sha256 "b46c884bc42bd49873806a05325872e4418fc34e97824d4e13d398e86ea474ac"
+  url "https://download.osgeo.org/mapserver/mapserver-8.0.0.tar.gz"
+  sha256 "bb7ee625eb6fdce9bd9851f83664442845d70d041e449449e88ac855e97d773c"
   license "MIT"
-  revision 8
+  revision 1
 
   livecheck do
     url "https://mapserver.org/download.html"
@@ -12,13 +12,14 @@ class Mapserver < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "9e87d21f7740fa2c763fc2fc1580a2d22a007877ad24d4bbf9a49c8ffd9f1acc"
-    sha256 cellar: :any,                 arm64_big_sur:  "2ade93a5efb8ef270ae64fc32152c752b76d5ab5c54b97043bc65242f415d78f"
-    sha256 cellar: :any,                 monterey:       "24f5913cf017a1c57f71b1e5c4b3bef97b6256d7f39f32913b09699e8dd776ca"
-    sha256 cellar: :any,                 big_sur:        "16182606b2a9f065cbdcb395c9a7194352aa6362bd6067ff41b9d521034ac840"
-    sha256 cellar: :any,                 catalina:       "0af6a264195a8c9a015236ef4ad923e59370e28980db7600c7bff878595be889"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51c2051a37d20bf3b10d531ef8cae2f4a0261a6e1204d31ac0d9d3fd56d62a2f"
+    sha256 cellar: :any,                 arm64_ventura:  "bd051875a34c400c2d1492f02f1e523492f8afe5509e969516aadbf2561ebae5"
+    sha256 cellar: :any,                 arm64_monterey: "3adf61a1e151096fc0b17c24eb42ef124c46e26e7d27a2c797b74c14267eccb6"
+    sha256 cellar: :any,                 arm64_big_sur:  "96ce7713be52a3a374d6bd6deeff00e298b8940f0afc30bff1558e436dd85a18"
+    sha256 cellar: :any,                 ventura:        "a83b90215c5df6edd4d92b742eb556f11f5bbe111259c4a3f2c67d141183f800"
+    sha256 cellar: :any,                 monterey:       "8c8c5f8d2f3f186f6bbc6377f80f649c00b6596f2031c0b92abb530aedd5011a"
+    sha256 cellar: :any,                 big_sur:        "4d4e9fb039c5bab0a06facb9831c3bba35fbf89d8820ac71da2e84fadb2e9920"
+    sha256 cellar: :any,                 catalina:       "1255ef28197145dc8ff7f04f85f8a8d60a7818c6e8de7d9bea3416a8b28d74cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09372b682af248e682c337f8f927e3c00d0ac921eab1b3fdbd733bc23d51bbf0"
   end
 
   depends_on "cmake" => :build
@@ -35,19 +36,19 @@ class Mapserver < Formula
   depends_on "libpq"
   depends_on "proj"
   depends_on "protobuf-c"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   uses_from_macos "curl"
 
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
     # Install within our sandbox
-    inreplace "mapscript/python/CMakeLists.txt", "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup" if OS.mac?
+    inreplace "mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}", "-Wl,-undefined,dynamic_lookup" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",

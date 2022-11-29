@@ -1,8 +1,8 @@
 class WasmMicroRuntime < Formula
   desc "WebAssembly Micro Runtime (WAMR)"
   homepage "https://github.com/bytecodealliance/wasm-micro-runtime"
-  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-1.1.0.tar.gz"
-  sha256 "608933db9273de222dc183cee3d32f084f91b90205c420d000a3276c522f9263"
+  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-1.1.1.tar.gz"
+  sha256 "3bf621401e6f97f81c357ad019d17bdab8f3478b9b3adf1cfe8a4f243aef1769"
   license "Apache-2.0"
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
@@ -12,12 +12,13 @@ class WasmMicroRuntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0cd1b0d3cfe6dd8da18bfb7a358f0ec9d23f6d1c54781c0b24137fa1010f2742"
-    sha256 cellar: :any,                 arm64_big_sur:  "eb3d32b2007d62a3896f052b7c23a66da2f92810438efb5115251223ce316aad"
-    sha256 cellar: :any,                 monterey:       "94f38ee756250d426477c6c2c7312e635026ed92537ee568c53d1c890ef5583c"
-    sha256 cellar: :any,                 big_sur:        "973544abf6190a1958b788c5f33e57768f97cb0210e455be622dc0cc1633bf1c"
-    sha256 cellar: :any,                 catalina:       "4cc9254bd0f79a6b219cc588ddd2ae4a855a21b198147e99d5fe3ea878bd8851"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "953427a498dda4e99330869b623dd71697d96b6648127740ab3682abd09a8004"
+    sha256 cellar: :any,                 arm64_ventura:  "d183e21e3bc95938af7d943e6cb19f980217d3e08fd13835eeff6089f5fce073"
+    sha256 cellar: :any,                 arm64_monterey: "c0a38b9109ed9cfcc6901184052eb0811be19df85544ff94ff717a0274d8f1b8"
+    sha256 cellar: :any,                 arm64_big_sur:  "1ed6f1071d65b77470021148d12125a262f0726681c41129eb90c9d9004bf324"
+    sha256 cellar: :any,                 monterey:       "41c55c28ada9093a6c209ead50434ef9a24f9c36dde0b022c81912f994bc3f3c"
+    sha256 cellar: :any,                 big_sur:        "331144af23c53902d36da43c7ec3e5413972c5fe597cb27d06d943f79b3c3afe"
+    sha256 cellar: :any,                 catalina:       "04cbf45e45f900656f6268ff7a9a8f4a17aa9ac13175c29397bbbbc8972267f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "364da77f31320195c2639c54c0a62e8a63758638ba2977b941d95d589681e223"
   end
 
   depends_on "cmake" => :build

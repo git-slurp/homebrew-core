@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/installer.git",
-      tag:      "v6.0.109",
-      revision: "58a93139d80490d0724b4d862ba8ee00ceae45d3"
+      tag:      "v6.0.110",
+      revision: "ce0a42998a3d2a725f5bd08413b140d907f48177"
   license "MIT"
 
   # https://github.com/dotnet/source-build/#support
@@ -37,12 +37,15 @@ class Dotnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5657fa3d1203c0b315083186efa9c0c43c319bb6f00405284eb72c8ddc0cd974"
-    sha256 cellar: :any,                 arm64_big_sur:  "9f504f148f6d6880d8ca97d4eef1158be10eaac0cc272d7cea46a2a750b5b950"
-    sha256 cellar: :any,                 monterey:       "e1deb5e5007f4c69ec6270da7936a95d5c619a04f00eae22e47e8da27659afc3"
-    sha256 cellar: :any,                 big_sur:        "6588022eba2ea0863a05dfd05bccf32d699c505f3662458358b96a738f8aa6b8"
-    sha256 cellar: :any,                 catalina:       "d9d404632906e5305ebc7220b0ccdc46790c223403848c422579161cec99bf88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fec436eb63c8010413149154469e2d9f82a61772b960c049b1763a0c15e0fe1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "7de1fed5e5f96e5a33b506bc67d7f42346fe3462692c555c7f8f77d2f574aeee"
+    sha256 cellar: :any,                 arm64_monterey: "4462cce323287e601c885a71418ff2425e59c62364806775a6fb49c2bd5fdb91"
+    sha256 cellar: :any,                 arm64_big_sur:  "341d025fed0a2bb01cf2199cc19aba069e90e83c9dd91c189818f68b12be8512"
+    sha256 cellar: :any,                 ventura:        "3d16e46012f344be4370aa4cfa4a8c8f7d9e76250de42f9e7d8fd674b774a9f3"
+    sha256 cellar: :any,                 monterey:       "b208c464e92f5dec6c9641a0a004a4c4f445e636ca4eee910866e5461784ebf7"
+    sha256 cellar: :any,                 big_sur:        "e5cdb53c941e2f484c36ce4573cab3919b90a2164ba4960bb15aeb47da342baf"
+    sha256 cellar: :any,                 catalina:       "68549d9d271924074783afaaf3257030c70d7f47511203d9badd3c43b62cff66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "645d857e3555c70c7475017f38d9556ead417f64e6903c4510fecaeb04741284"
   end
 
   depends_on "cmake" => :build

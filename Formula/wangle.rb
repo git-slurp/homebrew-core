@@ -1,18 +1,19 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2022.10.03.00/wangle-v2022.10.03.00.tar.gz"
-  sha256 "1fc2e4547e86935a4b5c71c1b50d85499349bad2e4e19bda8457bbb3c0663da0"
+  url "https://github.com/facebook/wangle/releases/download/v2022.11.28.00/wangle-v2022.11.28.00.tar.gz"
+  sha256 "b1a47bdcbac3a85f5f2ba048c3c1ed24b61a1eb9625319cc587cdd4d96782d76"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "873be0afe9506c2366a0f11233d134def8840e9a88d4bbccf05136f7f0f52596"
-    sha256 cellar: :any,                 arm64_big_sur:  "65a31dff2cd200dcd78e56355deb1e1aaff741cc26c47aad444cd620f4aa8daa"
-    sha256 cellar: :any,                 monterey:       "eabcfc7dd5dbf84488847e008559e5259ce11a534726f2f7fbcf7f379e92ab8e"
-    sha256 cellar: :any,                 big_sur:        "7d9eb478b1f5f31ff2c546140e7415e08081d92aa9b4117a262917f87e034113"
-    sha256 cellar: :any,                 catalina:       "bf3adeeeb7b69deffcc352a71be2b4b530bbb74d620f265d306d204352176ad0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b2cc56916d22bf3a4960df40c31aed4c467877b5521a29db1f22f5876b35d7c"
+    sha256 cellar: :any,                 arm64_ventura:  "068e7445d3de664e7fbfefcbe4851073340fb4926f04cab53f6906de2efed377"
+    sha256 cellar: :any,                 arm64_monterey: "d8d9b9bc474689b1edf36b3fb2a51d29bd46329b4d14a7d39a1998c0124d0aee"
+    sha256 cellar: :any,                 arm64_big_sur:  "4c90519066b25b61b042983d6022687a13624ead40a4bb60538a19a27878b0a8"
+    sha256 cellar: :any,                 monterey:       "b92e85728b087290df8fc98c07109bf955b6ccfd25ff8596072c1e3e83792f84"
+    sha256 cellar: :any,                 big_sur:        "9b6bdc059243a887f814ce2f1fcc70da89aede68c884b5480d094d0df5194799"
+    sha256 cellar: :any,                 catalina:       "07a6d99f8b2d5abe9ca0f851c46e2369d485a583defe6b23b2de0b357937e52c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e0c4bb3eeb2327048e0975d29fb4b8e86733211f6dca5352440d7e0549ec8b1"
   end
 
   depends_on "cmake" => :build

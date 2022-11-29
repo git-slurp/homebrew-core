@@ -8,14 +8,18 @@ class B2Tools < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4b02c095dde8e38d9f8142c5d8953e98eec1816432349b816464366f3e260ad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5392751c0bda9d2d1294a16b194e5d3f9a9ad758dbd0b8941a528870d3b17ed4"
-    sha256 cellar: :any_skip_relocation, monterey:       "cf373f43a436f0168ab50e876f14a2c6d04e7d87583d51e91bd001bcfe34e423"
-    sha256 cellar: :any_skip_relocation, big_sur:        "23641e55eb4834f1bff0df4fdba0aadb90c0a02dc68623bed8931eb456936590"
-    sha256 cellar: :any_skip_relocation, catalina:       "22847427affde8028c8eadbc91e843d5261447fe509b3ddd7f6f02c54693e435"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a99bd595cdfb0f104c60666214a7f4d9282e4780beccd8522a25fd00617df361"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b80a84413f74ee5e4d164663834bf95079222ec92725bf476935d672b15bb9b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e58721e4f6445024c354981387e7ae2fc6d2aa78a6f0fefbf9cb218c0a116c0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b38664d2c9b97f64f13c92ba954f911f446139653f7c956eb2705942078e56af"
+    sha256 cellar: :any_skip_relocation, ventura:        "5cf3569153f7bfebdf8e34295207b38a1543c7fbf426c6042e07c97944d166b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "d199328d240b9939ba9668ad0200c1d66b9d4dc98a87dce18562353b920f2c97"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9d18638f05b2bb59f771aa780c903e855c74acbec5fbcd27a2c9479cfc7d632d"
+    sha256 cellar: :any_skip_relocation, catalina:       "36feccb2aedb9ae05f48123df2d505651b09eec2ebad977c9d1900feba687b01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "651daf386c808675e1af6125d110ac8de378e3e53c3402c9d650289b09bd6c39"
   end
 
+  depends_on "docutils"
   depends_on "python@3.10"
   depends_on "six"
 
@@ -39,11 +43,6 @@ class B2Tools < Formula
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/a1/34/44964211e5410b051e4b8d2869c470ae8a68ae274953b1c7de6d98bbcf94/charset-normalizer-2.1.1.tar.gz"
     sha256 "5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"
-  end
-
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/6b/5c/330ea8d383eb2ce973df34d1239b3b21e91cd8c865d21ff82902d952f91f/docutils-0.19.tar.gz"
-    sha256 "33995a6753c30b7f577febfc2c50411fec6aac7f7ffeb7c4cfe5991072dcf9e6"
   end
 
   resource "idna" do

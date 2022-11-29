@@ -2,18 +2,21 @@ class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
   url "https://github.com/ossf/scorecard.git",
-      tag:      "v4.7.0",
-      revision: "7cd6406aef0b80a819402e631919293d5eb6adcf"
+      tag:      "v4.8.0",
+      revision: "c40859202d739b31fd060ac5b30d17326cd74275"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0cfdb4a217d2d3142cce0153e29172604bcae3b5796623211534632064c42189"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64d54a4a5f77e7e95a306145283bd514fcc90dc5ac925bca0b6714dfa02a2d71"
-    sha256 cellar: :any_skip_relocation, monterey:       "895544a110413ebc94898700535944bda0d8a32dd9de39c732e1ef2e99daba9e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "96d1a0be347b86d87af8f533e95c61fea8ba2c939933ce3216ecb7c6b27f44a1"
-    sha256 cellar: :any_skip_relocation, catalina:       "0d6f412cdad7b80d9719f547f9675f195121aa458690eb7ee5a7b38b1953dfb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cfe12467bd50fbc62c9881ae7c4d31531f7ae1f666736a46945ff444f2fa744"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "210754c5bab36169dab9b128bbc0e9130ab7d7df35edf5c8eb62fbb698578dd3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6764bf06ef4952d1c93210f041227cc35899d29a86234db21ad706d3d6637360"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2340685e76caf448e95b451d47c275bfc834fdfdd2f2169406b948feb299aca0"
+    sha256 cellar: :any_skip_relocation, ventura:        "4b1ae38cb2826dd95611aa5bebed510d85ab4a1bc6e3025bb53e1884ca2a2e89"
+    sha256 cellar: :any_skip_relocation, monterey:       "82a8a427b524fd412290fb8047a75cfa4a7d5dabf4e2e6b274f790b20580e43d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0dd3919fb6657b456b4a2bb20d4ca4f43729d424e4cc6ff0a35c7b5f2302b980"
+    sha256 cellar: :any_skip_relocation, catalina:       "4e7f970c3057381cff75469f93ddeb4b0899eac5a5387b3e49d090ecec6a6466"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91c269f768e4ac752ea21748ddfa44c492b7094a893015da6cdd91535ba3dfed"
   end
 
   depends_on "go" => :build
@@ -30,6 +33,8 @@ class Scorecard < Formula
     system "go", "build", *std_go_args(ldflags: ldflags)
     system "make", "generate-docs"
     doc.install "docs/checks.md"
+
+    generate_completions_from_executable(bin/"scorecard", "completion")
   end
 
   test do

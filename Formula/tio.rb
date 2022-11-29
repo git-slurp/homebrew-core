@@ -1,18 +1,20 @@
 class Tio < Formula
   desc "Simple TTY terminal I/O application"
   homepage "https://tio.github.io"
-  url "https://github.com/tio/tio/releases/download/v2.0/tio-2.0.tar.xz"
-  sha256 "e5826109773a89b267c3484df71234bc6c45715f735e3fdbee5984768faf5836"
+  url "https://github.com/tio/tio/releases/download/v2.3/tio-2.3.tar.xz"
+  sha256 "77b485aafa3aa8e01fc2976ac547e7769c1c338bac41eeb7c1ec6fc0cc7ee5cd"
   license "GPL-2.0-or-later"
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e3bc546472e12af9c4b623f3e942985b4db986f3fa378999c423ba8e22f1b101"
-    sha256 cellar: :any,                 arm64_big_sur:  "9b32a47c43d2316a644948128726ecb93b7f73516b679a4777e34449e4080aa1"
-    sha256 cellar: :any,                 monterey:       "7fbae70803b4198775767af6519d381a13bde5dcfaa65fad0d5075f9f2658662"
-    sha256 cellar: :any,                 big_sur:        "9f1037d39e11076c641f15ff8488c50edb73842640e403c374f5d15ba9f05e37"
-    sha256 cellar: :any,                 catalina:       "842ef0221268408e620f883236c6e330e628d09d2db7ed10efdffa338cf08421"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aad1c26f438c1e6a80619610dcae03c91e2104fab2f9f3264707d51b4275e6f"
+    sha256 cellar: :any,                 arm64_ventura:  "0361e1b49050bbf4fbfde6cb7fc25b07bcd3b4179e1e2f408f047525d489d897"
+    sha256 cellar: :any,                 arm64_monterey: "76721af8c30562c7d06181c2415fdb8d50786acbb6917b565a1c3128fed4e065"
+    sha256 cellar: :any,                 arm64_big_sur:  "e0552f02e79c7854bd662c9963e8f3a7c1ab430fbde31d55a897b59d6189872b"
+    sha256 cellar: :any,                 ventura:        "6d305b137300afba7c4ac88192bd0c2f47c35a9c35a5ec85bfe0bf496089d5e5"
+    sha256 cellar: :any,                 monterey:       "7d03260ad27a4e06f326390acb97d5181566c2b4fcd2b66adfea39e5e71e7de0"
+    sha256 cellar: :any,                 big_sur:        "75e54dd13513d37a8de837d76229ec2915747f2313d5c1ea79a5b9a41549ce46"
+    sha256 cellar: :any,                 catalina:       "65d6b3cf2a69c7f27678492e71e968abeab4048cd0671435692c6dea3d7bf4e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cee1d51f36f1d51a91c1b1fed61a9639f64db923dacad697e18de3a24ccd8e22"
   end
 
   depends_on "meson" => :build

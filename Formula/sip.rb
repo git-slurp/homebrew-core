@@ -3,21 +3,23 @@ class Sip < Formula
 
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://files.pythonhosted.org/packages/28/09/87e20f2be19051bea42df699947aba30f84422908ec2b8d827bcdf0ab365/sip-6.7.1.tar.gz"
-  sha256 "28170fdf880f937026fc87faa9c177b062c353c5d169ea3242b07802614ddd0c"
+  url "https://files.pythonhosted.org/packages/fd/9b/8e727256983e5b1d975f8dfce6f477b5ab6bada14a00b07fa3db51fcd6fe/sip-6.7.5.tar.gz"
+  sha256 "9655d089e1d0c5fbf66bde11558a874980729132b5bd0c2ae355ac1a7b893ab4"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a2bf0ad6ca9f6adc3b76b67881a75ac63fb0a5454781646b8787ecc200461f4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e6829ce64bdc8ceb226a7a317ec54d2d6b0890e835fd4de0e0c8825537c5680"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8a622c94ef1cebaf58a40efab9dd36867c68a3eb78d5a9a31340d616f7be5b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cf8cb71bdfbcf7b4bd01ec5fa06e8804efb485d6f5a945d6446d0e619f860bb5"
-    sha256 cellar: :any_skip_relocation, catalina:       "eb56bfea719d92f8ddff6c796a538c06686c278a287e67c3c637fd8ab9bfd427"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d4082532fbe79eb93e88647ca2eea9de6617199b7dd27718513a08f8fbf5d07"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ccf89f35a98dfddda7a8be95dad66aed47662a27d9fd501ae187910e46def4c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4925aeffbcb2d9eec8ecc8b4de62ee4d1cb5b9cc911518c26638a3b51d7a7a0b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "632ab65d16c753a7656c3daa06a8ea4f45a76cb3438e8d73e0e1b4089f6c20fc"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a6090985cd5661aa0e3ebbac8ff1c4157355efa17c19f693b1e6dbffc74302f"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6f319543831812b9338ba7c05f9f0e7b6f64a24e5905c696d52a1beffdb20c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "07ba02b93639447a23fcc0f35569ab4a8cddb9ad9a5e0b14b29675baeb478a0c"
+    sha256 cellar: :any_skip_relocation, catalina:       "e8417eab9c02b7b33849e7ad0140e1983e3a00d7751958e29e32ad1bf6768d30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e875a661e4394389c080e0b0fbbb6be6ec7385aae445644a740f4e3ba03aafac"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
@@ -40,12 +42,10 @@ class Sip < Formula
   end
 
   def install
-    python3 = "python3.10"
+    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
-    resources.each do |r|
-      venv.pip_install r
-    end
-
+    venv.pip_install resources
+    # We don't install into venv as sip-install writes the sys.executable in scripts
     system python3, *Language::Python.setup_install_args(prefix, python3)
 
     site_packages = Language::Python.site_packages(python3)

@@ -1,10 +1,9 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.4.1-ga.tar.gz"
-  sha256 "9b3e2558590fbb06ae4c02355919b1f75af9c696b786b113088ab6630e425824"
+  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.5-ga.tar.gz"
+  sha256 "a3a72a1897b6c01a68307a80a3b987114b7722f2541debd018e362a7c0917b85"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,14 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "ba98dfbbc050369adba92f09d2b3932687fc42a6af38edb832846485fa64c70c"
-    sha256 cellar: :any, arm64_big_sur:  "191af98768ad7e8dda65a3f8e6747cb5605b8331dd4b02a269e8ea26271ed2a9"
-    sha256 cellar: :any, monterey:       "ad9a8ed3d1047ed8ff338940617c555d5ef7eaefc49dfdd792752336f6fbeada"
-    sha256 cellar: :any, big_sur:        "4bef9714bcd2bb9c7a04f7f3f47e21e90655185feb91b64c180f55a34ac8efdf"
-    sha256 cellar: :any, catalina:       "5f0c717f560f60707d76dbedf0a286ca132ae0ad9bcbdaf0fd1cdc89f9b8fe2c"
-    sha256               x86_64_linux:   "5dc89bda4eccb6a31bc165f6c99f097d430fa753f808a2f005547ad59477e60a"
+    sha256 cellar: :any, arm64_ventura:  "0ad3ce7237dbc948aa314be7cebcc729c30bcd8eef08277fa464287f9211c426"
+    sha256 cellar: :any, arm64_monterey: "0e2244e35a350256474b6eb6e03d11af5c0270ab7ca4e6bc710c6273cb087b24"
+    sha256 cellar: :any, arm64_big_sur:  "911d64028e026092ce9f8f4b1a7d3c95bd7d631941d057afd5fec646a5e968d1"
+    sha256 cellar: :any, ventura:        "5c424f6cf45913e05b1b394c2aff0281c0d4e32982a0ee33e05d16144e1a05af"
+    sha256 cellar: :any, monterey:       "c1ac28437f8c07409f386e1a3d4d1738fc70b80081579efb64dd6e831a2d78fc"
+    sha256 cellar: :any, big_sur:        "b9093c0c83b7964496208e4abb8805c335f2c8fc916c85148c08324c64e26a10"
+    sha256 cellar: :any, catalina:       "9e21c33ba30e623252df8f74a33b8db56d61753a56f1c3c2aa9891f174152439"
+    sha256               x86_64_linux:   "75bfd5b65e8718cc6f2818a78d5d279520901f6f049fcbcbe9928304220b7e60"
   end
 
   keg_only :versioned_formula

@@ -2,10 +2,9 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-      tag:      "6.17.0",
-      revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
+      tag:      "6.18.1",
+      revision: "a1580f9cdf331c35dceb486f4231871ce0b00266"
   license "LGPL-2.1-or-later"
-  revision 7
   head "https://github.com/csound/csound.git", branch: "master"
 
   livecheck do
@@ -14,12 +13,13 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "caee19baa06957238cf295b64a71881d36bd8d3b6d65ecb6688154f0aa01ddd8"
-    sha256 arm64_big_sur:  "18989948f015bc790496e573fef5df998b7eeb734142a4b304f292676b9d5e6e"
-    sha256 monterey:       "008edda35335f209df39fd785eb278ce36cf6172aa0eaadef41b127b3ff19817"
-    sha256 big_sur:        "4c86631aaedeb9a3b82f7930bbc8bb7f0d1d5953c275eb4b3bd6fd2b24529b76"
-    sha256 catalina:       "991d5fb92e978fdbd15bc658b0e7cd8087ded77d0966c5067e2f5a6b7a6242a8"
-    sha256 x86_64_linux:   "3dd5e0504a2f5dfd002ffeb3483c30f59bd9c3a1da0d1c55b69fe6cf1f88094f"
+    sha256 arm64_ventura:  "1fa3f5ecd493502c6f8a380233ddf7ecaccf5590c1d0cb206eddf312e6195729"
+    sha256 arm64_monterey: "a1d5e7f06bc3b999b0cbc943e694b8ae0a2a7862e2c720f3cd73e3b929ceff98"
+    sha256 arm64_big_sur:  "8bed3925dc5b9741ec6f4d20f1cb17e9c1b22a77987fdcbef35b941f72e936bb"
+    sha256 monterey:       "847442c274b43b8d327b5fe4767ec41a19db8b3f01597310f254c2e5526eabdd"
+    sha256 big_sur:        "9fc1ef9ec6ce05f8d0661eb2a72f537d50a9c2fbdfd0ab0cf0b84febb05e21df"
+    sha256 catalina:       "a857c9ab223839877ecc31a819ff2ae7a6691358306cc6f0a55b2fce905fb854"
+    sha256 x86_64_linux:   "4e73a8fabb3e9dc1fad120d8808db75d166403c99145d7cdb74eee7164d0f8e0"
   end
 
   depends_on "asio" => :build
@@ -42,7 +42,7 @@ class Csound < Formula
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "stk"
 
   uses_from_macos "bison" => :build
@@ -80,8 +80,8 @@ class Csound < Formula
   end
 
   resource "getfem" do
-    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
-    sha256 "6b58cc960634d0ecf17679ba12f8e8cfe4e36b25a5fa821925d55c42ff38a64e"
+    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.2.tar.gz"
+    sha256 "80b625d5892fe9959c3b316340f326e3ece4e98325eb0a81dd5b9ddae563b1d1"
   end
 
   def python3
@@ -145,7 +145,7 @@ class Csound < Formula
           -DBUILD_P5GLOVE_OPCODES=ON
           -DBUILD_WIIMOTE_OPCODES=ON
           -DCSOUND_FRAMEWORK=#{frameworks}/CsoundLib64.framework
-          -DCSOUND_INCLUDE_DIR=#{include}/csound
+          -DCSOUND_INCLUDE_DIR=#{frameworks}/CsoundLib64.framework/Headers
           -DPLUGIN_INSTALL_DIR=#{frameworks}/CsoundLib64.framework/Resources/Opcodes64
         ]
       else

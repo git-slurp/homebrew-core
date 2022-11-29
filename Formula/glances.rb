@@ -3,20 +3,22 @@ class Glances < Formula
 
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/d9/0e/f1ede21301911f5f4a66b418b28d81ac8942b40dff49f3037b941ac68849/Glances-3.2.7.tar.gz"
-  sha256 "56ec34293aba3e09d801c890e1ccd799c2b9e8614c9435d74ffdf14cdfeb9492"
+  url "https://files.pythonhosted.org/packages/21/71/4580c2977846c59c3e4a8f16b738a16a4ff3761b323b2f83894c4d699bf5/Glances-3.3.0.4.tar.gz"
+  sha256 "8a0a5298ea55e34773eda86c51710a56f19c4724600472627079b1c370f79e4e"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb3ee634537487d23c20576ca36ec5f9d2ed6ca19fcc86c6814fcafe3f6a1b4a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9db8bec3dcc0f592bd13c5555255ef4bd8af7cadf75b7d9ff461012997a239f"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2271504cdfc31be24c4ee5beac66c0a48be209c21cd67c4799f684fa1411359"
-    sha256 cellar: :any_skip_relocation, big_sur:        "635ed142c4c9ac96b72806bcf2f201fcc1e29e13a547b82dbda5d66f5fdbdd63"
-    sha256 cellar: :any_skip_relocation, catalina:       "2209c12929b64c5f26f391f1200ea96720910a0ccb6e03417877a58fd386b38e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ce45d08247195a753f069fdf578d0ee69a72b1fae0e5eecb09d65ec1533465d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c117dbdafadc7b85c7ff62d7ebc0ea85e6034b92e8000643d4f1ed70789f93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1e9661ad43f4ea3be24818e10ea850d77380eb1a7080121617143db6797ddeb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f060745e511eafc304a4f945ef50fc70693790bda87f77385084863279d79c0f"
+    sha256 cellar: :any_skip_relocation, ventura:        "c99b8aa453b7fe043747a71f6d132f5198837ea894eb4c8c088f3bec343e07a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "a894e09c7e3d3e6d63e36874612b9f6bc90b74f16eaa6b3ee14c3af755630310"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c0b1c59505c292e21785814c609f1076562b6dcd7e8e93279541a306fb049364"
+    sha256 cellar: :any_skip_relocation, catalina:       "6774d0e64a60bb48dda5f505dc9583d6a59cc21907365f6a9511c51fa61c06e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "925d6976ff5cffabd2f573a530870628e3d01f9dc27963205bed584726b7c7c1"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
@@ -34,8 +36,8 @@ class Glances < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/de/0999ea2562b96d7165812606b18f7169307b60cd378bc29cf3673322c7e9/psutil-5.9.1.tar.gz"
-    sha256 "57f1819b5d9e95cdfb0c881a8a5b7d542ed0b7c522d575706a80bedc848c8954"
+    url "https://files.pythonhosted.org/packages/de/eb/1c01a34c86ee3b058c556e407ce5b07cb7d186ebe47b3e69d6f152ca5cc5/psutil-5.9.3.tar.gz"
+    sha256 "7ccfcdfea4fc4b0a02ca2c31de7fcd186beb9cff8207800e14ab66f79c773af6"
   end
 
   resource "pyparsing" do

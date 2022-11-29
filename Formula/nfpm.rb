@@ -1,24 +1,28 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/v2.19.2.tar.gz"
-  sha256 "3ebf2247c9c6063745a9c4db0867681073350366e4c620d2fb084dd82b722ee5"
+  url "https://github.com/goreleaser/nfpm/archive/v2.22.1.tar.gz"
+  sha256 "8bd267c9a64d9e0a208a20ddc5a918630a4347b8bcdcf4a8d35f7b77b303393f"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3726745e3ed6b4b556b654806e21966ee0a0b7a4f40d698a7105b2e99da2c6d2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f398aadb7ca98203c019283d668af73352aed5156e53ee21c1a6b6cec14259c"
-    sha256 cellar: :any_skip_relocation, monterey:       "af72de55c3b50a9e7dffc640cbcb76508667f6e757d96eaa6fb0eb15566f0ba3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5189b64cbc85ec303aa605b2f61224d7992860cb0f8abdcd5594f18902ed6bab"
-    sha256 cellar: :any_skip_relocation, catalina:       "486782caaeeb05578561f988ae5f6c7bdcf9041ae5b2b244ad50bdb9f2910210"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60932139aafa1cc23f369fb50884d53692ad1b07ebec05bbec44f77b859f7f1c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "526e14755970980a7455d2c1a20ed909bd6ef5e08ba831828fe6e28321927ea8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe542a709a5a345416f1462fc375d9063f1cd1a154c826d1f4617b63d5da5db1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "061c9385a209ea92e7c84b0bd3ea706129e40582f5f123a50b2fedce2101f556"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f13fccf3510bd4fb0a9875f9d3129a9c6ec3a6801f9e97336961d42ea39be75"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8099935b85a38267a6c046fa2e7bd721b9660127560fc9124bceed53b8230a77"
+    sha256 cellar: :any_skip_relocation, catalina:       "a1cd2857fe90a651455739fdb475da4b91daff3e0a2b613fba52d9cf57afa2bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2883ee7da95232c222093518407e6a3891bcbbeb04eff47a83c78c44c0fb881"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X main.version=v#{version}"), "./cmd/nfpm"
+
+    generate_completions_from_executable(bin/"nfpm", "completion")
   end
 
   test do

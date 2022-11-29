@@ -3,7 +3,8 @@ class Restund < Formula
   homepage "https://web.archive.org/web/20200427184619/www.creytiv.com/restund.html"
   url "https://sources.openwrt.org/restund-0.4.12.tar.gz"
   sha256 "3170441dc882352ab0275556b6fc889b38b14203d936071b5fa12f39a5c86d47"
-  revision 6
+  license "BSD-3-Clause"
+  revision 8
 
   # The sources.openwrt.org directory listing page is 2+ MB in size and
   # growing. This alternative check is less ideal but only a few KB. Versions
@@ -15,12 +16,14 @@ class Restund < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "6f5c3d486219054b1ae3720ec2c6f9cd79489b750c2335b8b30d5116ca14eacb"
-    sha256 arm64_big_sur:  "94792d7d432f40ac05e64893ed6dbbbfe0b6edec6e4ac56d13f4e3c344b9a839"
-    sha256 monterey:       "39baca3b602799ef89ee702322388e5ea6f6dacf77631f75d909d5d5e7d302fc"
-    sha256 big_sur:        "ee7b89046aa5e38b393f741d0d64cbec54a06d3063daea0add27d7a73999b987"
-    sha256 catalina:       "a9207fed58a8b4e83f745d2e71f3a735247a8309d6ea1241af035e21844430b5"
-    sha256 x86_64_linux:   "c345cb90c8092a2d137a1edcd1f5cfc0953d93f8ff8d80802009a088687ba2db"
+    sha256 arm64_ventura:  "8be5a6ff13e1c9810bf9bdccbaf64fe091ef9ca98164f615656536d1d83b2f5f"
+    sha256 arm64_monterey: "8ba54062036994ee059c7c97f812d2b9e2c5dd371c55f4395e99d74871cae634"
+    sha256 arm64_big_sur:  "59ab561a73c563a5c316779e7ba1caa849c2d7f65ac9c19af0ff6f38d299b5ff"
+    sha256 ventura:        "1a27045ea0984a66dcb509c450d5515e9a42cf028f4425d9b75c2abec753d4e3"
+    sha256 monterey:       "dc77aebcdfa08f395f6e359bbf8d06419172ae9aa60ae4946a5e11a63d2e407f"
+    sha256 big_sur:        "27099608a5892cd0915dc19e2df7ebb663a9f16e4c84143f8b76fff9e463c2a4"
+    sha256 catalina:       "1fcff615a8988cf26177e67f111d41b5b3a69e1814cfe5dd4bbfa06bb1de4977"
+    sha256 x86_64_linux:   "13206619883a0eb7a213e79e60c98744bb27e18bf3974d90b896d2f0f933b778"
   end
 
   depends_on "libre"

@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.4.0.tar.gz"
   sha256 "c6b9f59447a842559b00b3a67b4ca1186e9adb8db742b25400507fedc747f2bd"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -14,12 +15,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "06a3f2e4081f5c9c58415fcedbbb20e2c5c2b521f781b8ca03800f9d36edddfa"
-    sha256 cellar: :any,                 arm64_big_sur:  "fa02280916659c6140bd36f8b699e1c21ad6bb1d7714d6ee8ff5583a82b4b880"
-    sha256 cellar: :any,                 monterey:       "afe5adcaf2ed7dff79d8c7498772c8a90cb6dbbede0f404693071e2d40e9aa9f"
-    sha256 cellar: :any,                 big_sur:        "a77997c6a466a887c9e4769c5391eecff84df86aed624e05cde313a4fe251a00"
-    sha256 cellar: :any,                 catalina:       "d05b91039f437012e34c18252634490009128f4bea66c755567f65b3741a5760"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f92636cdb54987384ead419fa443c2bbc0ad55d6b6e0ab3c1ac6de0e613bb5e"
+    sha256 cellar: :any,                 arm64_ventura:  "92bde401c8cd2a7f1c6514b9e2383eacbcd6c92c621348a5fe2997427221c1b4"
+    sha256 cellar: :any,                 arm64_monterey: "2305669562538d1caf7f29e6ebee2a04122fc6815e996a7e0d6520d0255d291c"
+    sha256 cellar: :any,                 arm64_big_sur:  "8dc89321c908862d92ecdee02e10ea3e8b26cbbe257cd1acbe2b93c581e8c615"
+    sha256 cellar: :any,                 monterey:       "d6310e9e4bc48f97cb123c6478876ba4b08655c79eaf3dd897fa688a1733d89f"
+    sha256 cellar: :any,                 big_sur:        "602b9bf8a9d5ebb3a33b08970a2b9095c04dc431a17ce5d40748af34d92b8271"
+    sha256 cellar: :any,                 catalina:       "f88c31c1f1d5cf51ada5e6309246f8876a907a71e54120fdb3fcea63c6d126e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d90c5a8012a5413c538584f39e01659eb83cc69af22ad71cc91b67a12dc16358"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +40,7 @@ class Gnuradio < Formula
   depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
+  depends_on "pygments"
   depends_on "pygobject3"
   depends_on "pyqt@5"
   depends_on "python@3.10"
@@ -76,11 +79,6 @@ class Gnuradio < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
     sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
-  end
-
-  resource "pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "markupsafe" do
@@ -256,11 +254,11 @@ index 9d4e0f2..f6b8bc6 100644
 +++ b/gr-blocks/include/gnuradio/blocks/blockinterleaving.h
 @@ -12,7 +12,8 @@
  #define INCLUDED_GR_BLOCKS_BLOCKINTERLEAVING_H
- 
+
  #include <gnuradio/blocks/api.h>
 -
 +#include <cstddef>
 +#include <vector>
- 
+
  namespace gr {
  namespace blocks {

@@ -1,18 +1,20 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
   homepage "https://github.com/oras-project/oras"
-  url "https://github.com/oras-project/oras/archive/v0.15.0.tar.gz"
-  sha256 "0d75af9e7d95b8c6b61328cd7587e1a49c64f1a6f2f5af34f40a0e576562857f"
+  url "https://github.com/oras-project/oras/archive/v0.16.0.tar.gz"
+  sha256 "37bac099dd72de50cf2405dd092908b1039db142faf81ab1c9d22ced2e0d1ea6"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "97aee764f53afea6769d128c51867cc8aeb8077270822145949266c76c991d6d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a69be9d099cc1e84c70224a5fef180c7634c4cadb9c15686720af7f7abfc7c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "23d29560383e3811569fecdb279f8af9358b1a6d7b2ee0ff10a8b85033d885e7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3eb73a66901b4ef3574125e3cee0d0bf8525c000d0cf3525fb9b16be4fd4efae"
-    sha256 cellar: :any_skip_relocation, catalina:       "f866574e310c3a78364726b17c2869eabe8ca3169d351bc0b00fb65f70a6e032"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02ad29bc59aea4bad4cd916a4758254852ef9b43c5a88b05ab39956df0d5e24d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c27f931c71ab78701e8d91d56fa88695bde78840ccef66fb8ada14c9dcadf2fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3802c90a5cdd03d1ccfa22523fa9285d4085abf18851a8658eb014c4dbcbe0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a740997cc8c15d73aee2584e346a1438bdff5782a127dfd66d7cb0d02b803843"
+    sha256 cellar: :any_skip_relocation, ventura:        "8700ad4b886f826426047691f37b596979a8a7908f3e673dfdd9b52ad0aa8317"
+    sha256 cellar: :any_skip_relocation, monterey:       "6e5ea3a26af5c37badf8703a0aad7948dafba5359b9f6a90b107957a0088a36c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b1733afa2e23e7fe8d927df04cf25f5eb99a2f27f3664bc17ab68b0228588db9"
+    sha256 cellar: :any_skip_relocation, catalina:       "183a997ecf29e06fb92704d3a09cad4468284bbf9f99ee2a4bfdcf289a563936"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e0a1bae87169064386c19b4348aa79cdd03950a048b7a0087f0e11a99af215f"
   end
 
   depends_on "go" => :build
@@ -24,6 +26,8 @@ class Oras < Formula
       -X oras.land/oras/internal/version.BuildMetadata=Homebrew
     ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/oras"
+
+    generate_completions_from_executable(bin/"oras", "completion")
   end
 
   test do

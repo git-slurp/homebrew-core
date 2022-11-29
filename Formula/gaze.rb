@@ -1,17 +1,19 @@
 class Gaze < Formula
   desc "Execute commands for you"
   homepage "https://github.com/wtetsu/gaze"
-  url "https://github.com/wtetsu/gaze/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "53c46a09f477433e9105b9df8db9ddf287fae6734b3078d79f5f994500e8625d"
+  url "https://github.com/wtetsu/gaze/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "e954f074bcd3e7f8c898bf83faecfe5f2acff7001f1001157798c9e723916aab"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9661658a4002ec61e5c8e66bbd12e87d56fd2169b2acbae2ff1730fb28763c1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21415b048a0d0703840e3383e4581abaead69378b946f95e82d1dbfe30c1072c"
-    sha256 cellar: :any_skip_relocation, monterey:       "c69c1dd7a2a2d77425fc040cf04d542d573bfc0d3217209f4524407aa43012f3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b749b2b37c58450dc62e0490423f7690bcd656d09ca3bd53448f4f673d461ceb"
-    sha256 cellar: :any_skip_relocation, catalina:       "1f5cb6ff364f5bfc352f6da7d894e1048db1cea534f1a2f27ae1326e37d7be24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "869b4f50685c5ddec3a94fba1929ac8d96811f93c10754804528a5c6619fc2b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ab075f07c65efaf0e8faa3ddce49e8a4877ae2b966cfead7a60e1e21d88a070"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c4c86df3793fb3de2299b319ffb0de635271c379984a4309de974ec3fa0c8d3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22c3be1483cbf3bb3f454c4ed2d7124704720c1e3474873f2cb5cb22fec915c8"
+    sha256 cellar: :any_skip_relocation, ventura:        "2fbb08d1ddbfcfa42571e858e18a43201be7f008f2c84726b63a355744745aee"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f68fd64a2c7ef1afa4e1385dceabee5ff4ca4cda55285a130f568cb7165a466"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b91176a3baa7c9c4713144fe051083e77a7d71f111eebd8d7eeaa60e3e1db15f"
+    sha256 cellar: :any_skip_relocation, catalina:       "cb50d130b59682afd539e3aa24dd758262a00c0e834e49eb79d7154039df74aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "466f803a6e2c83373c189248e2ecbc9eee95f7cc2ba6887a43609c6677ae2cff"
   end
 
   depends_on "go" => :build

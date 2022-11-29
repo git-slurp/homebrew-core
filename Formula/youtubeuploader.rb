@@ -1,18 +1,20 @@
 class Youtubeuploader < Formula
   desc "Scripted uploads to Youtube"
   homepage "https://github.com/porjo/youtubeuploader"
-  url "https://github.com/porjo/youtubeuploader/archive/22.03.tar.gz"
-  sha256 "cdf4857dd9a9ae15f47d46f35f4f7395e0fd759e128ea8bca057d3f08de78243"
+  url "https://github.com/porjo/youtubeuploader/archive/22.06.tar.gz"
+  sha256 "baf111cd99755b6ec17a694a3edf6fdf6886ffb606288451e6014de42bff3939"
   license "Apache-2.0"
   head "https://github.com/porjo/youtubeuploader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30f7e5ae721da535e957767a5d90effea1207f7bb33088afbc71916ccce644f1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6c646d0777513146dbbd385475135e75d79c0db8ea65ab1b19efd83caa774f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1b3411312848def235b2bcb7621947f50954f95d126f32a7b61d2dcbceacc4a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c8e7b4db1c565158b547a534fe783bbe4b520b68cab78f030d9c51cb94bba794"
-    sha256 cellar: :any_skip_relocation, catalina:       "9ec6d96d62ba3740c636d633b1caee6a7d7717c7a60e0642e1351991cdbed98a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c7ffcc51bebef2de4747bd1a328bfb9bb0b05f40f36da7af712fb22af8916f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7607706fdf7aa184bbffae10012705d6c48752550f3dc4d3aa351f367881c71e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cf637386f6edf508a3c4b0a63f3ea8beb30f7e7a4fd0523e90253d508459ba8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6e73336a16d884c032dcbbf00ba249d6be8a0101f337b1c9d3ac331524439cf3"
+    sha256 cellar: :any_skip_relocation, ventura:        "8a16cdb7652e91cbfcc26ff923629134e4a99e1b91697e49769ebd4e899cb323"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b3a029b1bf0b3f9a4ed2d71130828286624fb9e2e66bd6e5a9b8963eea71dce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3d5ebc4f26f516589229cc6fc02c39529b3f3e674da4ebdb7591ba85afe816a1"
+    sha256 cellar: :any_skip_relocation, catalina:       "9e9b394c72f50c3049269e23aa8534ab5f036c2a10a98f6347f682fc577a5b81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8013181d71607e29d777511a64fd3244451414fd2f37c69ec56bfedb4864ce9b"
   end
 
   depends_on "go" => :build

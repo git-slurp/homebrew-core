@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/14/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v14.5/postgresql-14.5.tar.bz2"
-  sha256 "d4f72cb5fb857c9a9f75ec8cf091a1771272802f2178f0b2e65b7b6ff64f4a30"
+  url "https://ftp.postgresql.org/pub/source/v15.1/postgresql-15.1.tar.bz2"
+  sha256 "64fdf23d734afad0dfe4077daca96ac51dcd697e68ae2d3d4ca6c45cb14e21ae"
   license "PostgreSQL"
 
   livecheck do
@@ -11,13 +11,14 @@ class Libpq < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_monterey: "823de8afe725195770779ff8ace547c518bea4a817bd391aae032366fbd69ddf"
-    sha256 arm64_big_sur:  "f7fe2ac019331ad371a15f003b2eab3794e0d82f3faca9da2d103ab6bf65947c"
-    sha256 monterey:       "8c0312c3308e1d09fc60ed88c72d550c6752064970c87b390eb28ba4c69ada34"
-    sha256 big_sur:        "44f796956a21986f7a1f5e964726747500ac347d17733b3df3524205efcdeca7"
-    sha256 catalina:       "f0c31c1c1bb1ce07dc74b9092aa145fd49f0cbfc3f00d4ba7bab5c5aee56ef55"
-    sha256 x86_64_linux:   "86013496c8df68a52d0e6ba6fbd9a9dbba7fbf5659f2e4623b7714acd45cb1fe"
+    sha256 arm64_ventura:  "11c790baa5278d46dbb8b7d608f8b6923b15ea088316cce195a5884e80722fe6"
+    sha256 arm64_monterey: "93be59131fe599125fbab83e21a0f954d866957a8fd139f8e822b21d5300befe"
+    sha256 arm64_big_sur:  "a5511600bb6cbaa3a3390e28a71af479a5b8029acf1f983dd4d13a689adb7061"
+    sha256 ventura:        "ade5f847fb8983c90925de5af9b6b31fff56a7bd1f7df48f6163aeb8915a0f1f"
+    sha256 monterey:       "604c9dd5993ae0714368de1a0650fe64a080344036e0cad01dcdde4f2269ffda"
+    sha256 big_sur:        "e00d7a4108c1711fde8e7cf8135ccfff3a6be35c4164ae5e9c9ffd24bd7affa2"
+    sha256 catalina:       "4bbee3b57e052af467ed9cfd57980a029949ff1aa34fed453109bf7fac60fc1f"
+    sha256 x86_64_linux:   "873dc20eecf1bf1263bd0ccf00762cd5869459dd4b320faf7ba97441c0a35d8a"
   end
 
   keg_only "conflicts with postgres formula"
@@ -27,6 +28,8 @@ class Libpq < Formula
   depends_on "krb5"
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "readline"

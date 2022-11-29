@@ -1,18 +1,20 @@
 class Octosql < Formula
   desc "SQL query tool to analyze data from different file formats and databases"
   homepage "https://github.com/cube2222/octosql/"
-  url "https://github.com/cube2222/octosql/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "7c891953d0e4a286a04ac7cf92a6524493de061f1ad45c3c7a9fc85a7b170558"
+  url "https://github.com/cube2222/octosql/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "046f31f1f8e4fc8dbc7c5e5769dae2a1dd249e7f96e61ef30ea1205921afa986"
   license "MPL-2.0"
   head "https://github.com/cube2222/octosql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aeb56357efd27196be0ae5fd8d6a91c9a2bea63b54eeb969738acb875b2ba317"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5e14b1343d8883d367544ac11d2649e607df9cc534aa84176df1989c21ae7b2"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b3b20d538db2f7b48417442ce0f257a78d70ca8621dfb96745432c0c13776ad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f9a257262020cc09f0e416fffcb03ddb76e190ebd7506974cb233cb8030977f"
-    sha256 cellar: :any_skip_relocation, catalina:       "1b1ecc06ede0fc12e199ad21543f5d2ff020dfe72f6b526c307e7cd5474599dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7c043f1a76648e406353a3929294a74e4d04d03ec821535383aa67089a9f9ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "52b4c13b613637d66e7d0443efe0040ac90442d1d684f8e8884fe6ceb4f56c33"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6156175e4da8c8aadc75a8d0e0d58eae0c168f9980cdf885a0b2bfbd34c907c8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa962c981b327d7bebf33b92131ef1862dac2276a3611e74ec16f36af0b4d358"
+    sha256 cellar: :any_skip_relocation, ventura:        "877a3cd39081445e58f956c706e46f9cfb0b273f19647b080587b6f4ba32bac5"
+    sha256 cellar: :any_skip_relocation, monterey:       "19811afa112521f3bb76d0af5906399e8305349b134cc6af2dacb89aa7f2a7e3"
+    sha256 cellar: :any_skip_relocation, big_sur:        "184450555f85574e9978f781ef488013a77a4a30d12360fa1d40e4859492e78e"
+    sha256 cellar: :any_skip_relocation, catalina:       "d8da82a4f2204f4a3ab90ab1b35b7e14bdf1d72c230de1cc0e27b2c7cf8b131b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c666326c70572fbc67ff37e07483baec324ef7c2afdbf6b274f477c2a4874bb5"
   end
 
   depends_on "go" => :build

@@ -6,22 +6,24 @@ class Dooit < Formula
   url "https://files.pythonhosted.org/packages/0b/42/5cc5f890df2de9088457f0274685713d0221e8406df89631767dd342b491/dooit-0.2.1.tar.gz"
   sha256 "7571d21385e2625646ac2572b59cc2ba9b8c5b6228165a444c76645e55444b62"
   license "MIT"
+  revision 1
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "153dbcc684cea4afe912255eac3db931dd4e648be45752ecd567261bad90376f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b582585409a9ddf466b2ecd20c2975eb5ff05a489fec5d19005d761bb61dbd61"
-    sha256 cellar: :any_skip_relocation, monterey:       "03efff38f8c732e9e753c902e2a3b477ec5ecb7a8b63736a499f40c0f1e2e26d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2cdd7eb42ff88842663cd7eac3e9cf5f0c4abadcf56a61eabe69b98510871996"
-    sha256 cellar: :any_skip_relocation, catalina:       "3f2dad171f295b1a8a9062f3fe87273c2ccfa032215864a89acf02d276c82d1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a452a46d9eb90f7e9bab86cdb5abcb847e2c0e883222b28329e8751f2a30fb3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3343b1c9256da28ca0423aa3b26c3e0580138bc6afda0112a7adbd8d577932d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "66b7ea1e658422e69f1200ab0036ab7b101db35de94acc75e5c7e9b67a08fbf1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7253afa4f4d165ab89deb686258a8926d5bf29811207e31857aea4f3ce2aafb"
+    sha256 cellar: :any_skip_relocation, monterey:       "ae77c6201c1342253b0b00cfd6e9e79c147574f2a689b03374cd1552eeb330c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d86878cd9521051f1c99301d26c3fe99f3c7ba6ce347c42ee254d08f27c25a80"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad25c06f95e4bb2deaf43ef17449ea5a5c651042768e55160752db3b9a67f418"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d48d258e8f5a63f17adb84f73596d05de510c3419e89b27638b1a2ef03537b8a"
   end
 
   depends_on "poetry" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
+  depends_on "virtualenv"
 
   resource "CacheControl" do
     url "https://files.pythonhosted.org/packages/46/9b/34215200b0c2b2229d7be45c1436ca0e8cad3b10de42cfea96983bd70248/CacheControl-0.12.11.tar.gz"
@@ -198,22 +200,22 @@ class Dooit < Formula
     sha256 "879ba4d1e89654d9769ce13121e0f94310ea32e8d2f8cf587b77c08bbcdb30d6"
   end
 
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/a4/2f/05b77cb73501c01963de2cef343839f0803b64aab4d5476771ae303b97a6/virtualenv-20.15.1.tar.gz"
-    sha256 "288171134a2ff3bfb1a2f54f119e77cd1b81c29fc1265a2356f3e8d14c7d58c4"
-  end
-
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.10")
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resources
     poetry = Formula["poetry"].opt_bin/"poetry"
     system poetry, "build", "--format", "wheel", "--verbose", "--no-interaction"
     venv.pip_install_and_link Dir["dist/dooit-*.whl"].first
+
+    # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
+    site_packages = Language::Python.site_packages("python3.11")
+    virtualenv = Formula["virtualenv"].opt_libexec
+    (libexec/site_packages/"homebrew-virtualenv.pth").write virtualenv/site_packages
   end
 
   test do

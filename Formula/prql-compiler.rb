@@ -1,17 +1,18 @@
 class PrqlCompiler < Formula
   desc "Simple, powerful, pipelined SQL replacement"
   homepage "https://prql-lang.org"
-  url "https://github.com/prql/prql/archive/refs/tags/0.2.8.tar.gz"
-  sha256 "e842beb48d309f5c2e995d26c8383f893ecd3a167dc785cf1597c0526cb484d0"
+  url "https://github.com/prql/prql/archive/refs/tags/0.2.11.tar.gz"
+  sha256 "cf2ea9b7e7a3398998a361a54f2a8c2d5043f754394cff521954dcc22cea5248"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7c5bbfb20d28d3b15b73f61da15bc4db0cb9feddf3f10008fd7083628a74f4b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "815004911782ac9076f4a986d4576b2db882aefc6de6d307f496908aef356e55"
-    sha256 cellar: :any_skip_relocation, monterey:       "c6c8ac72f9640c2f728a380275696c95148a5402807ebcedc21363df9814b82f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ebcd4e4e6b116c10c3206d5176f1c3b784e7a93c0c4d7e6e6219a9d593d13af3"
-    sha256 cellar: :any_skip_relocation, catalina:       "52b914e9c53ec6639f7bb7839a4ec8a2661b49fa13e7a4ed5dbd92549a0bf44e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "100a413167c33f8d1515e8282dd1b3a9266782a3fa9c23c7a07b96bce96962da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e29934587c3b302eb8e47313722652e577a734222df80a87a1d0616d3825099b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ee036e11ced9dc68793b130ee140d2772858f64157fcdce93cd05d002dcb812"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e553a63f7addfdb72822e4151cb4c435b11ee902583194b5bbb26fc8a81f6b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "584103d1f40e751c0f6a368b4aa949de898c6d442bbe61be91712463c056dfd5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "17f1f2a630ce7f35f5126fc7cedf99f9624a3185a6db66cae201bc8be011f992"
+    sha256 cellar: :any_skip_relocation, catalina:       "1d975d3b9e18c65cc22f39af736a50ec5b8b8cb8fbf8fdd1a90fe902d684f1ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5d508b251e185f05338e961a0c5158621760550d0e2428df2c8fbe771495baa"
   end
 
   depends_on "rust" => :build

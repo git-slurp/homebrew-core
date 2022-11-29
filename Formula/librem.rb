@@ -1,17 +1,18 @@
 class Librem < Formula
   desc "Toolkit library for real-time audio and video processing"
   homepage "https://github.com/baresip/rem"
-  url "https://github.com/baresip/rem/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "7f2b4e8db0fbf2d8dc593fb3037d4752aecf3bf50658c3762fe53494cd508cee"
+  url "https://github.com/baresip/rem/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "ec87deef927c27b2199e652993bdd8d62d6176efc0231ddbe5227f212e27a881"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "bd7208a5a64cef0213aaabbfa80abb3f1d21543e5d2ddd7ac8e1deaaf6e13c4e"
-    sha256 cellar: :any,                 arm64_big_sur:  "e642d360e5907bd4bdd59a1a252365e29fcda5c8c681f0a5fd553e806ca3a099"
-    sha256 cellar: :any,                 monterey:       "9c8b1d984fe890ba9a74e87be7ddccedf2a847ff4f3bd79838ee0a5b6fb29de3"
-    sha256 cellar: :any,                 big_sur:        "4738180948fa7172f39f952d9d4da82b96215be623995e5601b1953649e47d9d"
-    sha256 cellar: :any,                 catalina:       "96c0cc1e895077c3c5919084a1d9c0dc74dc87f53b981575f6d4ec5209ce1382"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64c4b1d20a8648aad62260e21597a30c434a1593bafcdd75e27bb6a3096a13cf"
+    sha256 cellar: :any,                 arm64_ventura:  "56442361d6b20c84d630cebd8cd7ef5ef24aa4f88b4a627dc4fa346d8bfdddc2"
+    sha256 cellar: :any,                 arm64_monterey: "e9dc062a114d69b463b7ec80988249390e6f4111ef0801a618cb0256e3842391"
+    sha256 cellar: :any,                 arm64_big_sur:  "57c83221b7d6bc51972c02509eae3d18e54b67c112bb78b5ca90d0e3b871b8f0"
+    sha256 cellar: :any,                 monterey:       "92c89a0f99ae9342a7c4d7b7802bb82085877fa908e78c4d481c1aa38665d4bd"
+    sha256 cellar: :any,                 big_sur:        "45d019137c7c4100c87e3f238e597b396546b11c16261cb2cd899c29bfc6cdbe"
+    sha256 cellar: :any,                 catalina:       "3c7fb584d06bd818a49d9b80356ff2579183d9d8bb583c77a995bbfe4e5cc82e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6e610de0068c95b1cf76f0f98c6f03fc4801b98422ea3669e3ad9caf1e76576"
   end
 
   depends_on "libre"

@@ -1,19 +1,26 @@
 class HppFcl < Formula
   desc "Extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.1.3/hpp-fcl-2.1.3.tar.gz"
-  sha256 "8d11f17e0f54e691e03564dd16deca438fd1678188cf98e6c4557587ca1777bd"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v2.1.4/hpp-fcl-2.1.4.tar.gz"
+  sha256 "ab6ecf1abecb0f85456ce7d648b81aa47d49c9dac07d9824841505769ff45c9f"
   license "BSD-2-Clause"
   revision 1
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "821fd8af881f90d339ef761de7a6a26b6f196560bac1096798964cfe77c81a3e"
-    sha256 cellar: :any,                 arm64_big_sur:  "e8b7f398967271eca2793d9dd4a233a5dd3d75c0d1dd86d3a3b07f3aae86c208"
-    sha256 cellar: :any,                 monterey:       "996d5eb6b243caca2bf90d0cce5c32da3ad3dc54681ef8aeac1b2c327a09258b"
-    sha256 cellar: :any,                 big_sur:        "d78e5ed90c9ff861313bc0d9779175e0018f98187a57add6c198f5bc3cf1fb5b"
-    sha256 cellar: :any,                 catalina:       "318094c42681531d683f67b6a0ed07147e07cf73b11a32d7260029cb98e85c01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e919ac84e3d1a58bace9319399dd9663b37e07b42f25ef2ea106b29b6674cf6d"
+    sha256 cellar: :any,                 arm64_ventura:  "166ac2aeef198f5ecd89c840f9110eeeef1cdaf5f77aab5c088dd7f052894450"
+    sha256 cellar: :any,                 arm64_monterey: "31709a9fe99cec28ad6fd9568f54c2a4727a1028e7fad6e622e03315302c377b"
+    sha256 cellar: :any,                 arm64_big_sur:  "2d7a742daf3bf436562daa8f2e3e051e5e529070dbcd33613ae8ad730ee86880"
+    sha256 cellar: :any,                 ventura:        "23eadfbb6eb1936e062aa53a9636337333ed587ce171ebad9760731e54799a92"
+    sha256 cellar: :any,                 monterey:       "fd60746bf97abf46da4b61666c75b486ddfe92c5158a16785485f785a3549766"
+    sha256 cellar: :any,                 big_sur:        "082caaecc1571aaafbdcb63aa13aa8814eefe1cd991a34e42aff4357c98a6bc7"
+    sha256 cellar: :any,                 catalina:       "99f67017a177a7766c95db47d1b58bbee407dfd82b7df911f2c6989d7a4a631a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f92b15216736fde3087cc0e159ed14362ab7fdac1298b50627fd49b9efd6834"
   end
 
   depends_on "cmake" => :build
@@ -23,12 +30,10 @@ class HppFcl < Formula
   depends_on "eigen"
   depends_on "eigenpy"
   depends_on "octomap"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python3
-    deps.map(&:to_formula)
-        .find { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .opt_libexec/"bin/python"
+    "python3.11"
   end
 
   def install
@@ -36,7 +41,7 @@ class HppFcl < Formula
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DPYTHON_EXECUTABLE=#{python3}",
+                    "-DPYTHON_EXECUTABLE=#{which(python3)}",
                     "-DBUILD_UNIT_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"

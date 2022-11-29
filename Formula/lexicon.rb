@@ -3,22 +3,25 @@ class Lexicon < Formula
 
   desc "Manipulate DNS records on various DNS providers in a standardized way"
   homepage "https://github.com/AnalogJ/lexicon"
-  url "https://files.pythonhosted.org/packages/ca/e6/c87afe904ca8a757949161d917f4663a8455249921039fb13398ad4dbada/dns_lexicon-3.11.5.tar.gz"
-  sha256 "030c6134ab098c9ac2d5d4a0527f04db3ee9f5256e3245cc4cd2f586b9fe2e9a"
+  url "https://files.pythonhosted.org/packages/c4/34/43be71ffbee123b644afcd63cacdb1323357b7e902edbaaa7dc937fc3457/dns_lexicon-3.11.7.tar.gz"
+  sha256 "fb3969e9a33c056e95dce7c43712665d8937e2a05112e2f4c098ef86a9cf07d8"
   license "MIT"
   head "https://github.com/AnalogJ/lexicon.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2e05a7e8da58a3fea4b1ea7275d2a78443e8b699ab855cbae526ad0f7c363d32"
-    sha256 cellar: :any,                 arm64_big_sur:  "025f5ff926751f1c1ef5154a9415315c7fbc4f0c5fc7fa6afd85108a3e331c41"
-    sha256 cellar: :any,                 monterey:       "4465dd0fda4bd49ce79ea8924e1b2c86ccbee3f2f1e4665209f21663a6008c48"
-    sha256 cellar: :any,                 big_sur:        "97ad157905ee39fd2fc0a519ea05b12118b219e4cec978766c1d84cff46eb126"
-    sha256 cellar: :any,                 catalina:       "0f859a2ffcad46f5346f5369b88e0c86f55d4a63d853568afc67b70cd342c39b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e23999d75af4617a2373d7e0a85e635a8939c67ddf2db7dcdadbf0cd99b348ea"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "4ca6f3fd3fd5b2c65d15f0bc1b0b01fa7af24ff044cb4fbfb9bc15d9ac5f0a24"
+    sha256 cellar: :any,                 arm64_monterey: "4276471f8f7055a2d08d9300b066599b56b90aa5d61ad18c44c284ec0f741668"
+    sha256 cellar: :any,                 arm64_big_sur:  "c6e3544fd7852c922cdf1437192ba6b023863e75c44d3d7ed70d8407354534ea"
+    sha256 cellar: :any,                 monterey:       "0a04fe38fbdc68d77253b37f75ef4feb95506f0493a778607b27bfb59724067c"
+    sha256 cellar: :any,                 big_sur:        "17062bc9dd9961a32522227856d6dce6dc8dd5d10ef5db4585156968449020dc"
+    sha256 cellar: :any,                 catalina:       "16ad0cba1c2ffcd3f929f7636c1c482002281ab3ef17772969a6d50dc0d52e6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7879553711e2307804e98696ce0149b2d541fbd4f726b5093328a23a8bec0de6"
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "python@3.10"
+  depends_on "pygments"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -36,18 +39,13 @@ class Lexicon < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/97/a0/20dd887905e5056c597c959a0adb452d88aac992418578e18567e2109f23/boto3-1.24.89.tar.gz"
-    sha256 "d0d8ffcdc10821c4562bc7f935cdd840033bbc342ac0e14b6bdd348b3adf4c04"
+    url "https://files.pythonhosted.org/packages/c5/cd/03b451072f4b87afcd831e712e0dabe5ef3a84659b73ca0ca303e414b94b/boto3-1.26.7.tar.gz"
+    sha256 "a3a923d7086fee6df9cbd019dddbf6fd922cc0fd0fa898c6ef47b1e6d0aab80c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/bd/cb/af3d2851d43200724720ba4e81af15cbadeaf5b190eedd1b75582296627e/botocore-1.27.89.tar.gz"
-    sha256 "621f5413be8f97712b7e36c1b075a8791d1d1b9971a7ee060cdcdf5e2debf6c1"
-  end
-
-  resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
-    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
+    url "https://files.pythonhosted.org/packages/11/bb/85bf3146992bea7c46fe7ce4cf7b5e15ef69d6835c7251402ced2a5124e1/botocore-1.29.7.tar.gz"
+    sha256 "de553225b203dd4f1c991b9543f3232b08adb3da873ad05996f81928838ec813"
   end
 
   resource "certifi" do
@@ -81,8 +79,8 @@ class Lexicon < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/6d/0c/5e67831007ba6cd7e52c4095f053cf45c357739b0a7c46a45ddd50049019/cryptography-38.0.1.tar.gz"
-    sha256 "1db3d807a14931fa317f96435695d9ec386be7b84b618cc61cfa5d08b0ae33d7"
+    url "https://files.pythonhosted.org/packages/13/dd/a9608b7aebe5d2dc0c98a4b2090a6b815628efa46cc1c046b89d8cd25f4c/cryptography-38.0.3.tar.gz"
+    sha256 "bfbe6ee19615b07a98b1d2287d6a6073f734735b49ee45b11324d85efc4d5cbd"
   end
 
   resource "dnspython" do
@@ -131,28 +129,23 @@ class Lexicon < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/ff/7b/3613df51e6afbf2306fc2465671c03390229b55e3ef3ab9dd3f846a53be6/platformdirs-2.5.2.tar.gz"
-    sha256 "58c8abb07dcb441e6ee4b11d8df0ac856038f944ab98b7be6b27b2a3c7feef19"
+    url "https://files.pythonhosted.org/packages/32/3d/711a708e9b69b263e5cf190a030a77fd79a05613820f6ce0c7ea6f92f99f/platformdirs-2.5.3.tar.gz"
+    sha256 "6e52c21afff35cb659c6e52d8b4d61b9bd544557180440538f255d9382c8cbe0"
   end
 
   resource "prettytable" do
-    url "https://files.pythonhosted.org/packages/a5/aa/0852b0ee91587a766fbc872f398ed26366c7bf26373d5feb974bebbde8d2/prettytable-3.4.1.tar.gz"
-    sha256 "7d7dd84d0b206f2daac4471a72f299d6907f34516064feb2838e333a4e2567bd"
+    url "https://files.pythonhosted.org/packages/51/d8/f4739a1971029c00fdb97c9ea4abbfb20ea041f6aa7613343f12a468e217/prettytable-3.5.0.tar.gz"
+    sha256 "52f682ba4efe29dccb38ff0fe5bac8a23007d0780ff92a8b85af64bc4fc74d72"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
-    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
+    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
+    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
   end
 
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
     sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "pyOpenSSL" do
@@ -166,8 +159,8 @@ class Lexicon < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/31/da/2d48d3499b59c7f3c5d5e1c79fcee5537c320c8ab7b7a0cd2db578bc34b3/pytz-2022.4.tar.gz"
-    sha256 "48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174"
+    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
+    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
   end
 
   resource "requests" do
@@ -181,8 +174,8 @@ class Lexicon < Formula
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/57/d6/20857446a2b81136dd02eed6d198343ce7a045ce8c06d4cb73fd2fee9001/requests-toolbelt-0.10.0.tar.gz"
-    sha256 "f695d6207931200b46c8ef6addbc8a921fb5d77cc4cd209c2e7d39293fcd2b30"
+    url "https://files.pythonhosted.org/packages/0c/4c/07f01c6ac44f7784fa399137fbc8d0cdc1b5d35304e8c0f278ad82105b58/requests-toolbelt-0.10.1.tar.gz"
+    sha256 "62e09f7ff5ccbda92772a29f394a49c3ad6cb181d568b1337626b2abb628a63d"
   end
 
   resource "rich" do
@@ -221,13 +214,13 @@ class Lexicon < Formula
   end
 
   resource "zeep" do
-    url "https://files.pythonhosted.org/packages/f8/d2/9c40fc50fa8d8ac2a744403e3c5eb64548daa9783c6ca060f74f911c006d/zeep-4.1.0.tar.gz"
-    sha256 "5867f2eadd6b028d9751f4155af590d3aaf9280e3a0ed5e15a53343921c956e5"
+    url "https://files.pythonhosted.org/packages/51/0e/e63cc585dcbde067e6a72d85c2acf9640d6bec40d3de4d53ac66a313f8dd/zeep-4.2.0.tar.gz"
+    sha256 "c6f3540a872239954de31e692e8343be767fb3842222f98cf31f79946b6680cf"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/41/2e/1341c5634c25e7254df01ec1f6cbd2bcdee3e647709e7c3647d1b362e3ac/zipp-3.9.0.tar.gz"
-    sha256 "3a7af91c3db40ec72dd9d154ae18e008c69efe8ca88dde4f9a731bb82fe2f9eb"
+    url "https://files.pythonhosted.org/packages/8d/d7/1bd1e0a5bc95a27a6f5c4ee8066ddfc5b69a9ec8d39ab11a41a804ec8f0d/zipp-3.10.0.tar.gz"
+    sha256 "7a7262fd930bd3e36c50b9a64897aec3fafff3dfdeec9623ae22b40e93f99bb8"
   end
 
   def install

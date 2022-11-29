@@ -1,18 +1,19 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v2022.10.03.00.tar.gz"
-  sha256 "998d8aa2cc836335eb342a72b50d5a754fe6b6dbdfc1ddc75a9973d8a4408b60"
+  url "https://github.com/facebook/watchman/archive/v2022.11.28.00.tar.gz"
+  sha256 "bce42b77d60ca01dbadd4ae38a569216ca398b11001c5d1cf950481425317a87"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5d0b417008a6a1b92f894c8ab3f9c3fb50f358a522521f16213dbaccadab0530"
-    sha256 cellar: :any,                 arm64_big_sur:  "88a87e5dd231e45f2f403ca454181e19ae9b3b41f6d6113cfe83e1bfcbcd728a"
-    sha256 cellar: :any,                 monterey:       "a5974893885c994eb31772fa0eeccd016cfa9b1e31c7f7aaf9b1513f05d86436"
-    sha256 cellar: :any,                 big_sur:        "9f280ab2ac32c4f8776db5cbd0e2561b949e0d75ba3dca347ca829af951bc338"
-    sha256 cellar: :any,                 catalina:       "ae94c926b991e5cbfdf9f44296adb4b8afa9c7381dcefe7d649cf6e39663fdb5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "200855d7f7872c99af9932b53e433e12c44062e3593261b0e45515276c4eee59"
+    sha256 cellar: :any,                 arm64_ventura:  "6de2df92a66d7e5fe9d1a416bd27f7d5adcc2fc814580a92b93cbe4b0607e029"
+    sha256 cellar: :any,                 arm64_monterey: "1c7e1b12ad131fa38e69c53cc59a94fda8ea9160626465ad6436c78d1fe6723f"
+    sha256 cellar: :any,                 arm64_big_sur:  "6db675b1b30375b2571b4d0a2eab4edc1ddd8f16ba67ac64b5202e7befdf1406"
+    sha256 cellar: :any,                 monterey:       "28d1f19ee299eadadc15c805fece0a7838da02c92ad6b6f3505d9df82d81ce0a"
+    sha256 cellar: :any,                 big_sur:        "f84753c40302990567b9d450ff440a0050602cd0563de4b4fe4a233ccdff697c"
+    sha256 cellar: :any,                 catalina:       "bffb34718f3eafa805fc9c72a3cffa1d7845720e016ec0b58e99076138719bf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cebe9a04487290fcc46001a4a2c1aba18dfb0c6af07aaa21a857ee41ff161a0"
   end
 
   # https://github.com/facebook/watchman/issues/963
@@ -36,6 +37,13 @@ class Watchman < Formula
   depends_on "python@3.10"
 
   fails_with gcc: "5"
+
+  # Fix build with CMake 3.25.0. Remove when patch is merged and released.
+  # https://github.com/facebook/watchman/pull/1076
+  patch do
+    url "https://github.com/facebook/watchman/commit/903c5a5a7c328ebd6e528cf79d7b61152ff9a456.patch?full_index=1"
+    sha256 "afec5e417ae24c35317db5d7fc178048dbe2bf11be9477a105ef390d0884bef7"
+  end
 
   def install
     # Fix build failure on Linux. Borrowed from Fedora:

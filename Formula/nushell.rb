@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.69.1.tar.gz"
-  sha256 "963d8e26fd919a2246f9ef01f9e8d5110f0f947525c39842c440edcb17938631"
+  url "https://github.com/nushell/nushell/archive/0.71.0.tar.gz"
+  sha256 "0f3a279ead004c86c44b6c9991e9e838b819dad23d65add7250a9691ad29f209"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -13,16 +13,19 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7fb75a4673dbf8d9bcad78b9cc2a0540d0ca200e9644344b440dbb04e980f324"
-    sha256 cellar: :any,                 arm64_big_sur:  "9cc249eb72903cb4133e30c24146646b44ec544b9f6005e2d723a0a023ccc74a"
-    sha256 cellar: :any,                 monterey:       "53c57d8f4abe24167d98fb780a3d4bd528a12dc821c05e1f4c1e2adadc2150e2"
-    sha256 cellar: :any,                 big_sur:        "9ecbd1fea6956446d537aca1caa747b4514c3b25e12ed2b9807f9f159313adc8"
-    sha256 cellar: :any,                 catalina:       "09a4b490ab5c2ace892d202eda9e1a0b05725dae489c816c5cc9e9fc6709a773"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ce8877db212ff0a03417ff79c8bd9df90353f184429431c18c25e123cea30b1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "51d415402fa98230d461bce3bca57d9076a98d13debaca60d6012bc13c67c177"
+    sha256 cellar: :any,                 arm64_monterey: "9ab3431541a906e70dbc6ff6199bfc55b60f167020586be542c6c546ecfe6bef"
+    sha256 cellar: :any,                 arm64_big_sur:  "dd19c564a15041fbdc9f2c033060beb0657c042c65eaca230738c03be44a5013"
+    sha256 cellar: :any,                 ventura:        "2d46517a0d804d8a5518d8e326553d090af4d246e799d2d265cbe19bef03fd2d"
+    sha256 cellar: :any,                 monterey:       "d8c402110fe653332bae86db9baf0c0404e36bdd0b75ac7f08f5520b9d6ff770"
+    sha256 cellar: :any,                 big_sur:        "bd772eb91d3d4e8f10be772ac58b06913640535147e122e2b28efe31e621dba3"
+    sha256 cellar: :any,                 catalina:       "b9fe355f40ef6c81a55e08e12fb7b2d5403537e370d428a1ec8c3f7c64138f8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40a844add05099b069cff54b043875f65ebc01bc7bc719ba06393e678c90778a"
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "zlib"
 

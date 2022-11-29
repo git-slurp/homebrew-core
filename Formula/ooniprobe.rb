@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.16.3.tar.gz"
-  sha256 "f3e86d1682a750e8dd85c519715af540abb470af4df1b3bdac42a9ed3b9d6461"
+  url "https://github.com/ooni/probe-cli/archive/v3.16.6.tar.gz"
+  sha256 "49efc61660e61f01e613b97f8cf39e92ae012c57ba9b10184263872315a63137"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,14 @@ class Ooniprobe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "df52c647ed897a883eb6c774016d448fa28990f33eb6b6ce27bea777c5df9dab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59c1cdb87718acdb56b2eb0d8745e2994ea0690ed89a73e6b5741ec71ea25b44"
-    sha256 cellar: :any_skip_relocation, monterey:       "b867d101cf6dabc15d5db0e32b5198feaf439ce31150ce28cab5d838869ddff7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2ff10b2ee43f0360e23692874ae6dcde40ad611c8ade137198ece53b684c83cf"
-    sha256 cellar: :any_skip_relocation, catalina:       "f1281565050e368608dd5d324bb3a8d7dcc31fc79be0166c91506180f0decc5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bee656531b106396aa258ecca187b6bb3de1778d6fd20dc1780af1006fc3a7ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cbde54f799ce92e075015aac9369eb85b5b44d4677b54cdebcb18b509a04b11a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9afaa9b3929d1395dacff1839f9463cdaa1e9ebfde244f7139f0b7e61e351cc9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6690cd176c774a9e9dcc89139454a5cf7350ee8a3ec09e14f8c833437e90e32"
+    sha256 cellar: :any_skip_relocation, ventura:        "4787f2a1ce0f5fc890d513c3de874a2704839b969454a58794ae0d854e2b967f"
+    sha256 cellar: :any_skip_relocation, monterey:       "287e841f1ab850f09f498a17d62048d53b6c5ec20f65aca7c60c682cc991a4b7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "487ff675456a4c7d2692bf01d7f57db1a5a28c0582f5f47f62c72c6794bdf171"
+    sha256 cellar: :any_skip_relocation, catalina:       "a3fd9e6eee9672b16e5bf1e8883617b966721a1cae576a02deda698b6209fc28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81be00242327253522b19fb14195db75f1c221af7634012229c84ac011279d0b"
   end
 
   depends_on "go" => :build

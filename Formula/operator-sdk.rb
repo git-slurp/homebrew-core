@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://sdk.operatorframework.io/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.24.0",
-      revision: "de6a14d03de3c36dcc9de3891af788b49d15f0f3"
+      tag:      "v1.25.2",
+      revision: "b63b921837de8dd6ce480033e427ecfc5e34abcc"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -13,12 +13,14 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "894290310ea19acc34524d11b32c739310aba16f702830b1ed0bb899f371968e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a694e3c87bf6965f66cf68ab7afd15db6ba14ba93fb1f1f9d6a72f78e93a0bc3"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0fb629cb2b3fb5bcfa217250754eb60b7e666a698b1c3992e8736c2e5ebfdb6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "692bd243ba275c07f6506cc10dfe0fe0e593ba1c55df91ea835e6a6adebd93e6"
-    sha256 cellar: :any_skip_relocation, catalina:       "b47551237027522fbe3b6a536c173a6a9272af72b862a988c714d71035733efb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9b82ba519c35ac9caea8464762da38eca6c76a50736ba487819d457cdd6a8f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "494cf83a780e852487fa33e7f951d279eff68f0e726ed66f92287a81a69e50cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "06df332feb22ebb880e38339d6ee2de4d00daeb339e0f48fa75ee7ec0377ef4f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "10ebf873db39facdca729344f99fd58a5de59afed9281c13744357d1c6787640"
+    sha256 cellar: :any_skip_relocation, ventura:        "3147a90a205c52a6e1e56b71e90f9d1fdeac71b2d175c8b319105016589cf414"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c1041a74aa3cce9a1a5e8c13321d615b1d464e80c83d693226fd9605de32bde"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b785386ca5f66dee46f12f21ea76dfa982e5b7faf83fdebf92806ca90a7294e6"
+    sha256 cellar: :any_skip_relocation, catalina:       "5b23ecf65951e4585e459673e682c3b94fc4d32c100d648535e9343f9c2490ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4c1ad04173ad197183d15d85833cae2a8e16c4564da6c906822086e80afc216"
   end
 
   depends_on "go"

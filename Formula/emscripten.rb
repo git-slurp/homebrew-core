@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/3.1.23.tar.gz"
-  sha256 "f590deb9bb0a34efaa3c4a5621795c4673ba8f953ed363e80d1701aa835f812b"
+  url "https://github.com/emscripten-core/emscripten/archive/3.1.26.tar.gz"
+  sha256 "f4c4425e2881bd62f75c6010cfd711c3e4f420870260a20391faa83af6a51993"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,18 +18,19 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f67cc7c479b069229aef72ca9135e8582ea32e421cc0b5eb558e732c43365540"
-    sha256 cellar: :any,                 arm64_big_sur:  "6c20789a9d7e688cdac0da7ec0fec0ece73c3fb7b4472fb7b82b58b801866efb"
-    sha256 cellar: :any,                 monterey:       "2c4367faafdaee82e7f124ade5309d3be3c91a0186f34b1df782f84133ceed62"
-    sha256 cellar: :any,                 big_sur:        "31c539d0943d74596865f06273f3fd77aca3d9d74a64980d0ed4e1080e836f73"
-    sha256 cellar: :any,                 catalina:       "c667597036c3f3bf640e1b4e00b8109ce302a992b4018677c1ed414d85ce4186"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14d9bb1d630ceff50aa6e236811981bbaa5f3573faa898c51aa0ecd89fdcb6a1"
+    sha256 cellar: :any,                 arm64_ventura:  "54cdba2e8a65fee702624fbba39e3204eefc25e678f3d6b074ce80cde83a046b"
+    sha256 cellar: :any,                 arm64_monterey: "581b68979a68214237f4b07459f543d8cd90eb4ec4ee1f121e05395888161766"
+    sha256 cellar: :any,                 arm64_big_sur:  "fca713d70c1373391c52e556c5848450c784271c2a6d9995aeadd39d0e686504"
+    sha256 cellar: :any,                 ventura:        "1128c4809eedad6d5081339d5d8a7c2414fe5661fe937603a262db1fc4121698"
+    sha256 cellar: :any,                 monterey:       "7a9a311f8313591fbdcb6f7e299c6db018bafc779e7a856b4ad1e856e05172e2"
+    sha256 cellar: :any,                 big_sur:        "2f3dfc812c27061c6bca313e579875045609ea063ab53e39e6939dd6ea126fd6"
+    sha256 cellar: :any,                 catalina:       "e132c5862dbf6a1513802590c15cbcdb19c78f15db4db726b90833a9e754f553"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af64c9ffffeae6c4803275ae1cd9d50678ea296cebb9ae5e2858a9b8ad3310d7"
   end
 
   depends_on "cmake" => :build
   depends_on "node"
-  # TODO: Check if we can use `uses_from_macos "python"`.
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "yuicompressor"
 
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
@@ -51,7 +52,7 @@ class Emscripten < Formula
   # See llvm resource below for instructions on how to update this.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "58bedde3ac54f82657d5de092e7142ffb2ff735c"
+        revision: "590f63782b9ee6307a2bc0e21917001a66ba16ba"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -63,7 +64,7 @@ class Emscripten < Formula
   # Then use the listed llvm_project_revision for the resource below.
   resource "llvm" do
     url "https://github.com/llvm/llvm-project.git",
-        revision: "8b587113b746f31b63fd6473083df78cef30a72e"
+        revision: "f81f0cb75a2808a67d2662f044ad07628fc9d900"
   end
 
   def install
@@ -169,7 +170,7 @@ class Emscripten < Formula
 
     # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler
     # can find OpenJDK
-    emscript_env = { PYTHON: Formula["python@3.10"].opt_bin/"python3.10" }
+    emscript_env = { PYTHON: Formula["python@3.11"].opt_bin/"python3.11" }
     emscript_env.merge! Language::Java.overridable_java_home_env if OS.linux? || Hardware::CPU.arm?
 
     emscripts.each do |emscript|

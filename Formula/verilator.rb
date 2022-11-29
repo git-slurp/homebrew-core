@@ -1,30 +1,29 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://github.com/verilator/verilator/archive/refs/tags/v4.228.tar.gz"
-  sha256 "be6af6572757013802be5b0ff9c64cbf509e98066737866abaae692fe04edf09"
+  url "https://github.com/verilator/verilator/archive/refs/tags/v5.002.tar.gz"
+  sha256 "72d68469fc1262e6288d099062b960a2f65e9425bdb546cba141a2507decd951"
   license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+  head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "892ffbcd0e96b47dd1117f4496feed9ac0135036efe1d054a21e23c6c91920b1"
-    sha256 arm64_big_sur:  "a23268268b1d5dba051c3323bc710576411ed275ecc047e14f9a5ea971000f2f"
-    sha256 monterey:       "e3aae130b82eec63682a3cba1fb4bd013541ee556bdf9ef8c573423bb3785cac"
-    sha256 big_sur:        "354ee81bb51c5903a17ac093480630c7e06e2502972c12746816a83bbb396822"
-    sha256 catalina:       "b55676954ad3fe5d75b1ad70f164793aa4ce09ed750acaa85d8f965944dcf877"
-    sha256 x86_64_linux:   "71517024181695b5103200682a331fc57964924b965c74a76b920b3e828bc98d"
-  end
-
-  head do
-    url "https://github.com/verilator/verilator.git", using: :git
+    sha256 arm64_ventura:  "c04c58b6d86b02df1e878d6ee889600a406f639fc3ceae334ca0d118bb4caf2e"
+    sha256 arm64_monterey: "cec176513d3bb689ae84f4201825fd1bbaa1294d33b654e04833d2f57044ed30"
+    sha256 arm64_big_sur:  "91b0279e48bc38f89928fd02fada9f0fcd89bccf7b6d1c944dd5106a92c32c28"
+    sha256 ventura:        "a3bb98befc539edefa7219c970a1f704ed8e81a96465194f3edbc1327c2c48bf"
+    sha256 monterey:       "49cf2ec7dc6c68e91c8788b3a93ce55002cf44005139441c381a14ce1859039d"
+    sha256 big_sur:        "596d5d599a9c6f0481fedfa10d5062e50d16801a4c32baedf462fc0dec88b3a9"
+    sha256 catalina:       "d84997d31523118754f06202d8627ace7d4ac9ec422ab779b0364c0f1b6274e2"
+    sha256 x86_64_linux:   "7f34ecb6d032f90cdff80f504b7ca1b3d38062a74bdbb6399b7c7909d418a41f"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.10" => :build
 
-  uses_from_macos "bison"
-  uses_from_macos "flex"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "perl"
+  uses_from_macos "python", since: :catalina
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
 
@@ -56,7 +55,7 @@ class Verilator < Formula
           exit(0);
       }
     EOS
-    system "/usr/bin/perl", bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
+    system bin/"verilator", "-Wall", "--cc", "test.v", "--exe", "test.cpp"
     cd "obj_dir" do
       system "make", "-j", "-f", "Vtest.mk", "Vtest"
       expected = <<~EOS

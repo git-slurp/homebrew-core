@@ -1,8 +1,8 @@
 class Keptn < Formula
-  desc "Is the CLI for keptn.sh a message-driven control-plane for application delivery"
+  desc "CLI for keptn.sh, a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/0.19.0.tar.gz"
-  sha256 "511e53a047f4e40bd2935564ed638ce0a23a83a1fd0bab4e10f7579bc3c22ee1"
+  url "https://github.com/keptn/keptn/archive/0.19.3.tar.gz"
+  sha256 "abe29dc9eac9492be9d3836f54335081c84a572ca5ea77d14cca5d062080c963"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,13 @@ class Keptn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5328db7ab91987ca43f31a5071f52952e2b0993e6e8dfa466d516e6f9f81993c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "878df0741658f1bb600b70e34f3abc287632f7ec7e67a8e726e2b9319cf1a99f"
-    sha256 cellar: :any_skip_relocation, monterey:       "fd663c0c9c638a94cbeb1fdc2e7220fdc8db8ff4808e65681f033fce2a06065a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df24d20de9c1c441a0c723b5d1955fe9879c894173a9d63f51f05787503c3bc2"
-    sha256 cellar: :any_skip_relocation, catalina:       "04ae57a9f5a8401228813114486ffad5d430df699085c9a4af8774fc3c9bc455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0a7f6392ea70fca13ba5965bf24096786f56358e656941db513d2e578082dd8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9c8f6e3f6cdde2bd624bdb10c51c7c955e26e2a0aebd709a712d9e04fb596bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "514dedeabb3f2a94d55b737b77dc34b8b0a77964617c699d7e6df4ae55af929d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79eb1fb8b8fa079899340e907537d81a41e77999aad57500e677f6f284ce8de5"
+    sha256 cellar: :any_skip_relocation, monterey:       "0fd496e28cb0a9a24edab4cbbf507c6d84bf999436e4641cbf03a70721731c95"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6b504aa5f7f245a5cfb077585301bfdcb8d2e1ab9f57e2446b714ecf7b46ef70"
+    sha256 cellar: :any_skip_relocation, catalina:       "5bb22a70ccbb1d93b0b6c2841633db2e26c83c7e2f2d0119568edbac076de817"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3871417c19b0909787fa03c90945917b8a5d715a25183fbc60b879ed1c66703"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,19 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.3.0.tar.gz"
-  sha256 "e7ffda2782bb2f0bdf8235db3e9655c71e005d762cab0fa19d260fe672c6104b"
+  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/9.6.0.tar.gz"
+  sha256 "dfbbd278472e5e4d61f50d6ab8a2147ee447db2451942d8a4689d1f3bf6e6e1f"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "241fe74a777038f526574f77b5ee4831bf99887754ac64d8b94ff72d84fcb794"
-    sha256 cellar: :any,                 arm64_big_sur:  "906cb60ce5345580bbaa4fe7d1f6cd2c6e00c0fe61c0765a86a1da60350d737c"
-    sha256 cellar: :any,                 monterey:       "723111b1d9b0612aae4a0c767af1724818b3263f2e25cc14dfbff94f6b5fb961"
-    sha256 cellar: :any,                 big_sur:        "fe623957af3531a96cbccbafc90fae4e6cf8c6e261f14b1e7fcbc16a03e54b42"
-    sha256 cellar: :any,                 catalina:       "0e86f538866d89810a1bc4eb02ee92d5e805d0fdd9afa21c2d9d6c6428725029"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23a0d63e513a43b45f38d6a87f13c409af3ac74108fff1e86aa44d1799db3dfe"
+    sha256 cellar: :any,                 arm64_ventura:  "a93633d4b89c08895d347e376812dbc4949238880295cd9e40b1c7989c6a5679"
+    sha256 cellar: :any,                 arm64_monterey: "94844c66dd9e1ad1926f58274857a1fa8cadfc36b8c051a11ab98fb16e1e8740"
+    sha256 cellar: :any,                 arm64_big_sur:  "137e1e3cfaf566104f384a0a73cb77704872e781910ca7e18e24cc8a0f7884bd"
+    sha256 cellar: :any,                 monterey:       "8c3fbf88dfcaff31b65606de210beb85e8000e13b63156cf1cc8281e3cc97116"
+    sha256 cellar: :any,                 big_sur:        "e2f852d4573bfe2584b0d87ce178b2219943ae109633066b8e95dd8ca9a08cac"
+    sha256 cellar: :any,                 catalina:       "a5150986c662a1c629d603beb83aa7b0a555d11968f0a93a1a3c35fa6ca8cf0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98957d759c485fefbe0489855bbcfcb6e2d18c788bb752fecf66747adf40b780"
   end
 
   depends_on "cmake" => :build
@@ -23,6 +23,10 @@ class VowpalWabbit < Formula
   depends_on "eigen"
   depends_on "fmt"
   uses_from_macos "zlib"
+  patch do
+    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/0cb410dfc885ca1ecafd1f8a962b481574fb3b82.patch?full_index=1"
+    sha256 "798246d976932a6e278d071fdff0bff57ba994a3aef58926bbf4e0bf6fa09690"
+  end
 
   def install
     ENV.cxx11
@@ -36,6 +40,7 @@ class VowpalWabbit < Formula
                             "-DFMT_SYS_DEP=ON",
                             "-DSPDLOG_SYS_DEP=ON",
                             "-DVW_BOOST_MATH_SYS_DEP=On",
+                            "-DVW_EIGEN_SYS_DEP=On",
                             "-DVW_INSTALL=On"
       system "make", "install"
     end

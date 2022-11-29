@@ -1,18 +1,20 @@
 class Dasel < Formula
   desc "JSON, YAML, TOML, XML, and CSV query and modification tool"
   homepage "https://github.com/TomWright/dasel"
-  url "https://github.com/TomWright/dasel/archive/v1.27.1.tar.gz"
-  sha256 "4dd83d68347b895d62ec2749d782a9dbddf314bafef502eac7c5fdcc4058b85d"
+  url "https://github.com/TomWright/dasel/archive/v1.27.3.tar.gz"
+  sha256 "1dfd0bf372ab252931adc636887c1d34a75e9ac767b5e6baabf9fd91fdfa15a6"
   license "MIT"
   head "https://github.com/TomWright/dasel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b039aec39b59468530072650b74b8fa1f167caf23ae5294bf94fa75249a22c0b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ebf1f0a99009cbcca8a838e6b9952bba6d822287e75616289222489e62e0a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "2179e1f2d3503c63b9b5476295256144d62b68b67b6ecbd1f2976916e89b409f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fe21369adeb176dc31df9b09771b108e7a09258b26a2e11e3f7f109e3863c729"
-    sha256 cellar: :any_skip_relocation, catalina:       "13eda97e3957681bbc74d655975dadaf595f6ce21e1411814d92761ae68538d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77ccacf71cd8e0a2b4dfacf2b07b61f4f73c8921138afc5f9c47a1c6d3f72b47"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c53ba72ea84120e87d08f7643b29fe44426498b0312c0bac4bae101aba10698b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a196bb46bbc5b0436d47d448aa1223857ce58690d884ecc896a0a0be8d230ccb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21086f7f67cc0ad457475b7ac97464cfb77aa0473133f3bac0e03642d79304f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "f69a48e0fe1797dc07e96bf40e7effe163be4e5b4539132523e8035e7dfb89e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "093edd26d35afc44c4dd59496966f17e295a0f4afae07cc2a4db49836a8f41a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "390ede644f4902baf4461f77f1299c21bc35381376ac60fd3adb14c17964c067"
+    sha256 cellar: :any_skip_relocation, catalina:       "1cb975ce85dca8e1c234f3e3995ce399e558a585afaef6bbcfe78f7290f9f36f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4feec3f1613fa0a337dd7fae0fd230554aec0a6fdec952230ff3fd9453462e1"
   end
 
   depends_on "go" => :build

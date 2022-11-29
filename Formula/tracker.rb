@@ -1,10 +1,9 @@
 class Tracker < Formula
   desc "Library and daemon that is an efficient search engine and triplestore"
   homepage "https://gnome.pages.gitlab.gnome.org/tracker/"
-  url "https://download.gnome.org/sources/tracker/3.3/tracker-3.3.3.tar.xz"
-  sha256 "4094f704e338f2247fa6b94633279cfd07f7e952bb24627128fab78edb242464"
+  url "https://download.gnome.org/sources/tracker/3.4/tracker-3.4.1.tar.xz"
+  sha256 "ea9d41a9fb9c2b42ad80fc2c82327b5c713d594c969b09e1a49be63fb74f4fae"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version scheme.
   livecheck do
@@ -13,12 +12,14 @@ class Tracker < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "fa292ce5ea663a2b22fe7754528afbc1064cf9478c59647c8c709ffaed97a9f9"
-    sha256 arm64_big_sur:  "696b5885e4d6521fcbe595c06d4f8504aed04969beec74fa29f44eaf019c62fe"
-    sha256 monterey:       "94a40857320c11adea0abfb0c86f5098bf20003e5dded988886837f43aea60a0"
-    sha256 big_sur:        "ca8592edacf810ee016119cbc3bb60c6879e8fd2f2b0e2a5f29fa54daa8dd043"
-    sha256 catalina:       "1ecf230ec1758bde96ea6569a9dc39e656199061cbe36fdc90fc0b77052f84f4"
-    sha256 x86_64_linux:   "064ef519438d1a4e668d5540d1fe85ae7bd8c21874e86cf8b290ffb70f690d22"
+    sha256 arm64_ventura:  "d042f24c2c9d9573b589e53932b1d2175db61af7d031a97209544faa7eb913ae"
+    sha256 arm64_monterey: "cb6ca6a5912870098e1ca387311a0902d92018ad5cc0f46a615b959d18c77a30"
+    sha256 arm64_big_sur:  "f55db3219384185dffe058a2849d57b4bcfbbe28ea1c04185381e90b0313bc10"
+    sha256 ventura:        "a901228c0dce04129cea33796f1f81b0e4ed3e89687800720944d33902e31059"
+    sha256 monterey:       "1ed6c8de2983a9991230ccf8e32c6fee32cd1d5d18cc2c7d303b0d6bb76df9b5"
+    sha256 big_sur:        "1825b70268c0b02075686c7623bbc9bfa000ce42badb09693c7b655fa12645d3"
+    sha256 catalina:       "f09dbe67cd27bd66748b220fc0596b8c2007ac14b6dcd077d21bc94d8078cd6d"
+    sha256 x86_64_linux:   "c8a5a3209753d81aebf2f49dcbf4212f4784a6c84fdcfd82238b376cf8f8c9b5"
   end
 
   depends_on "gobject-introspection" => :build

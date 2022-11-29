@@ -3,17 +3,18 @@ require "language/node"
 class BashLanguageServer < Formula
   desc "Language Server for Bash"
   homepage "https://github.com/bash-lsp/bash-language-server"
-  url "https://registry.npmjs.org/bash-language-server/-/bash-language-server-3.1.0.tgz"
-  sha256 "36646b3788e238b6e4d2d5c6b8adef86ee30d4fb1cd8d6cb7f68e674dc5f216d"
+  url "https://registry.npmjs.org/bash-language-server/-/bash-language-server-3.3.1.tgz"
+  sha256 "af2132dafd161dbe3c34ce89eabb6860954bfd4643bd60409c9853e2d21e9148"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9e5313f877b77afad07f9418b5a4bc0828e911173d6bd4b0726dc02885fed4a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9e5313f877b77afad07f9418b5a4bc0828e911173d6bd4b0726dc02885fed4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea2aa92dcfe287797e4eb693dfbfaede9ab13c28b177fa4c7f500b92d8e261f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ea2aa92dcfe287797e4eb693dfbfaede9ab13c28b177fa4c7f500b92d8e261f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "ea2aa92dcfe287797e4eb693dfbfaede9ab13c28b177fa4c7f500b92d8e261f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9e5313f877b77afad07f9418b5a4bc0828e911173d6bd4b0726dc02885fed4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9961b5a37ca9823789584484faa59325212d07421b2e77f18043c87ae6da044f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9961b5a37ca9823789584484faa59325212d07421b2e77f18043c87ae6da044f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9961b5a37ca9823789584484faa59325212d07421b2e77f18043c87ae6da044f"
+    sha256 cellar: :any_skip_relocation, monterey:       "1cefcb238cce580e1254795890950be3a5d622093ee031e9e8f2d21e83b87cbc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1cefcb238cce580e1254795890950be3a5d622093ee031e9e8f2d21e83b87cbc"
+    sha256 cellar: :any_skip_relocation, catalina:       "1cefcb238cce580e1254795890950be3a5d622093ee031e9e8f2d21e83b87cbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9961b5a37ca9823789584484faa59325212d07421b2e77f18043c87ae6da044f"
   end
 
   depends_on "node"

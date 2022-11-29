@@ -1,20 +1,19 @@
 class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.15.4/purescript-0.15.4.tar.gz"
-  sha256 "df279079a7c78c5b1fa813846797e696787f5dd567b1b6e042f7ab6a2701868f"
+  url "https://hackage.haskell.org/package/purescript-0.15.6/purescript-0.15.6.tar.gz"
+  sha256 "75bc618d1db6ce7f96db9fed26029e450718a1db66f8921ee1856d73ec97e8a6"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/purescript/purescript.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d2d01f66f7cb985296b1b4801db52a3c47686bba33b4cf36ba8cb405bd45c76"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64c3b8e647e8fb4b350752742f0368ad53ca0e384a6f0658118d9eb8d3f28a1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7ad06ab5c115f7edd2db2644aeeec186cf969ebc7933430a27a0d47cb340236"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ebda8f4eb5ce1151fb27645529426d4c380a3cd3bd6c0782e429985d1167dd58"
-    sha256 cellar: :any_skip_relocation, catalina:       "e9ebb7b6dab162ee3ce9e057f39328a53f15fa7b7558af6e6ea1d8cda9b6cf65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67a8df7632e6bd654de3a2963fe3739d6441a7054538a4c1bf6eb7207d535bea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b54a5c3a58dc97a2a87bf633c8a556165543f4af7e5e36775283f599f58f5e1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89000bbdbea995ae9109d0846daf4e8959fa8e0ac7868b03ea0c627c6c23c6d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "50ed65494255c005d3a4f9bd9eee13ea87ba4cfd96a97b15513e958a34432bbf"
+    sha256 cellar: :any_skip_relocation, monterey:       "325cefc0ea682cd30dc6e034bca02c79595d03e268cacfa95a5e0ceed6c38f4f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f47f53bb001cba93513e33fc1c3aac8e931924e2f54bffbeeeca4d6f6e2e7e94"
+    sha256 cellar: :any_skip_relocation, catalina:       "9989547c19a0e4959d658819880349374d2d8f09f311ec30c7af62518e3c0bc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d9ea1019c81d595ec7ea8d78fc484f28a49999e4388dc123aec6b1337822bc8"
   end
 
   depends_on "ghc" => :build

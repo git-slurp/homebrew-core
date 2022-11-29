@@ -3,22 +3,23 @@ class Mathlibtools < Formula
 
   desc "Lean prover mathlib supporting tools"
   homepage "https://pypi.org/project/mathlibtools"
-  url "https://files.pythonhosted.org/packages/6d/94/5ef08aa09f89c3696032de33181e107cda826a53d076886af886e0834d36/mathlibtools-1.1.2.tar.gz"
-  sha256 "25b9dbdc52b20753407a107cb59c4157a77b24908e81664f31631a14400ece43"
+  url "https://files.pythonhosted.org/packages/72/42/9631b9379c7fe5b6c6fb5c45d11910d58bfe28b5c7cfbe9e9e62de5546b0/mathlibtools-1.3.0.tar.gz"
+  sha256 "88161287963c318ab38de36def479446be344922a1d31e35a657a679a68e7f2f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d1419cb5de96309903e78aa9fd0ce156984b2df5dbb9c6b79be510e52403557"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "152904bcc9557fc76cc64e82827dca62be47f29b68597393c1d77aed16e6477d"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad4bc73fdc130c41f42247337b40c83888eb82ef29374007efd74f8ab15dc820"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ef6f25c06893372f710f2397203c975e1e25e432f888701fceb07844434907b8"
-    sha256 cellar: :any_skip_relocation, catalina:       "f652246bfe8b5d18d6605bf34e6b11a9a11d988afcb9509c71a922edd9235ad2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0409bb4dc03e96ac1b28bf13cb0427470e8d24b7f63716424c5042674db154ef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a797bd3200b10e37c73fa8fd0cb021185deed87ba8f45d2a6902dc7d3a6e7aaa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19ce453b66d0d8e8428ddfd2f4b976b05f8516800a794ea6a0b690c56f409c95"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e81e5813036af22b1e81198268924b4a977614cdc427700906312f684199a0bf"
+    sha256 cellar: :any_skip_relocation, ventura:        "cbab3196ff69fd42c4e9dcd9e1156262996b1c6075470c51b5ac2dc322f41fd9"
+    sha256 cellar: :any_skip_relocation, monterey:       "df14818088786e7c06e9209a2d3e4f8a832bdab9f39ed7a5d1397852c338b3a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "769ee87daf4f1076b01e4eb0cfcceb392b2b5226643d702b1e16c721d407e04b"
+    sha256 cellar: :any_skip_relocation, catalina:       "e25e751b4cb1250616311e974b19157ff8c69183a2e63ab3137c625f2b510620"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "550412db6e15ee8571e33f895b69bd2b82d0858fdcdfb420cce5d6507d580c8d"
   end
 
   depends_on "lean" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -28,8 +29,8 @@ class Mathlibtools < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cc/85/319a8a684e8ac6d87a1193090e06b6bbb302717496380e225ee10487c888/certifi-2022.6.15.tar.gz"
-    sha256 "84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d"
+    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
+    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
   end
 
   resource "cffi" do
@@ -58,18 +59,18 @@ class Mathlibtools < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/d6/39/5b91b6c40570dc1c753359de7492404ba8fe7d71af40b618a780c7ad1fc7/GitPython-3.1.27.tar.gz"
-    sha256 "1c885ce809e8ba2d88a29befeb385fcea06338d3640712b59ca623c220bb5704"
+    url "https://files.pythonhosted.org/packages/22/ab/3dd8b8a24399cee9c903d5f7600d20e8703d48904020f46f7fa5ac5474e9/GitPython-3.1.29.tar.gz"
+    sha256 "cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/62/08/e3fc7c8161090f742f504f40b1bccbfc544d4a4e09eb774bf40aafce5436/idna-3.3.tar.gz"
-    sha256 "9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
+    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/d9/c6/ad9dc9195c0e5d8879d2a28667aa45e087631576b40f9c954a086693a36d/networkx-2.8.6.tar.gz"
-    sha256 "bd2b7730300860cbd2dafe8e5af89ff5c9a65c3975b352799d87a6238b4301a6"
+    url "https://files.pythonhosted.org/packages/cd/16/c44e8550012735b8f21b3df7f39e8ba5a987fb764ac017ad5f3589735889/networkx-2.8.8.tar.gz"
+    sha256 "230d388117af870fce5647a3c52401fcf753e94720e6ea6b4197a5355648885e"
   end
 
   resource "pycparser" do
@@ -83,13 +84,13 @@ class Mathlibtools < Formula
   end
 
   resource "PyGithub" do
-    url "https://files.pythonhosted.org/packages/98/36/386d282903c572b18abc36de68aaf4146db4659c82dceee009ef88a86b67/PyGithub-1.55.tar.gz"
-    sha256 "1bbfff9372047ff3f21d5cd8e07720f3dbfdaf6462fcaed9d815f528f1ba7283"
+    url "https://files.pythonhosted.org/packages/6d/57/1c8a10e67e50cbee3c721bb554ac9a422f9f0accfc8f6e16a3fe9e65d387/PyGithub-1.57.tar.gz"
+    sha256 "c273f252b278fb81f1769505cc6921bdb6791e1cebd6ac850cc97dad13c31ff3"
   end
 
   resource "PyJWT" do
-    url "https://files.pythonhosted.org/packages/d8/6b/6287745054dbcccf75903630346be77d4715c594402cec7c2518032416c2/PyJWT-2.4.0.tar.gz"
-    sha256 "d42908208c699b3b973cbeb01a969ba6a96c821eefb1c5bfe4c390c01d67abba"
+    url "https://files.pythonhosted.org/packages/75/65/db64904a7f23e12dbf0565b53de01db04d848a497c6c9b87e102f74c9304/PyJWT-2.6.0.tar.gz"
+    sha256 "69285c7e31fc44f68a1feb309e948e0df53259d579295e6cfe2b1792329f05fd"
   end
 
   resource "PyNaCl" do
@@ -118,8 +119,8 @@ class Mathlibtools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
-    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
+    url "https://files.pythonhosted.org/packages/c1/c2/d8a40e5363fb01806870e444fc1d066282743292ff32a9da54af51ce36a2/tqdm-4.64.1.tar.gz"
+    sha256 "5f4f682a004951c1b450bc753c710e9280c5746ce6ffedee253ddbcbf54cf1e4"
   end
 
   resource "urllib3" do

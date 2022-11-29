@@ -26,7 +26,6 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
-  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 
 permissions:
   contents: read
@@ -48,7 +47,7 @@ jobs:
                                                 .map(s => s.trim())
                                                 .filter(Boolean)
                                                 .map(s => {
-              if (intelMacOSRegex.test(s)) // Ephemeral runners
+              if (intelMacOSRegex.test(s) || s == "13-arm64") // Ephemeral runners
                 return {runner: `${s}-${context.runId}-${process.env.GITHUB_RUN_ATTEMPT}`};
               else if (linuxRegex.test(s))
                 return {
@@ -217,7 +216,7 @@ jobs:
           mkdir "${GITHUB_WORKSPACE}"
 
       - name: Cache gems
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{steps.set-up-homebrew.outputs.gems-path}}
           key: ${{runner.os}}-rubygems-v2-${{steps.set-up-homebrew.outputs.gems-hash}}

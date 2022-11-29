@@ -1,9 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.0.6.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.6.tar.gz"
-  sha256 "e4a10a2986945e3f1a1f2ebd68ac780449a1773b96b6a174fdf650d6bc9611f1"
+  url "https://www.openssl.org/source/openssl-3.0.7.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.7.tar.gz"
+  sha256 "83049d042a260e696f62406ac5c08bf706fd84383f945cf21bd61e9ed95c396e"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,14 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "55f73d1c19444173d2c9567ca47e014ffa6e4ee2bcc0e54c61bf3f9bab70d206"
-    sha256 arm64_big_sur:  "63f39758fbe95d4bda90c82d3f16473e804edbe1ee4402871bbb7ec73d06cddf"
-    sha256 monterey:       "bd133aba6260cb0315871be35208c316ddec47cb03a8d1ec4d18aab68db480fd"
-    sha256 big_sur:        "6756c6165f41cb16d5fb738293b7131fab13906ecb73e055efde25711cac95a4"
-    sha256 catalina:       "d19727f605e1dbf2dc8da872ef8a4bdbed82da3d8cafe1ffd71b1cf94b8bf04e"
-    sha256 x86_64_linux:   "d6c5f7d0e223a9994c66be6a1eac2389400b6b057dcd8118c6b9846502912abd"
+    sha256 arm64_ventura:  "5b3d605f5c1fcadfea094c5670091e4bec2b2de7c121874be166bc737ef64ccf"
+    sha256 arm64_monterey: "aaa47bcc0e7727e655af43748c77f580b1379403010177aab47978b737180295"
+    sha256 arm64_big_sur:  "c84729c8726b7934f0a63d75fd2dce795c948f9b7ec29f9681f667de90b73f16"
+    sha256 ventura:        "3fe02c4f33f395b1ff0af0e05fdac80ab09fc13e85236f33a2aecb105a83d996"
+    sha256 monterey:       "8501aeeab59c63a75dd14c1b836269a6effb08058ec7afb35313f954b40d78c3"
+    sha256 big_sur:        "a8231d898ef9e61de88fc916ed316e58862ef04f1f17563b2f6247fcc894247f"
+    sha256 catalina:       "11f2d168758de4ac078c5799f2ce0fcc93e4f0c3d8b59e6f53eea700dfa02e83"
+    sha256 x86_64_linux:   "1c2ee30c067e2a81dfa1d4f539c91fa278816a45c5d59ff798ec437a5de82f9c"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"

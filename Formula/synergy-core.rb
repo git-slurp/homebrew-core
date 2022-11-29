@@ -1,6 +1,8 @@
 class SynergyCore < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
   homepage "https://symless.com/synergy"
+  url "https://github.com/symless/synergy-core/archive/refs/tags/1.14.5.17.tar.gz"
+  sha256 "ed48717ad664773aa3492e34f085873cab43fb84e8fe3717db485588b67ae1d1"
 
   # The synergy-core/LICENSE file contains the following preamble:
   #   This program is released under the GPL with the additional exemption
@@ -16,13 +18,7 @@ class SynergyCore < Formula
   #   audit_exceptions/permitted_formula_license_mismatches.json
   # That exception can be removed if the nonfree GitHub Licenses API is fixed.
   license :cannot_represent
-
   head "https://github.com/symless/synergy-core.git", branch: "master"
-
-  stable do
-    url "https://github.com/symless/synergy-core/archive/refs/tags/v1.14.4.37-stable.tar.gz"
-    sha256 "081735f032a2909c65322d43bcaf463bca05f88a05882c706762c959cd4bbec6"
-  end
 
   # This repository contains old 2.0.0 tags, one of which uses a stable tag
   # format (`v2.0.0-stable`), despite being marked as "pre-release" on GitHub.
@@ -35,13 +31,13 @@ class SynergyCore < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_monterey: "0e2dfd4b2c992c6953470239b08c15136eb113a476a4553a55021ba9048ede1b"
-    sha256                               arm64_big_sur:  "2828370ddc9ba0466e78773e39051f379ee95a4e6d7b6e2fa4934fbe5c241898"
-    sha256                               monterey:       "7513faa923880772e8209c5b729c112e4a49c200d65597882c156c11008c2dbe"
-    sha256                               big_sur:        "e82a5ded88d0c0f9d11f5026b1bd7c0c7c98906f4c5e683edee8feb70396c6fc"
-    sha256                               catalina:       "66bb64c4ac31a93d1c1fe231ee27ef10d2617da8ce2082e761f2e28e894ac87f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd939f3ad2f9ece9d70c4550be88322a64abdf49e8574b9afb610e696f2f1314"
+    sha256                               arm64_ventura:  "1b4a2490a8037d024db0d276cae2e8bc285aee8a103db5342ccbe10771199e3c"
+    sha256                               arm64_monterey: "725f0f1fa1dfe02c9a1c7263475e56ea7ddd1851db82f7105713e722ac8a8420"
+    sha256                               arm64_big_sur:  "4029385d37cae098379287bf401afdcfd0e7255956644ca9698066997ac8e662"
+    sha256                               monterey:       "24f862db876c623f46ad44fcc14350586783e84c1f0dd79bd17e37b2ab861280"
+    sha256                               big_sur:        "f125834a8999cb0a9392e4a4f7085b9168b206e8b596929981426eb92a658036"
+    sha256                               catalina:       "9d82863c4c7c1bb6dcd62d9cfb5eeb4abd05d9c360bf08b0b5408b2e90dde516"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cac6f9f95676a8ec29f97d17612c1e523ddb912f36c23ded04330b1c2a73a371"
   end
 
   depends_on "cmake" => :build

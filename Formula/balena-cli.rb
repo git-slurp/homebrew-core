@@ -3,8 +3,8 @@ require "language/node"
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-14.3.1.tgz"
-  sha256 "0a1c4034b3a073352f05df9480da5c1afcb430ad252fc41daf5c3a002b9e13b2"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-14.5.12.tgz"
+  sha256 "a0816d9ba1755115ba6ceab6d842b0e6c9ccdffc5d27e7f1c46600d9f7b57dec"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,14 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "c5aaa0a148495be2c172d89c3f3bf32d97e8c56255abc1f5183eb752356cb0e8"
-    sha256                               arm64_big_sur:  "7affd060c24c9747fb81a471eaa7391aa330b86f74476a1490382e66b56703d3"
-    sha256                               monterey:       "2cf4b356f5a4da29aef99b9c8f7a2fdab128bb1a819a350fa40f830fbc02a2f7"
-    sha256                               big_sur:        "3001391c73ec4b489ca14710480dca28c4e028f3f1d73e9c6dbccace2a1af057"
-    sha256                               catalina:       "490fcfeef05e5f3addee1cb4e2723ff563f738ed47a2e22644fff2591abe1049"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9831411ab770f3dcd44740b2d7a37bd54ce96f2138efa4ee304fa2a1547d895b"
+    sha256                               arm64_ventura:  "300d6ea7b3adc8310edd5190d2651a04791b93f91ce1ac4f39de382dffd16e53"
+    sha256                               arm64_monterey: "f9b6e53ecbc2be8b0705620b7f5855b7ff47272b5ba9b4c5b344681ace1e1f1d"
+    sha256                               arm64_big_sur:  "27cf91171cde932b173d0c6af302da30ad42dc6bba52dc77374491ee026eac5c"
+    sha256                               ventura:        "6e8ba3377958853c5ea29fbc9f635ecc9bd1044b6d248fe33b193383925ef8f2"
+    sha256                               monterey:       "c152aeaf18cff1d23631c8781c96f5dd5235000f6cb2b5f634a227f4ff80967f"
+    sha256                               big_sur:        "e25d08517b71903ed8d9dba8cc49753797488ef6b956d82d1739d5265b7ca788"
+    sha256                               catalina:       "f1012ebae09296806d384ef3ab53f429dd77272f752caa6def67a9a8bc5a1f60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2b01f4a61a7fa183c95fd8d09ffe7035303f9c7e370e2fe30cadd288ef27e2b"
   end
 
   # Node looks for an unversioned `python` at build-time.

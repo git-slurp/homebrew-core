@@ -1,17 +1,19 @@
 class CiliumCli < Formula
   desc "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
   homepage "https://cilium.io"
-  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.12.4.tar.gz"
-  sha256 "271dd1285b19b7e8d6e2eecae0059b7a22fe87c2a8000c599997397d2494d0d3"
+  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.12.9.tar.gz"
+  sha256 "530f547a75377bc52fde8e3e20aa293ed5374264c6a66dd214d67c0afb7d4737"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25c92248f27c5c5e890ad44adc4feb7353aa17109d484d5fafb007e7e3f2f794"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aef004a97c85ebdb91a2bd89598de6af38a63a1a78dad6d0be27e75c832284cf"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e9aa1a1d395e79a4db6fe16848519c01542131588d96b7ee25fd6df28d840c9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0e681f324dafacc919ccbfd52319ef1454c6450744ee5a337159bb0bb1dd891b"
-    sha256 cellar: :any_skip_relocation, catalina:       "5b718eb1f0bd2c3151d5e024ead0e781bd4cc5766e7e5b2af2d33dfb24f8af0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7610af499eea74e46b7c5ef1492880a382c7079704b447047a7b7ef8d381fbcc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bfc0a4f5cfcd8c2344ec1886c8f9d2e890519b9da5eae63c9fd60fd4547c6f2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ece4d0831ced56beb6de325eae4e65522ce3aa99856407810cb7f2a2c0ee1a41"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d88f39db63b64e123dc86d09015419395675353c5401ff6250a513b25da139b"
+    sha256 cellar: :any_skip_relocation, ventura:        "b5c3baa26441e71c95d0b8d440c2d823d4d5e57da1f0b781faf22bf07f22a830"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a904f662dc36eb174d874e2eff5f54fc46689431e6aef671f50674ce256d378"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c10645dd240786915bd191bacb3eb6336eb6e2934b61bc0cbc7d4cd21ca62b9d"
+    sha256 cellar: :any_skip_relocation, catalina:       "db9c3266f3dd2636530c4ed842c87420c02be9cf4406e816acbecd59dc7e9b62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "619ff5996214d4ae44f85ba5b9233c4db24e21b1f7053fb05075bec1c80f5379"
   end
 
   depends_on "go" => :build

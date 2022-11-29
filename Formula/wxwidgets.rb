@@ -12,26 +12,37 @@ class Wxwidgets < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d6147eeb082c14a69608cb5d827462d45829c921b63772f5620662d71d626381"
-    sha256 cellar: :any,                 arm64_big_sur:  "70d9753a8424f931e7d964dbbb8880438e7f7d1cb2531724ccad102d30053ad9"
-    sha256 cellar: :any,                 monterey:       "179fdc5c11122b3d98e8d7720521429ae38c498bfd69fd05ed9eefe63d9881f5"
-    sha256 cellar: :any,                 big_sur:        "cc2ba3c2bb5bd9bce50fe6b7eef6b582fbfb8f5468da7a95f73787e2bec778ad"
-    sha256 cellar: :any,                 catalina:       "3eb7623536992489e2224b36c6831328034ebbaeab59277791c578148805f091"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd1dfab011909114af44d0949d6473e077355a226ac212db9261f04aa035c98f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "edb8bfbbc0d73c3b3ab21a8cd6b5def66e6dcc077a72cc157c8a4d9c3ef00956"
+    sha256 cellar: :any,                 arm64_monterey: "76e7c905c89560d11a2a2bb32fae3e315b0589c3dbdfedec1530c13b74aa3ded"
+    sha256 cellar: :any,                 arm64_big_sur:  "855d074fcb1da69a300f99110d748921541b10861d745ed8be152d94b7b46e4b"
+    sha256 cellar: :any,                 ventura:        "50a7b2a25c0c7e12d7ef3f0b148b70cbf1955f56476f80210bd710c5a4f1c50b"
+    sha256 cellar: :any,                 monterey:       "2298c24d90acc7991a21b3807e4a412336df133cdc820be0bc8af848bea2908e"
+    sha256 cellar: :any,                 big_sur:        "a1760b6dce6dd151748352e99a54ba3a8f5de2bd32d01a8b6370fce94b085738"
+    sha256 cellar: :any,                 catalina:       "eed88d624813213f4f3272c7c0c6c1483b170642818e36aa14df76a495c4f333"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f4fd75b1549902d61eee5a944b04048b45b4eb905e9929a8cc28011100cb2ce"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "pcre2"
+
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
     depends_on "gtk+3"
     depends_on "libsm"
     depends_on "mesa-glu"
   end
 
   def install
+    # Remove all bundled libraries excluding `nanosvg` which isn't available as formula
+    %w[catch pcre].each { |l| (buildpath/"3rdparty"/l).rmtree }
+    %w[expat jpeg png tiff zlib].each { |l| (buildpath/"src"/l).rmtree }
+
     args = [
       "--prefix=#{prefix}",
       "--enable-clipboard",
@@ -50,6 +61,8 @@ class Wxwidgets < Formula
       "--with-libtiff",
       "--with-opengl",
       "--with-zlib",
+      "--disable-dependency-tracking",
+      "--disable-tests",
       "--disable-precomp-headers",
       # This is the default option, but be explicit
       "--disable-monolithic",

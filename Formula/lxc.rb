@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-5.6.tar.gz"
-  sha256 "6cb2a5f4ea6fc57a339aa8d7f21636c4889579cb418a8843c53cdde5dbb9c3ee"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-5.8.tar.gz"
+  sha256 "998c8360ef24e0c56835af317e9d6f1f69f2ba136c0c9f77b3d17986368c7ed9"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,14 @@ class Lxc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "daae7bed20b4e42f971231044a560fee72733630651b88716cdf1e667e577c44"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1addd1693ccc5a3a14e0d0998692bbbb629fd8de4007060ee62230e2c8169ef2"
-    sha256 cellar: :any_skip_relocation, monterey:       "c84ed2b05cc05e08ab2d53ada838564cd0f091bcf7205edb756b767cab8da0e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5fba694138850016211a199ff6eae54523829b551e5ee2b52d08fcf730124730"
-    sha256 cellar: :any_skip_relocation, catalina:       "ddf4c9d26ed3ffb81465878051fa6ca2870a3f193c9a1c1278701a4fc668d532"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c18dcd39e4c19b312d39f189db98bd5499ab36b75b192a7fc33d8521b352dbb1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23d1f435c9fa0b9d582e3e2f96d83f8ea55d5242ec6ae63624ee56cc334dd343"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54778274258aba0b1572bc145649505f55dc87d6e143a1e4b6ca49ebed50ba17"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22afea16bb5bb5e2cde6fd6ab827d8c352781200be143c5f77e1fc01016023f4"
+    sha256 cellar: :any_skip_relocation, ventura:        "e5ef86d4d1c49e9cf3bfe03b55472423c33ddab2477b8f6e0f927481ba4bcf0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4f9e01a32a6a5685867278a12ebe75e7ecff8c5014c838c5506fadaea144e8a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ae4c9fd0338f8d67e4c14fe50f9e8c87554d9fc4dd5f637e409231ede2f07377"
+    sha256 cellar: :any_skip_relocation, catalina:       "e128d6bd31b34a35deb34c082ffc2951e879b00b10d7db50ca02137ba055a22b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88b62aac6a393835dec4f1228f924ee8e8caf8b4916769898f5592b973eaaca7"
   end
 
   depends_on "go" => :build

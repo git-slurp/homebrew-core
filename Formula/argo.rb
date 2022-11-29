@@ -2,17 +2,19 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-workflows.git",
-      tag:      "v3.4.1",
-      revision: "0546fef0b096d84c9e3362d2b241614e743ebe97"
+      tag:      "v3.4.3",
+      revision: "eddb1b78407adc72c08b4ed6be8f52f2a1f1316a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d1276b608c2445976ed5103a4a1c7e996cebd142d7c6c4e7d1f59a79f9c7d17"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a38bb88490f764a84a98b669f2f46a0e3177aab90ed72000feaadb0f30e55ba8"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc4030d81c946ee9e06d7a374690d16d7c56125f0efe287743041afe01d6cd39"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eb3bed6cb7fee67c7cb49d3096366ca1833f54cdaa71ce875f277d8f7a4e1fbe"
-    sha256 cellar: :any_skip_relocation, catalina:       "12b8fda3d8d8394588dd0bd1a9d822b490a1d228f8ca911a676953a54fa0ddff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b38cd7348313e7be84de3d84c57b9c88c1cdb53d6005aacbb59d50f22dbc7497"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6ba59576beccd32cce45905f94048bd070822e0a86eca790db2f57fc1867f7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd2b03bff667cc2dc395a91a5e9868936e8dd7df54dda416934bca9e8fa51f79"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "628a916960dd4120b2102d0e55d1c1582aa1bb8dea4a33143e3854a9e007d30c"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd2c3641b2c20356a751671681b72d7349c02c8ead068b68a619874d8125d58d"
+    sha256 cellar: :any_skip_relocation, monterey:       "37a7a90dccf7dad3c20b30d97653cceb3b84fc69d606e8e6f849cac80e2adc2b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e3d3fb03de534b3b669f77007ebf637963d9d79f18c77cabe1d1944e4bef44b4"
+    sha256 cellar: :any_skip_relocation, catalina:       "dffc23f28ad5d8c7c281d23bec4b8ab7a763a3c792e16873704141fb19a1fc97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01147449ea975eff1ef709047f468e0eeb19938b7e6bea91a4d61f120f1a3378"
   end
 
   depends_on "go" => :build

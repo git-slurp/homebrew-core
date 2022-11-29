@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v1.3.2.tar.gz"
-  sha256 "e11862f5aad72f74d3a00480f57cfaaf103075ca0e86ca2d3f16d428c7d58edf"
+  url "https://github.com/codenotary/immudb/archive/v1.4.1.tar.gz"
+  sha256 "0530e49f7c494408615468d16abf1dc7cce3613290442613de06c75da2cf0fee"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Immudb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c5c3e3afef624cc54a7e7f7684b273e412766868617827cba77c3ab5d97071d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f850bbc13babd36f7be8aedc387d83df3ef985609009271c220f41519538eb92"
-    sha256 cellar: :any_skip_relocation, monterey:       "556b90dd913b3066bbec88f462ea7ce6130fef7798d715aa9fc4638842c036cb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b5f6a0f2badbda77d17f05263d4d10efdaf3531f0fa17f53f099c119e5347905"
-    sha256 cellar: :any_skip_relocation, catalina:       "bb89114c9a6012d368ebbeaacd969b2650ecb98b6344802344d7d1aa9ce1ad0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb57780f21cb0fecb72e3ceda1fd9e0a5b30f1e5e668e50eed662897285f73c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b7307129ab0d59d3d59552982302f7f216c61400fc1dcbbf4517d41667a59ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75140b5233891e8de7b28ca9c1c619e947c6929bb296f54545e1b9348447bec2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "627415c161d24643b62527b7d0c61e8a7da4ac9cc8d8baadf8a6c152f0bd0ea7"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa19bdc637ec2e47fcea01014edd89d42e6c50fd160d68d5031377c94200beec"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d93eeb424e0fe7f26ef6c6628e07f2bc5f5f111caff169a67b7beb01227788a1"
+    sha256 cellar: :any_skip_relocation, catalina:       "5bcae81f2c054c1c4a334720cbe62a4de9653f0d010915e2a40e8a77ab6db04c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92dcddc1d897b8df590bda7bc310b8ba882fde86b9a4852162c47f34f44a5aa9"
   end
 
   depends_on "go" => :build

@@ -3,10 +3,11 @@ class Proxytunnel < Formula
   homepage "https://github.com/proxytunnel/proxytunnel"
   url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20210604.tar.gz"
   sha256 "47b7ef7acd36881744db233837e7e6be3ad38e45dc49d2488934882fa2c591c3"
-  license "GPL-2.0-or-later"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "aea82fc349cca9b1344170dc58e3152a8f4f24872a8a4cbac600a880cf4f3abb"
     sha256 cellar: :any,                 arm64_monterey: "d8a8d893b78c19ce75e2cd68a50b2a90d4f73516e31e73ba601e4ab61159583d"
     sha256 cellar: :any,                 arm64_big_sur:  "fd5dee02539fd006e3a8e4cdca443131c2a82ee8d4887b753341216f089cb6f5"
     sha256 cellar: :any,                 monterey:       "de0910229cedf933e6f1090bdf1fc2f6913fe8526416c383ff0a255b6e820549"

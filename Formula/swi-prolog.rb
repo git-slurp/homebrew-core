@@ -1,10 +1,9 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-8.4.3.tar.gz"
-  sha256 "946119a0b5f5c8f410ea21fbf6281e917e61ef35ac0aabbdd24e787470d06faa"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.0.tar.gz"
+  sha256 "d607733a776ca56b3ecb2118119d4ae08a8790ef4aaa08bbe8f2279f34fba4b8"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,14 @@ class SwiProlog < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "dd98fb64eb58505be9b69da927557c2bbe39ad593c1dd291b23942572802c9bc"
-    sha256 arm64_big_sur:  "7b7ffa1f0d246ba88fa8d87aa0ab9e27b3f8c94c20f5810a8be6d395bec0ee1a"
-    sha256 monterey:       "f020fd1faef1157a884e0d93d8c3630b94b8baa32b4c41c07b21207363a6d1c3"
-    sha256 big_sur:        "4f5ad145ad5261f5102251cac8f018e8bae637dac859ecfb223d40e9d83e6626"
-    sha256 catalina:       "e5a8bd1035745a6d1696a7a68a678b26a45ec52c253238269c32b72d8a2af45a"
-    sha256 x86_64_linux:   "a69c6744215cc139bdf3aa25dcdc56841377ad355177c2e7fc6061e95ef7b418"
+    sha256 arm64_ventura:  "dad61a951cffa77ceb44aecafc285beafe76d08edf23b2520a1c03f3b7a631da"
+    sha256 arm64_monterey: "96a4d387468c9c72a7c156d6fb840cfca4f2801c8fd614196c137340c7223e77"
+    sha256 arm64_big_sur:  "4e979626e5e8bac0dcb34fc8312471fdc3132cfdbca9bba558b48d82fc48f521"
+    sha256 ventura:        "797bcd246f7b018e5a09de85f89c25f931a1cc08bb619ddc0edb80c1c730a421"
+    sha256 monterey:       "b30ae2ffde43ff63f9998f65546d4d02e8efa3aae0d82964173fa8ed50e3d171"
+    sha256 big_sur:        "629a08d96c0e958a3938567b07dc65e8dbc12985401396d4f74f7c0b924832cf"
+    sha256 catalina:       "268f7ae65b31dc579a80c985688a7638829af9ad73b9a6e453b5cacb89bdb0ae"
+    sha256 x86_64_linux:   "304b23b5ca22215e33415000849b0a36c267e3db3a81f13f9fd0da0aa7f896d2"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,7 @@ class SwiProlog < Formula
   depends_on "gmp"
   depends_on "libarchive"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"

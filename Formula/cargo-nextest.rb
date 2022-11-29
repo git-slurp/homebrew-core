@@ -1,8 +1,8 @@
 class CargoNextest < Formula
   desc "Next-generation test runner for Rust"
   homepage "https://nexte.st"
-  url "https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.38.tar.gz"
-  sha256 "2a57298eb484dd153e50e46f8c8961efaed23f489fdca522d462a1dd0ee6324f"
+  url "https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.44.tar.gz"
+  sha256 "e017a5d5a10d08e654d9fa4d8aaac7bc858c0d71f468bb50067b44336fa845ab"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,14 @@ class CargoNextest < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08d454a32dac7e7897fb6ffd699342e6501d6a4e3f733cab32d21147cf76c775"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b3854724b2250b1252bae4f3d1c025a57744ba4c94532d9bd46517022d03d011"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2e2dff812b8dae671aaa00b999cbe20a87db524579b9ce02c84b3ce074da20e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b8ef3b7a2f435d8bf50aa1f20f7a242f56aded5ee2eed3eeea2f3e314536807"
-    sha256 cellar: :any_skip_relocation, catalina:       "cd78a8e8e82f05428269aab2542e46d37e061e94c748188d0701e3a72b9184ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7289effc4a987e3efbcec93b44b479ccce9c010ba4f3a797c14e1b457afab2f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfceafe46aba1e8933cff8ec71765f358c1089aaa87d4c73042e8fad10d78741"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b93b108dfcb59be70d9fa00febb0d47d23ba18d0609ab9b4ec13ac96b23c30c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb7516c9259173c36a6360bcaeeb8d427e38417de2940f722f5921094d31e014"
+    sha256 cellar: :any_skip_relocation, ventura:        "006bb8fdaeb158374efbd842cbb638dde9c93353aa9f8b2bc2b0466f1cc29e5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "58f2d0e2e21000b04b53c91d4d332cd52df1826cbfe5b16711dbb0b0df268ab5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "959203328cdb41dd71692cefd5ce877395a306bb8ee207355cec502999b5e0b2"
+    sha256 cellar: :any_skip_relocation, catalina:       "7d60ee9baeedf633ff77ccc8d8e4de6e0280e719d0f950e68b5e9342de0f7d12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "172f63a1754029c44aa11025c5cc710ae477c48803f45ff076d23048973f4f9c"
   end
 
   depends_on "rust" # uses `cargo` at runtime

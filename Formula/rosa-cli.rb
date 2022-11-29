@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.7.tar.gz"
-  sha256 "1cf2615107659d449c988fb3163332854551bc99b2aedbecc12517b5a936854b"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.9.tar.gz"
+  sha256 "ee6cfcd9913a05de975d64c77c62f4cf6e6fe591d3ed6230f9b0192931df79ad"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -13,12 +13,13 @@ class RosaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbef82f49f06e084312ca68d71be1b867e275f7d22c7e3958b5baf17cb84a071"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "25215918bc06c9ee051093ccd5b954b4a58467314fc29bbe636b176c2e5c2538"
-    sha256 cellar: :any_skip_relocation, monterey:       "82783216a58fd0ec29c1d2c9c8ec76d8a5941f4d6a86411c6017cc2ec3e6f83a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a08960b7881ef65964aac52df7e4c46fa05ad04bf58feac67fe7f9b41bb54eb1"
-    sha256 cellar: :any_skip_relocation, catalina:       "2dcb61242096e87fa3ebad850f0fa49827685a8429137672665fe8ac0996fb10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4d800c924a261215c0acb8425fb0e27f48b8eed708a5a585417eaee316056d3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af34316049454640c608859410ad6e54065ea729a431381a5624e8c2263a1d9b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34b6960532d096e59651f64cf4bc765355714fd1a557c8ea2d2433c245b7d7d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1325969648a74c22ecf03c540f739c4191e111f64d78f42e2fadba1becd2656"
+    sha256 cellar: :any_skip_relocation, monterey:       "609e4a85a9ee1a22f5843162777c39d52dd70ea797412fea17226e1f0e23011d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6cea1aad7cd699e5546365849d8ce85b23d9d4898f403f8fc0ab94d6fcf2910e"
+    sha256 cellar: :any_skip_relocation, catalina:       "161bdba8b8a4140dd0c4b5128e66a2205ae74c97beeeeaaef062b20b1d4c429b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65ef7264fba453fce58ea748290cb5ddc4c2d7486ba98c63bbf508c4d1050470"
   end
 
   depends_on "go" => :build

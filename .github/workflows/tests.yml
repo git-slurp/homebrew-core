@@ -10,7 +10,6 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
-  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 
 concurrency:
   group: "tests-${{ github.ref }}"
@@ -51,6 +50,7 @@ jobs:
     outputs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
+      logs-dir: ${{ steps.check-labels.outputs.logs-dir }}
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
       test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
       timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
@@ -86,6 +86,7 @@ jobs:
               core.setOutput('linux-runner', 'linux-self-hosted-1')
             } else {
               core.setOutput('linux-runner', 'ubuntu-22.04')
+              core.setOutput('logs-dir', '/github/home/.cache/Homebrew/Logs')
             }
 
             if (label_names.includes('CI-no-fail-fast')) {
@@ -193,6 +194,7 @@ jobs:
     strategy:
       matrix:
         include:
+          - runner: "13-arm64-${{github.run_id}}-${{github.run_attempt}}"
           - runner: "12-arm64"
           - runner: "12-${{github.run_id}}-${{github.run_attempt}}"
           - runner: "11-arm64"
@@ -282,7 +284,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: logs-${{ matrix.runner }}
-          path: ${{matrix.workdir || github.workspace}}/bottles/logs
+          path: ${{ runner.os == 'Linux' && needs.setup_tests.outputs.logs-dir || format('{0}/bottles/logs', matrix.workdir || github.workspace) }}
 
       - name: Delete logs and home
         if: always()

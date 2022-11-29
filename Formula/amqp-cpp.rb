@@ -12,26 +12,28 @@ class AmqpCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24381f122082f6bc71d6d823e4d4088098d03cd5486ad8631beceae877143f91"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6570402e4fcb471725af08d828a55470018386eaf5c2badc105cfa0643618e9e"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8025764de7d9ad20c80c85565d9295d4a8d9cff203d047ef1ce0ec875ab202d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6170e84af0035002784f2ac2cd88d8c69c22899770ec5adf6cb46f03626be27f"
-    sha256 cellar: :any_skip_relocation, catalina:       "5af125ed68bedeccf437ad673aab47fc598417598c6bfe212070b1ff99c2ba42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b397a9408cba27557e45674560c0191f8ac31115b620db2e7b4b539c55067a52"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "827e422fe2c209e48d781dd11881ddb11ecabda55f06ba1095019f7e667b5d35"
+    sha256 cellar: :any,                 arm64_monterey: "d6823017b0bbbddc0490d68c7a73beaa580b22bab360784baf60a4ff0d9046fb"
+    sha256 cellar: :any,                 arm64_big_sur:  "ae9cf4ec980c8cc699ebb1c70a785139d26759e703324ad1df8151c90aa18461"
+    sha256 cellar: :any,                 ventura:        "24ed76c164ad89e3a24e60909a85814c1ee446fec47b800bec2b41c400deb440"
+    sha256 cellar: :any,                 monterey:       "32e68fbfaeee7409a6b7e8fe4dd742d4589762cb601e0800e235acb2c326e3a4"
+    sha256 cellar: :any,                 big_sur:        "f0222f1ff29774ba9e39d11c92797f465cb066529cc7255e5c65f508e3ca3d46"
+    sha256 cellar: :any,                 catalina:       "7b8abc464785804e5ee792e480baef60e565d4567bb6b330230ccd99e5e63473"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4b54f0272c3d9e660443bec29e24b785a9987835bd8c7fff4e6b6c7efaa17dc"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   def install
-    ENV.cxx11
-
-    system "cmake", "-DBUILD_SHARED=ON",
-                    "-DCMAKE_MACOSX_RPATH=1",
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DAMQP-CPP_BUILD_SHARED=ON",
                     "-DAMQP-CPP_LINUX_TCP=ON",
+                    "-DCMAKE_MACOSX_RPATH=1",
                     *std_cmake_args
-    system "make"
-    system "make", "install"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

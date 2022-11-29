@@ -1,8 +1,9 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.2/llvm-project-15.0.2.src.tar.xz"
-  sha256 "7877cd67714728556a79e5ec0cc72d66b6926448cf73b12b2cb901b268f7a872"
+  # NOTE: `ccls` will need rebuilding on every version bump.
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.5/llvm-project-15.0.5.src.tar.xz"
+  sha256 "9c4278a6b8884eb7f4ae7dfe3c8e5445019824885e47cfdf1392563c47316fd6"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
@@ -13,12 +14,14 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "0ef70a99ed9d8fdb782d4fd1f69b58f56c0f9cace117279604b279b41e6970ec"
-    sha256 cellar: :any,                 arm64_big_sur:  "cf87810778e0ba890ec1da19ae07560a3378061c79cdfd9730fe93d6e5c1ad40"
-    sha256 cellar: :any,                 monterey:       "d8d54512ea8e7c8fad0b869828c0a7d4984f6e19d00a1bc166ea277bc90d3ce9"
-    sha256 cellar: :any,                 big_sur:        "b33df8d33c419062e8ece61f9a4758b7fa9f868dd959cb322c1e966e0e5317ad"
-    sha256 cellar: :any,                 catalina:       "33b514b312532c68ea6cc3472e39fe30139d404684b2d4d04c57164309ed59c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a2e0c45d809b6e6dc8b3503ad3fd77084d4bb865e791cf92a1b4298afa15086"
+    sha256 cellar: :any,                 arm64_ventura:  "3d354a01177a952ebf2dbf27457def8fd127d096a9bda7259e8489fac5b52beb"
+    sha256 cellar: :any,                 arm64_monterey: "cab3c7f25517bfe174ce250a37530b7ea6ab4dbcfbfc7ed9b3bda6aa2a23faf1"
+    sha256 cellar: :any,                 arm64_big_sur:  "7015b845d5ae61709e3154da32328e755b10ec38197b37b2feca79fac424c978"
+    sha256 cellar: :any,                 ventura:        "947612657144d9ad3daef6d9fd757d8375766ce35b7e33152c6b1b31f934dbba"
+    sha256 cellar: :any,                 monterey:       "bea6368ad1257460dd09552dd86fb98b5c5315c0eac3329c18989a38e007e491"
+    sha256 cellar: :any,                 big_sur:        "b8398b00865c1834a2b92b468c00ba3e37f204fda2fd50c5be77bf0a566f195f"
+    sha256 cellar: :any,                 catalina:       "1742523da34593f4d819dd24f192d4fa7be9f43cee306630b8907b03c1de833b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d58227140ceca0ef3c4a3fa3226b9bfc41825c8d5576ffdc0c195f01ff0ca8c"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -31,7 +34,7 @@ class Llvm < Formula
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "six"
   depends_on "z3"
   depends_on "zstd"
@@ -51,7 +54,7 @@ class Llvm < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.10"
+    "python3.11"
   end
 
   def install
@@ -288,7 +291,7 @@ class Llvm < Formula
         # Make sure brewed glibc will be used if it is installed.
         linux_library_paths = [
           Formula["glibc"].opt_lib,
-          HOMBEREW_PREFIX/"lib",
+          HOMEBREW_PREFIX/"lib",
         ]
         linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
         # Add opt_libs for dependencies to RPATH.
@@ -440,14 +443,18 @@ class Llvm < Formula
     lib.glob("*.a").each do |static_archive|
       mktemp do
         system bin/"llvm-ar", "x", static_archive
+        rebuilt_files = []
+
         Pathname.glob("*.o").each do |bc_file|
           file_type = Utils.safe_popen_read("file", bc_file)
           next unless file_type.match?("LLVM bitcode")
 
+          rebuilt_files << bc_file
           system bin/"clang", "-fno-lto", "-Wno-unused-command-line-argument",
                               "-x", "ir", bc_file, "-c", "-o", bc_file
-          system bin/"llvm-ar", "r", static_archive, bc_file
         end
+
+        system bin/"llvm-ar", "r", static_archive, *rebuilt_files if rebuilt_files.present?
       end
     end
   end

@@ -1,8 +1,8 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/6.9.7.tar.gz"
-  sha256 "897e84e144b326ebb2737465ac99d77908a29a98c34f3cd43cf25d1b91c5db24"
+  url "https://github.com/graalvm/mx/archive/refs/tags/6.14.4.tar.gz"
+  sha256 "78b46424098fba12555f6d2fb7d5f2bdb0e1f9f97eda8675f2c677b53d6427d7"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,11 +11,11 @@ class Mx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "541908aba1de5ddc289c9461d1852be8ed6e9833b8e119a11a382b4c40ba4e2f"
+    sha256 cellar: :any_skip_relocation, all: "344ceaab1ca6263b80e52026ca74964facb34261b5c3adab07876e76cde27afe"
   end
 
   depends_on "openjdk" => :test
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "homebrew-testdata" do
     url "https://github.com/oracle/graal/archive/refs/tags/vm-22.1.0.1.tar.gz"
@@ -24,7 +24,7 @@ class Mx < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.10"].opt_libexec}/bin/python"
+    (bin/"mx").write_env_script libexec/"mx", MX_PYTHON: "#{Formula["python@3.11"].opt_libexec}/bin/python"
     bash_completion.install libexec/"bash_completion/mx" => "mx"
   end
 

@@ -1,18 +1,20 @@
 class Dune < Formula
   desc "Composable build system for OCaml"
   homepage "https://dune.build/"
-  url "https://github.com/ocaml/dune/releases/download/3.4.1/dune-3.4.1.tbz"
-  sha256 "299fa33cffc108cc26ff59d5fc9d09f6cb0ab3ac280bf23a0114cfdc0b40c6c5"
+  url "https://github.com/ocaml/dune/releases/download/3.6.1/dune-3.6.1.tbz"
+  sha256 "f1d5ac04b7a027f3d549e25cf885ebf7acc135e0291c18e6b43123a799c143ce"
   license "MIT"
   head "https://github.com/ocaml/dune.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ba632f42cb0122edac6828fa7a3837544d27e81ba7abfd9f094dae8853c880d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6bd9d3f7640c04174f982a398f06c1f09a1ec18c791ef21520ecd898bfd78299"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f6c4cc376df4bee521b223205be37b0c53e22ad9246df4eb6217995471511cb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "419a5d2c0cce823fad6e9a705e5073900c6e07c79e4f12013a93d2760a807629"
-    sha256 cellar: :any_skip_relocation, catalina:       "f5b23840ddc903a61c8c6b28501c853ade7725bbb8b51945fe7bc8d22e983506"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19539ca2aeb18b116149e150a593aca195286cf52dc11ed86be1a5b1ba5d4527"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3b09ec67756894cf1ad0ecc7a280324b5f694e1993eda3fed20c554c16ac558"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22356cee578225e906d0982b0c04a38bf395c4f5249ac5c0e94a3fb54bd938c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea8092effe61342886b35d1de52d4e18d4d21ab4bc39328b6da4d75d1081a916"
+    sha256 cellar: :any_skip_relocation, ventura:        "84e5412fbff87b7fd0968b80035dfc903f09f771564a2e62b8b1fbe97d703bdd"
+    sha256 cellar: :any_skip_relocation, monterey:       "26e36453b741b5c6f5f307cfeb3b8047e4d6afd75a2d5137264896b596257163"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c496303691c6dc59a2e335195bb85e13317c06ef3d847ba29763318eb994ef3f"
+    sha256 cellar: :any_skip_relocation, catalina:       "27cebca2a88cc76390958a7f55dacb65543b451037312045eed5991f572e3780"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4aec348495d251736d17ae2cf030cd095b529629e6123c88f713dfaf1f1d8205"
   end
 
   depends_on "ocaml" => [:build, :test]

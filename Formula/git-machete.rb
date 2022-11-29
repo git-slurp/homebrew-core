@@ -3,20 +3,22 @@ class GitMachete < Formula
 
   desc "Git repository organizer & rebase workflow automation tool"
   homepage "https://github.com/VirtusLab/git-machete"
-  url "https://pypi.org/packages/source/g/git-machete/git-machete-3.12.4.tar.gz"
-  sha256 "dfebd62944838c6c2404ed8967f9cf8999577936dd7dbd296f3793b85c306a76"
+  url "https://pypi.org/packages/source/g/git-machete/git-machete-3.13.0.tar.gz"
+  sha256 "1dc441ee9ce1332a3cf9869bbe0fdcffd255c9e0cb2afa07e08cb67c9dc81e69"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce8860fc70e8c263d28c66a9313d9302c6c1acce4ba73133f307433faf7bbe48"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce8860fc70e8c263d28c66a9313d9302c6c1acce4ba73133f307433faf7bbe48"
-    sha256 cellar: :any_skip_relocation, monterey:       "2cd8761adf5d91551e6f5b5b13e3e4e997a501ae97c390da19f44955104b8abe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2cd8761adf5d91551e6f5b5b13e3e4e997a501ae97c390da19f44955104b8abe"
-    sha256 cellar: :any_skip_relocation, catalina:       "2cd8761adf5d91551e6f5b5b13e3e4e997a501ae97c390da19f44955104b8abe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6896a5df7bea5b1a3285107f18ef7f2672e2838bb7846a684ff5dc134655b32"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a4547f07b1705c6f9997ee9c3d7fb07d200082ff27a4a788b367306626039ad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a4547f07b1705c6f9997ee9c3d7fb07d200082ff27a4a788b367306626039ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a4547f07b1705c6f9997ee9c3d7fb07d200082ff27a4a788b367306626039ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
+    sha256 cellar: :any_skip_relocation, catalina:       "85aa51fadf81da0e60dd352ba2e6276a7e81a08c9e303e34436247be8690d0d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4cff80f8eb6d06304e0a060bb519dd3baf3c1ec2ba770a094e90ecdccde1d08"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def install
     virtualenv_install_with_resources

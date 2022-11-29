@@ -1,18 +1,20 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/5.5.8.tar.gz"
-  sha256 "bc25e517784f08840796188d1fb8e908ed522d0809c0ca176eae07363bd5281b"
+  url "https://github.com/okbob/pspg/archive/5.6.0.tar.gz"
+  sha256 "bbfef119462633ff8effd2a2146047897a356f9a194fecc09181085ef7ceb5d7"
   license "BSD-2-Clause"
   head "https://github.com/okbob/pspg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4e09ad19e338456249f1d2ff3862fbb059c7704609382686edb8d4b781cf1187"
-    sha256 cellar: :any,                 arm64_big_sur:  "37c0075d494f3fc6f11c27e22862efaf5215ecb423a6576e52e52fbd96cbaab9"
-    sha256 cellar: :any,                 monterey:       "ecb371c2c95df0171e46b857dbb355e54a1cd9e0be8e1513c2583b23a13e3ad1"
-    sha256 cellar: :any,                 big_sur:        "8d084ec1ee67984c8ea873ec94440a84cc06dd2b442f50bf7afb14f9029ede93"
-    sha256 cellar: :any,                 catalina:       "d58be0e4dcdd8a464170920889472cd9c258fb787593840aacf38a933ca3f571"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c39c97a8801bac725baf6d5321e205bda40ac696ea95b11bcc0f5376803faef4"
+    sha256 cellar: :any,                 arm64_ventura:  "2ed8b4379b6b304be7c0c443eb246022d0df9eed3ae07a4c97d5a52b79a2e5d9"
+    sha256 cellar: :any,                 arm64_monterey: "7281d87697ca37795ce7598534b4e1f255aeca758ffdd67d26fb16197a893d73"
+    sha256 cellar: :any,                 arm64_big_sur:  "c1dce3fe1225eaa49ac592b439286003beb67df3a28fa8ef72a37a6da913be3b"
+    sha256 cellar: :any,                 ventura:        "2d00dc790b2596d3193571ee48067102b2b36817d11a8b869c7de4667fe7603b"
+    sha256 cellar: :any,                 monterey:       "24bac011ba1e55fadafd048d7a04063b3f0e4683512c1ad6db1386a70b69184a"
+    sha256 cellar: :any,                 big_sur:        "85aa2d8ff02d1ff8289b995e739c4fac0d99f7942987930ff870819ce76df61b"
+    sha256 cellar: :any,                 catalina:       "2509001054ebc4d211f8964dc4ef8e374fd6155ed281fee9b75cb55ce9469141"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95cdc06d90f2b9340875a5422373989b2cd9f4acb5033397f9dabd97b11f82e1"
   end
 
   depends_on "libpq"

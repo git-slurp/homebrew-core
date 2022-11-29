@@ -1,7 +1,9 @@
 class Ncrack < Formula
   desc "Network authentication cracking tool"
   homepage "https://nmap.org/ncrack/"
-  license "GPL-2.0-only"
+  # License is GPL-2.0-only with non-representable exceptions and an OpenSSL exception.
+  # See the installed COPYING file for full details of license terms.
+  license :cannot_represent
   revision 1
   head "https://github.com/nmap/ncrack.git", branch: "master"
 
@@ -17,8 +19,10 @@ class Ncrack < Formula
   end
 
   bottle do
+    sha256 arm64_ventura:  "79e9c8100ebba864abd6c8534c1d57d1b9d722461b5e3fca035040b3a274b600"
     sha256 arm64_monterey: "4dd658f60d6e9a13f3027bf46c2046b5844114337d348f96e32b542f381bceb3"
     sha256 arm64_big_sur:  "6984005a54a045373105d59303984cab69ebad3b23da23f2608de8c63f1e9850"
+    sha256 ventura:        "c0dfb39809e6c1015c1c41e1b0289326c3000ce7e4e25231b8efc3a555ecc2ea"
     sha256 monterey:       "b85c147ff11ee53640428f7b56114b63344b48867740739e116884c52dcb8798"
     sha256 big_sur:        "1ae6d72f2d5ef01ea183185d6a2ddf7b838649927496eee3481ad8688dba0c1c"
     sha256 catalina:       "ab9acac2396d540a15d92485f59a0bef60434e111fb7045cb8beabfc3facb7e6"

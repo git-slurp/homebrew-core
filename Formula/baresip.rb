@@ -1,17 +1,18 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "https://github.com/baresip/baresip"
-  url "https://github.com/baresip/baresip/archive/v2.8.1.tar.gz"
-  sha256 "facd2b0e30d81a08fc509f2fb1d1da5441d1660ed0d329d32420be7e70be4398"
+  url "https://github.com/baresip/baresip/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "b4ca604f47f67b1390c9549768d54c2359ec3e56874db87b47ac6d8a022abcb3"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 arm64_monterey: "ee8fa9a2dd390a92cbdc81f97df0fa823d12b3caaaedda3f8850d5ccb2027bc0"
-    sha256 arm64_big_sur:  "d4996c8430f3a4767258d832ed8e517e5ed0984aa5f848c7db0bd6bc784e41ef"
-    sha256 monterey:       "9626cc86a244e39f1ad3e6c91f03dc4bf4033854fa6789b5d480535d472145f6"
-    sha256 big_sur:        "c4103c53e9b124b6ba6426c319fe037a70671fa0760312214e80a3e8d6457dd2"
-    sha256 catalina:       "7943b44095ae4e9663c8c36873fbe1d95583295771e48fb89114daa412f6d8f8"
-    sha256 x86_64_linux:   "a834791deb686f9561e8d05fcfe1ed56dce16c4ba34c3da515a87937d6d18a37"
+    sha256 arm64_ventura:  "0493eb5e648239121aaf761c87a85594f6f191996906f33afbc34f6c5003083e"
+    sha256 arm64_monterey: "62295fd60ac100eaaa0536ae018b7579cedfe8f5ee9e92cbfde0ea5502d40a63"
+    sha256 arm64_big_sur:  "f71d9ed2918760a2e5f0bb10bb14e55fbb88320c880adb750844bbe86d60c098"
+    sha256 monterey:       "dc3935ceb324f3a6d9c26b85913d278641a5667c6c4b5b9ad6bbed1384d9c604"
+    sha256 big_sur:        "5f89590a6751d0a489309b9460d541198cad646853ca759ef42932691d8ec425"
+    sha256 catalina:       "5b3dcd6a600ffb19097bd5c0386b1ad76449d14b3f1b1894ee1492804c955203"
+    sha256 x86_64_linux:   "1b0967fcf830f3d5a18c7e0dfb342ee71a9b9840e49d876205ecd6ebf5ac97e6"
   end
 
   depends_on "libre"
@@ -20,20 +21,20 @@ class Baresip < Formula
   def install
     libre = Formula["libre"]
     librem = Formula["librem"]
-    # NOTE: `LIBRE_SO` is a directory but `LIBREM_SO` is a shared library.
     args = %W[
       PREFIX=#{prefix}
       LIBRE_MK=#{libre.opt_share}/re/re.mk
       LIBRE_INC=#{libre.opt_include}/re
       LIBRE_SO=#{libre.opt_lib}
       LIBREM_PATH=#{librem.opt_prefix}
-      LIBREM_SO=#{librem.opt_lib/shared_library("librem")}
+      LIBREM_SO=#{librem.opt_lib}
       MOD_AUTODETECT=
       USE_G711=1
       USE_OPENGL=1
       USE_STDIO=1
       USE_UUID=1
       HAVE_GETOPT=1
+      RELEASE=1
       V=1
     ]
     if OS.mac?

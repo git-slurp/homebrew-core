@@ -2,18 +2,20 @@ class Kn < Formula
   desc "Command-line interface for managing Knative Serving and Eventing resources"
   homepage "https://github.com/knative/client"
   url "https://github.com/knative/client.git",
-      tag:      "knative-v1.7.1",
-      revision: "e2f6caf3b50fddc67dac612d056da7223da77b50"
+      tag:      "knative-v1.8.1",
+      revision: "1db36698e19b9015c215b9d12cedd0f196012734"
   license "Apache-2.0"
   head "https://github.com/knative/client.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d2a99fd7e74d94450a50658c6288d7866a11392b21fa353bf73939f0e4daa19"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d2a99fd7e74d94450a50658c6288d7866a11392b21fa353bf73939f0e4daa19"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae3844d5fdcf405b2974b1bb2c18d37a33e6bd213a43e00b24b6c77fe64e5476"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ae3844d5fdcf405b2974b1bb2c18d37a33e6bd213a43e00b24b6c77fe64e5476"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae3844d5fdcf405b2974b1bb2c18d37a33e6bd213a43e00b24b6c77fe64e5476"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4554404bff3257c4cf2d7328bdcb4ccb93bd8ebff814ea8fc2521e627523094f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d0f217219337f5c68bd9cf73e4448e1edf120447ea5d13f5321c59b3be8944d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d0f217219337f5c68bd9cf73e4448e1edf120447ea5d13f5321c59b3be8944d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d0f217219337f5c68bd9cf73e4448e1edf120447ea5d13f5321c59b3be8944d"
+    sha256 cellar: :any_skip_relocation, ventura:        "e6751d84ea0d2df943f91470468289b5770a62f057bf413dede59d9c79462a00"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca68a7ee211d70c48d19db197545773e9f580db9e23195718bdc4412a93526d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ca68a7ee211d70c48d19db197545773e9f580db9e23195718bdc4412a93526d4"
+    sha256 cellar: :any_skip_relocation, catalina:       "ca68a7ee211d70c48d19db197545773e9f580db9e23195718bdc4412a93526d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d00c9a42ab7cd78bc8c3c42e811928cfe85dde4d4c19a1876343fd17b5de3d1"
   end
 
   depends_on "go" => :build

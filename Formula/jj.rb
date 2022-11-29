@@ -1,22 +1,24 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/martinvonz/jj"
-  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "f97832d69b4e486997b9548c41f6cc945c68b8a8b546172ca92b7eb23ec71be5"
+  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "bea5980f6857370b93b396df03401f38f928400ac42ba8e757c86f34098956ce"
   license "Apache-2.0"
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "265468ffeb9eb54a17b7168d232b812866e5c1aff8f5156c7201dbecab51e330"
-    sha256 cellar: :any,                 arm64_big_sur:  "a9b4016475921abd16bcb8cab0271f66939b96ba87bccd487557fb73b367df34"
-    sha256 cellar: :any,                 monterey:       "5b9b9ff8ddc7cf4cbc524eabff9563d032fa0107f3982f2238429e3c9a029771"
-    sha256 cellar: :any,                 big_sur:        "0c92df442716cbadf5c95b6ab7286c0298f411d17c6de57c4a5043c0d85a551d"
-    sha256 cellar: :any,                 catalina:       "cc79194372d1d12ccdfec0d6a973efaf40f9b47e4834781ae40c45d423fb2d3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c33d3fd101678f3cc8e3a0a3d1c11f50c27067702f300f767fda1e16e3dac451"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "dbc2425af53f76825a156ea37eb1dc07b91f6b3c7b42a387c68cebc3a1abf3ce"
+    sha256 cellar: :any,                 arm64_monterey: "3f2be89fa77a5e3b95d111728f7ecf0e112d1c42a757e11ab2dfec3f67c9240d"
+    sha256 cellar: :any,                 arm64_big_sur:  "e84e321994ba5567a14bf20e0faafcffbf47a9c11ee80f84734915561944b414"
+    sha256 cellar: :any,                 monterey:       "19afd506a426d68190ccd3ced98804fbafcbbec02c293688717c32b5fdeceb77"
+    sha256 cellar: :any,                 big_sur:        "77d471140cacda3819826b17dec0a451c5328141b04f324cfba458b2f1067ccc"
+    sha256 cellar: :any,                 catalina:       "588a26d6a31f505f7e413924b34cfebcd679b4f3b44856b70046e36e3aaaf5db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "319452669e2ff05871e795c624f641a7bd31ff16123ac1abde6af43affc77d55"
   end
 
   depends_on "rust" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   uses_from_macos "zlib"
 
   on_linux do
@@ -24,7 +26,7 @@ class Jj < Formula
   end
 
   def install
-    system "cargo", "install", "--no-default-features", *std_cargo_args
+    system "cargo", "install", "--no-default-features", "--bin", "jj", *std_cargo_args
   end
 
   test do

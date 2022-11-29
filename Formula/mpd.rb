@@ -1,10 +1,9 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.9.tar.xz"
-  sha256 "2becaba980402e8dc7972ccc3476e493b7ae2eeb720d31fa6712472ed48e9f2d"
+  url "https://www.musicpd.org/download/mpd/0.23/mpd-0.23.10.tar.xz"
+  sha256 "605c8ceb42cc48144cbdbe9e9682b6dc0df0348258a4a62bde095a02ca24e6a8"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,14 @@ class Mpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "124436d2f73c34e3583e1adc613f51529ab5abed906291dd838621ec7b9b21c4"
-    sha256 cellar: :any, arm64_big_sur:  "6a09ae779448e9b7a7d92bf342dcb078ca5ba575290bc462057b5fa374b548a2"
-    sha256 cellar: :any, monterey:       "cdfab2b417635beab09807daa140589e22435bc9e25326621d8414532bb41495"
-    sha256 cellar: :any, big_sur:        "e061cf900241b73fb3050fa1640e7b40f5c99ae7e48f9c487bccf5ef9edc7f80"
-    sha256 cellar: :any, catalina:       "ace352bac9c1b56cd0645956addf840cba48589f34d26704189b4bcedbed2c0b"
-    sha256               x86_64_linux:   "e743df83acf32841900d9bd557ce621030df8fbf667cfaabdb8d25e3edf73929"
+    sha256 cellar: :any, arm64_ventura:  "19a99f3763111a8d1e7805a8da23504f51d07af76e10beb752194a5c1d873c35"
+    sha256 cellar: :any, arm64_monterey: "88004b01ce7fa715629a3126efa7eae71b1ed3611f6bce59a36ca92b7c69aae2"
+    sha256 cellar: :any, arm64_big_sur:  "22a15d7beaecd89052f9b97063eca4342ad9f403e5d04308a95e15bdfda2f52e"
+    sha256 cellar: :any, ventura:        "d26ac4cb40b6e2cbd19728713d63ab3575a61cfaf144682d0f18b93980fba3ae"
+    sha256 cellar: :any, monterey:       "a231409697e99305ff053745522160937d2ed1a15971a341a7490faa0a8ef7c6"
+    sha256 cellar: :any, big_sur:        "6a296e86f10b20962f65adf75fb85b79562501dd7891b860920f152a222b88f4"
+    sha256 cellar: :any, catalina:       "c1cd1608f248759fd6ab00614e5af6982b66f44c216e521fc53bfe1adfc1930c"
+    sha256               x86_64_linux:   "da70a4472197fbbf75005ab1a8d87739d525492dadf2701f9682bbdd6d07f711"
   end
 
   depends_on "boost" => :build

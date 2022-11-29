@@ -3,17 +3,19 @@ require "language/node"
 class Truffle < Formula
   desc "Development environment, testing framework and asset pipeline for Ethereum"
   homepage "https://trufflesuite.com"
-  url "https://registry.npmjs.org/truffle/-/truffle-5.6.0.tgz"
-  sha256 "e57bfd93f9cccc010245f58643b961339707618bf1f5fa7709ec503972d9165d"
+  url "https://registry.npmjs.org/truffle/-/truffle-5.6.6.tgz"
+  sha256 "a63b8d61c0a8e0a2e3c1748129632fa650a15ccf77a6e71834ba0e41b0f952ce"
   license "MIT"
 
   bottle do
-    sha256                               arm64_monterey: "3cc198fca98c9a200976d255ce2bc71891545c466299e0c2e52ab01fa1e8d9ec"
-    sha256                               arm64_big_sur:  "0f71dea7b9deed8888d6f2ec880adfd1d3fe903628599480f6f62d932548bad1"
-    sha256                               monterey:       "430acea7adfc94ebf4a4b2d6ad497311a7386f22c8b997f4a75a624eecf8c5aa"
-    sha256                               big_sur:        "ff90a3e0407e516c4185e3a528c3aefee7bf4220149c5cb1a59dadc0ce5b5f7e"
-    sha256                               catalina:       "a269a433c0eef7ccd7ce2f6482c39efbbcb0a202e80cecab1312d42060729a53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16cf5b8d64ba3597b6fad3462d7f363a0c988056af53883b4bb17b02bf6de97a"
+    sha256                               arm64_ventura:  "7f72f1de770c4730b4ebd2d15b4e683594feb245a94f22857e1d58c33b85ceb0"
+    sha256                               arm64_monterey: "6985a56158e4bef68a22f4c5a00c9d37bb3a08f430d7008a6e1e9b1a6dbdbdd9"
+    sha256                               arm64_big_sur:  "3f5a2b9a88339f11cbbe6796f676681d3a189eabc6a7ffb64184c85712482a7f"
+    sha256                               ventura:        "bcdd7301df196e5a420d0f3cfdfddc7f0ec0775e26b073ac851ce64812baae64"
+    sha256                               monterey:       "abcf7e1acc62655438ae2efcc8a731e14088857535f0e7e596517f64c2eb8778"
+    sha256                               big_sur:        "3b0907f8d6af9e5ffc3662f7ec11431d2c7640ad4b3bffc47d48055b2e8c3545"
+    sha256                               catalina:       "445ec915f1dadf3f675680ecc88128354dfb3f7cbb3047d3ed4d6088a939fd90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "065f6b5b64cc2ce1ca28bdac48d5269dc874864ef9c1b81e276b5b551903dd3f"
   end
 
   depends_on "node"

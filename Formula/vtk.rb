@@ -1,31 +1,19 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  # TODO: Remove `ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib` at rebuild.
+  url "https://www.vtk.org/files/release/9.2/VTK-9.2.2.tar.gz"
+  sha256 "1c5b0a2be71fac96ff4831af69e350f7a0ea3168981f790c000709dcf9121075"
   license "BSD-3-Clause"
-  revision 7
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
-  stable do
-    url "https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz"
-    sha256 "8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96"
-
-    # Fix vtkpython support for Python 3.10. Remove in the next release.
-    # First patch backports part of older commit so we can directly patch in upstream commit.
-    patch :DATA
-    patch do
-      url "https://gitlab.kitware.com/vtk/vtk/-/commit/3eea0e12acfb608a76d6ae36fb36566a4a6b0e9b.diff"
-      sha256 "1c1c4622a58f8c852d196759c8d9036e4d513a5ebe16fe0bfa14583832886572"
-    end
-  end
-
   bottle do
-    sha256                               arm64_monterey: "47ef1952f28dc2c10f1030d65900bcdba0174431bcf99a86ce85749a8a990b2c"
-    sha256                               arm64_big_sur:  "e56b68289c9b6d271fe88e01ad93e3b32bfb3d5b411eb7ff2c9a9976a5377973"
-    sha256                               monterey:       "72d988402135943aacca61bba16ee3e66a5fc6c655c69ddadf1fbc6a983e8809"
-    sha256                               big_sur:        "531c2e907fe3417db55a06ba448d284b77c47a5b6196e393e2d79f02a94dfe97"
-    sha256                               catalina:       "1ad4732865a1a307dbf56742a4f4e82c9d1bd9e2edd2d7f34a9fe6f621242b9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ad9cd5d30ed9a9bf54a096e03dc2468b4d8ddfba6c5e5df6a4bd2fbf7db8fec"
+    sha256 cellar: :any,                 arm64_ventura:  "55507cdffa7dd541f060a7c6d0fafdb97d8ec1afd893bec446eb431cdc310c15"
+    sha256 cellar: :any,                 arm64_monterey: "fd8b5266a33f0cf2d967df1ef522ed2c56aec78ce371669496343c98ed1f65f0"
+    sha256 cellar: :any,                 arm64_big_sur:  "ce4d4f25b956014b0b45a96da8361ae053931ae9548b7da83056c9d27c5f7669"
+    sha256 cellar: :any,                 monterey:       "8183b6b8fc6b8df5639e47027f62cab729aa7ff79e2aac19d2b15ccd44e8ec68"
+    sha256 cellar: :any,                 big_sur:        "b447d02c13ee4127382316c24e10d2551c5e2faa6234db005c73c5342477b66e"
+    sha256 cellar: :any,                 catalina:       "e370593ac5ec40f462bd8212db0cd940b5add11061aba88fe82f65d79f58027c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2aa435ad572edb96b633065c2174b319c44c0f3d145f0b707d2d4847c9816db9"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -74,10 +62,7 @@ class Vtk < Formula
   fails_with :clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
   def install
-    if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-      ENV.llvm_clang
-    end
+    ENV.llvm_clang if DevelopmentTools.clang_build_version == 1316 && Hardware::CPU.arm?
 
     args = %W[
       -DBUILD_SHARED_LIBS:BOOL=ON
@@ -166,18 +151,3 @@ class Vtk < Formula
     system bin/"vtkpython", "Distance2BetweenPoints.py"
   end
 end
-
-__END__
-diff --git a/Documentation/release/dev/python-3.10-wheels.md b/Documentation/release/dev/python-3.10-wheels.md
-new file mode 100644
-index 0000000000000000000000000000000000000000..f4e81411c73f30724ad420ccb7f3c6c07a6f8e3d
---- /dev/null
-+++ b/Documentation/release/dev/python-3.10-wheels.md
-@@ -0,0 +1,7 @@
-+## Python 3.10 wheels
-+
-+VTK now generates Python 3.10 wheels. Note that `vtkpython` and other tools
-+using `vtkPythonInterpreter` still do not support the new initialization
-+behaviors introduced in Python 3.10. See [this issue][vtk-python-3.10-support].
-+
-+[vtk-python-3.10.support]: https://gitlab.kitware.com/vtk/vtk/-/issues/18317

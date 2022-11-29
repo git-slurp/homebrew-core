@@ -3,21 +3,23 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://github.com/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/e0/aa/087f53df0d2650959f47b88f47d9d53d990575b44722a6a496a6f737ef54/gallery_dl-1.23.2.tar.gz"
-  sha256 "fe3933c05041c247f29b1983e9b5e3d19025378455f94111836911b43c8857de"
+  url "https://files.pythonhosted.org/packages/4e/f8/79493ddad367efcea05c4f87e7c4bcacb6e6f316ecd85ee7f403c0aae25d/gallery_dl-1.24.0.tar.gz"
+  sha256 "2c66633e4897db9d88460446d5fc554b821d9ca0374605633a164bc5849c209a"
   license "GPL-2.0-only"
   head "https://github.com/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db17ce6e2ed9c70dd949e02edc79b259dee1fef32e0d5dde98bee571d00576fb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56310bea120d506b76668cb5f8e93b1b3701ad77b6f7df863cf81d7931b9c0da"
-    sha256 cellar: :any_skip_relocation, monterey:       "0bbceba07af905f39abe101ea0be5d6a946ab47cd16034f29e6605e5f776bbfa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "61da7b571b9ee4a904b0be85c41ed626142ba18b69ce1ac05047ef939ca55504"
-    sha256 cellar: :any_skip_relocation, catalina:       "0fd94fad0dfec177ba55fde190a1d94306a108c936046730a1bac5d18f103f10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28806e065dcc2213f4dffa6c297d7893a17a6927701d6823499a2bee8668e525"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dfa1dd55ec06ca65a769c2cf0db7aa68f7df8b356ff266b92f2b5284cdc6760a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "042bb0ec1fdbf0e2a8d468f2264a253a1750c429beb9467f46cf14ee461c1080"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "01b1cc510d18ebebf730f0ec43f283ffa570194cc38a4c11c75ed7de97ec38cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "dfbb93ed5910a87eea39eb539f153e3f603fd8b186e18e4c64e04ceb68f39a5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "db9a0868da3b8c382befe660877f379f8ee83428998b8cce7947caaa1b81120b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ec5c2bfc7b151158890da748946c787596d9a55b680869cf0d15f7effa090444"
+    sha256 cellar: :any_skip_relocation, catalina:       "6cafab82a2660f6730a972abb6becee92bf0d87d92714ba9f43bb631dc4e33fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0479611a9fc4068ba2cf66761b176d2091a3ab50ca4e5697e24dcf80372525aa"
   end
 
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"

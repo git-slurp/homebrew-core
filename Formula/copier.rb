@@ -3,32 +3,35 @@ class Copier < Formula
 
   desc "Utility for rendering projects templates"
   homepage "https://copier.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/f7/f5/a8a9a43efaf030c25b579ddcdab7bf051a6df8b5d3f801111dc02cd48d8a/copier-6.2.0.tar.gz"
-  sha256 "792c66ed1a6eddd85690ba12035fdbf087a65b18c8b07c2527e3581296e29649"
+  url "https://files.pythonhosted.org/packages/80/6f/d51abe285d92598818a16423b4cc94e07153d414f030208f2992f3bd7caa/copier-7.0.1.tar.gz"
+  sha256 "3d81916dad27d003674070b365bfcd965eb69d5a97920b226d6db88a6e7193d6"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e8023a771fb15a63e8c8b5ea1d281b2f2d4b52162f65571afcc051e289cde08"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f141c619034aa967a8a9e47a5f39e9f90a78659f618c57f70a18abdae1c790a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba1981cc407c7f7c70bd4148a670257aaaf557f10f0c0d8ccc421d1d03c73727"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8a2cf648015952fadc832860c32485c435ab3814bfc97c6c7bbb68f037eb7015"
-    sha256 cellar: :any_skip_relocation, catalina:       "4009e9b2332512ac1e81c3412ab818f5b55ba72b5aacb05888b800db1e60a703"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0477b98e0329b91656c94b84c0c7910bfd55cbb49e7bcd8303502dd5a310e249"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5a87192d9ec8fdfa52ed00d35c5ebb02113d5fad4b402786af06aa4fe2479a3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b45269c4aaab46e574a07852c1e62a35b5659583774c7075ffb00e2fb837d74"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d22202e78c8b29ab7a94fd27364c05ad5f19086104cb0d3f45edf5720198a0c0"
+    sha256 cellar: :any_skip_relocation, ventura:        "c8cb761bf28b9c67501c48792a12ee932420faa8d6a6760187f09727fe560f11"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e2e3e005e2c47241e254dab7a9d6fca212df78570735292cd72c1695c0c280d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4349c40f1f434b28a98780429a73e7b226e778f73abf799b953616c89279eaa5"
+    sha256 cellar: :any_skip_relocation, catalina:       "af90e908cc7977229310162be311d5ef9aaffdb2e828b729300e283b64b99877"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09c198c095c817ace97d96fd9c037c2b87e48f6dcba64ca26e1714f39781517b"
   end
 
+  depends_on "pygments"
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/2b/65/24d033a9325ce42ccbfa3ca2d0866c7e89cc68e5b9d92ecaba9feef631df/colorama-0.4.5.tar.gz"
-    sha256 "e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
+    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
   end
 
   resource "dunamai" do
-    url "https://files.pythonhosted.org/packages/2d/e4/d92c4e1ac3115575c9a8d528625adf08ad3a980f8236a34486e49a7ad381/dunamai-1.13.0.tar.gz"
-    sha256 "5bf9e5baaa673b692a9613e4961b18b6d2d9743412f7bbcf4a39c84a979f47e2"
+    url "https://files.pythonhosted.org/packages/ea/9f/0203bb48969f433e81ceae2a04e6cc2f338a43e2f5ef1f49676667c5f314/dunamai-1.13.2.tar.gz"
+    sha256 "3bb079c1a84b3dd04a20071e6c914308caba125af98bcef537cabed1a628d989"
   end
 
   resource "iteration-utilities" do
@@ -62,23 +65,18 @@ class Copier < Formula
   end
 
   resource "plumbum" do
-    url "https://files.pythonhosted.org/packages/c8/d8/aa3973de6151ae322e3f0dd4f2befcece695ed7c09d49536d8174ef80a9c/plumbum-1.7.2.tar.gz"
-    sha256 "0d1bf908076bbd0484d16412479cb97d6843069ee19f99e267e11dd980040523"
+    url "https://files.pythonhosted.org/packages/5f/c9/67b40a607f9815275c7867f9ec60700f442c186d3cca235156cb4fa19c33/plumbum-1.8.0.tar.gz"
+    sha256 "f1da1f167a2afe731a85de3f56810f424926c0a1a8fd1999ceb2ef20b618246d"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/80/76/c94cf323ca362dd7baca8d8ddf3b5fe1576848bc0156522ad581c04f8446/prompt_toolkit-3.0.31.tar.gz"
-    sha256 "9ada952c9d1787f52ff6d5f3484d0b4df8952787c087edf6a1f7c2cb1ea88148"
+    url "https://files.pythonhosted.org/packages/e2/d9/1009dbb3811fee624af34df9f460f92b51edac528af316eb5770f9fbd2e1/prompt_toolkit-3.0.32.tar.gz"
+    sha256 "e7f2129cba4ff3b3656bbdda0e74ee00d2f874a8bcdb9dd16f5fec7b3e173cae"
   end
 
   resource "pydantic" do
     url "https://files.pythonhosted.org/packages/7d/7d/58dd62f792b002fa28cce4e83cb90f4359809e6d12db86eedf26a752895c/pydantic-1.10.2.tar.gz"
     sha256 "91b8e218852ef6007c2b98cd861601c6a09f1aa32bbbb74fab5b1c33d4a1e410"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e0/ef/5905cd3642f2337d44143529c941cc3a02e5af16f0f65f81cbef7af452bb/Pygments-2.13.0.tar.gz"
-    sha256 "56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"
   end
 
   resource "pyparsing" do

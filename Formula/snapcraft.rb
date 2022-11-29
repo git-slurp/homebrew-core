@@ -7,6 +7,7 @@ class Snapcraft < Formula
       tag:      "7.1.4",
       revision: "725d3935aad23331087328f2c65ea3d112a7db4f"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -14,21 +15,22 @@ class Snapcraft < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "c31bb7dfe683eab63858210242499d9d399dbc6cbd94bbd8c92b6edb20d137c8"
-    sha256 cellar: :any,                 arm64_big_sur:  "04b966aab6268f5eddfcf7219cf0ac7c97c6e6e68a3ba31cfaa1113e232b2f45"
-    sha256 cellar: :any,                 monterey:       "f9270eca501e6fd6338a2c09b37e14b3a611a3456f6fc1fbf389c6b00878dd64"
-    sha256 cellar: :any,                 big_sur:        "5ec15fa2f8c492b6c7f591da45925780fbc07dc35c646d308b9fe832d1c0bed8"
-    sha256 cellar: :any,                 catalina:       "d575f7ae45da3968ac0a0301d9a065622fdce929f68e1233e88f0f63e02140a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41154fc57b6ff5d1fb22f3e2435d61e8f09bb32c0f695efd363a83c5b4aef882"
+    sha256 cellar: :any,                 arm64_ventura:  "845319b08db4581a39a65f4e6f30996a6c672901f891b3d95386dae0da7f13f4"
+    sha256 cellar: :any,                 arm64_monterey: "9bdbc58c8d11219482bc0809d01d4c3efd9b576c000db2b83540a04e8f08a86e"
+    sha256 cellar: :any,                 arm64_big_sur:  "434228fc44ef70b7cc9f1f4fde250e5fe6b59dd81e5bd00d4419b54eb8b68b7d"
+    sha256 cellar: :any,                 ventura:        "20674e060a8f9a398fa614fc95c05120fc4c30639b621eac8083a2ac047cc46d"
+    sha256 cellar: :any,                 monterey:       "25a606cd974a4417375383de7d6da9b48e1a36baf0aef24ec562522bb1703cf0"
+    sha256 cellar: :any,                 big_sur:        "387b1f2486836bacbc84529d2876b8c266a41d60c3a99d7d28494bd8be199eb6"
+    sha256 cellar: :any,                 catalina:       "e0b8b6d7a4865d904f85602852a6509bc9c36d9399977aea2fdf92b7beb25b66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eb98eea2a025ebb94efe6650eec3a419eea25317281401526f986644d7b624d"
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "libpython-tabulate"
   depends_on "libsodium"
   depends_on "lxc"
+  depends_on "python-tabulate"
   depends_on "python-typing-extensions"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
   depends_on "snap"

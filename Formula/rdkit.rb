@@ -1,10 +1,9 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2022_03_5.tar.gz"
-  sha256 "38e6fb9f063b6132310f17e654f2c4350876f9164b0a17b49fe3df7d0555a744"
+  url "https://github.com/rdkit/rdkit/archive/Release_2022_09_2.tar.gz"
+  sha256 "c6cda8eb5d06ecc4031c20f7c27a217031562c2b43cad2b63fa69665dd40a220"
   license "BSD-3-Clause"
-  revision 3
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -16,12 +15,14 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "3e3aada59bde3094ee33d609555238d6b1c5925bc90c294dec635c6cc80ac8a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "6505d172d6d65d33f58cf06f3e1eb7108c17e7256c8109ae0f1345d08a88fb2e"
-    sha256 cellar: :any,                 monterey:       "12ea4b81ef14de55768330dc062ada65c1196e9fd168dd687cd0206e20efdab2"
-    sha256 cellar: :any,                 big_sur:        "470aeb0cc56610f8a47417047198bd2d950bea88de353736d946c8b1bc9f4af3"
-    sha256 cellar: :any,                 catalina:       "7dd09a04d3b9bb69bd34515772f9b4c32f189696a8796bfe58457a00ab02cbea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6acce1dfac78b50c68ec7245a5d1139a8519c3a99807505f2b6df04ea793d7af"
+    sha256 cellar: :any,                 arm64_ventura:  "fe595a91f568f708b0e3f491e43f7f556db4b0cbf1f49eb3627333898e97cbb1"
+    sha256 cellar: :any,                 arm64_monterey: "6a3a6f485cf697870f19d7392e4e30205337f03b41ab6083b08b86ad8259bd95"
+    sha256 cellar: :any,                 arm64_big_sur:  "f54fa74ef1660b0b60fce19c91108370c8dc75994a760592a41c46945c25f7c6"
+    sha256 cellar: :any,                 ventura:        "e12ff745e71900b10c7505656ef26472954a9ab08cde2d5607f165d4c4233801"
+    sha256 cellar: :any,                 monterey:       "7dd66bda55ee12c50add2341ca10bf9aea3adef4eb9a88479a3d8cb01bc08d8f"
+    sha256 cellar: :any,                 big_sur:        "febc8f817f9d141551077a12271fdcfdd81199c52093af51e79e7ccdae70a7d6"
+    sha256 cellar: :any,                 catalina:       "c2632592ce238f3a273bd42ba2c312d7f77c14f958b4b46607268454f08ab90a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16c30c80a0d1c9310c7cc78ea7fcc2ffe4de7cb36276d85ed960ca9661e097b1"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +34,7 @@ class Rdkit < Formula
   depends_on "numpy"
   depends_on "postgresql@14"
   depends_on "py3cairo"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   def python
     deps.map(&:to_formula)

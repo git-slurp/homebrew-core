@@ -6,20 +6,28 @@ class Poetry < Formula
   url "https://files.pythonhosted.org/packages/98/4b/35736a678ef820e71e5ba895e853bc0e93eaa69c5621f47a559ce21bc588/poetry-1.2.2.tar.gz"
   sha256 "6d9ed0b1b826a0a79190f2078d7d78483fa24bf2494f3b170e354eaa5e7b5ea1"
   license "MIT"
+  revision 1
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "67873b4688aacc99edf7843d6899afd249820078de79b4f0a50520349d5ad4be"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0e9a1966529fb358ab1993abd67c5e65933275d06c25ead59a225aa85bab4fc"
-    sha256 cellar: :any_skip_relocation, monterey:       "808f002f18999035233fda91cce8b288e1f2dc877da1e061019ad50dfc59c182"
-    sha256 cellar: :any_skip_relocation, big_sur:        "126a2bf557ea61d3c10c7cd189f68f2953bef1842c2fcde6d665d4e58e53b122"
-    sha256 cellar: :any_skip_relocation, catalina:       "644707bd0417b03dc106cf31a03051b8e53f9795db99b47cebe48ce712b45fef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a760f57b1c7971e93e72f3b9fd0163e0a6843982d5c5bd6a143b7153fc4ee9d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84745e5c42a0c01ac739aab277d339da1efb16a33d616dc1bb3e9caf877b69e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47db4c4fa49a5f722eb02e76c4eff691fd0594ecca09f5ed5b8fc71d19ebadeb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c167ba5e0796414e62c1c3c032e86a910d5d6061889e4516acfa27faef25018"
+    sha256 cellar: :any_skip_relocation, monterey:       "075bdd4906f5f70239ec319589fe5e7ee912ff7d8fdcc2eb633cb8595ed29a7b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d9ac1216e806257b2f483a8472b43ae23ea47063dc388d93c5efcc5f128c0c6e"
+    sha256 cellar: :any_skip_relocation, catalina:       "ad9aac2ef1a6c9bbcf0122981a4b22577172d145db381e8fa0a14d8f5aff649f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0444aede6b9906ff5b983e61dc636df1808b1fb953c17b1ddcfddae221bf2090"
   end
 
-  depends_on "jsonschema"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
+  # `six` is still used by `html5lib`
   depends_on "six"
+  depends_on "virtualenv"
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/1a/cb/c4ffeb41e7137b23755a45e1bfec9cbb76ecf51874c6f1d113984ecaa32c/attrs-22.1.0.tar.gz"
+    sha256 "29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"
+  end
 
   resource "CacheControl" do
     url "https://files.pythonhosted.org/packages/06/80/1f8ba1ced5f29514d8621003b2b0fb404ed88996e963dbca7f519ecc82ca/CacheControl-0.12.12.tar.gz"
@@ -84,6 +92,11 @@ class Poetry < Formula
   resource "jaraco.classes" do
     url "https://files.pythonhosted.org/packages/bf/02/a956c9bfd2dfe60b30c065ed8e28df7fcf72b292b861dca97e951c145ef6/jaraco.classes-3.2.3.tar.gz"
     sha256 "89559fa5c1d3c34eff6f631ad80bb21f378dbcbb35dd161fd2c6b93f5be2f98a"
+  end
+
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/3a/3d/0653047b9b2ed03d3e96012bc90cfc96227221193fbedd4dc0cbf5a0e342/jsonschema-4.17.0.tar.gz"
+    sha256 "5bfcf2bca16a087ade17e02b282d34af7ccd749ef76241e7f9bd7c0cb8a9424d"
   end
 
   resource "keyring" do
@@ -151,6 +164,11 @@ class Poetry < Formula
     sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
   end
 
+  resource "pyrsistent" do
+    url "https://files.pythonhosted.org/packages/19/fb/845ff3b943ede86c69e62c9b47c0e796838552de38fc93d2048fc65ba161/pyrsistent-0.19.1.tar.gz"
+    sha256 "cfe6d8b293d123255fd3b475b5f4e851eb5cbaee2064c8933aa27344381744ae"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/a5/61/a867851fd5ab77277495a8709ddda0861b28163c4613b011bc00228cc724/requests-2.28.1.tar.gz"
     sha256 "7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"
@@ -176,11 +194,6 @@ class Poetry < Formula
     sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
   end
 
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/07/a3/bd699eccc596c3612c67b06772c3557fda69815972eef4b22943d7535c68/virtualenv-20.16.5.tar.gz"
-    sha256 "227ea1b9994fdc5ea31977ba3383ef296d7472ea85be9d6732e42a91c04e80da"
-  end
-
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
@@ -194,10 +207,11 @@ class Poetry < Formula
   def install
     virtualenv_install_with_resources
 
-    # we depend on jsonschema, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.10")
-    jsonschema = Formula["jsonschema"].opt_libexec
-    (libexec/site_packages/"homebrew-jsonschema.pth").write jsonschema/site_packages
+    site_packages = Language::Python.site_packages("python3.11")
+    %w[virtualenv].each do |package_name|
+      package = Formula[package_name].opt_libexec
+      (libexec/site_packages/"homebrew-#{package_name}.pth").write package/site_packages
+    end
 
     generate_completions_from_executable(libexec/"bin/poetry", "completions")
   end
